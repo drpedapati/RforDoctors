@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R for Physicians: Learning with Ease & Efficiency",
+    "section": "",
+    "text": "Preface\nWelcome to your essential guide to learning R for medical professionals. If you’re a physician eager to master R, you may find yourself at a crossroads. On the one hand, you have the vast online universe of random tutorials, StackOverflow threads, and YouTube videos. On the other, you have highly-reviewed online courses that promise a comprehensive understanding of R but often don’t cater to your specific needs as a medical professional.\nThis book is different.\nAs a physician who ventured into the world of R post-residency (and now uses it daily), I found myself mired in information overload. Online resources, while immensely helpful, were scattered and disjointed. Online courses, on the other hand, offered structure but lacked the specific context that physicians need. This gap is what led me to pen this guide - a streamlined, context-rich resource tailor-made for physicians.\nThis guide is built on real-life experiences and hurdles that I faced in my journey of learning R. The issues that confused me, the challenges that stumped me, the “aha” moments I had - they’re all in here. But more than that, this guide anticipates and addresses the likely issues that you, as a physician learning R, will encounter.\nEach chapter is a step further in your journey, with examples and use-cases centered around medical scenarios, making the learning experience highly relevant and practical for you. Whether it’s data manipulation, statistical analysis, or data visualization, the examples and use-cases are drawn from medical scenarios to make your learning experience as relevant as possible.\nEmbrace this guide as an ally in your pursuit of R mastery. It’s a journey that’s already been tread, with roadblocks cleared and signposts erected for easy navigation. This book isn’t about wandering aimlessly through tutorials, it’s about embarking on a well-blazed trail, specifically charted for physicians by a physician. So welcome aboard, let’s turn the page and commence our shared adventure."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "This book is designed as a guide, a companion on your journey to mastering R, but it’s not just another instruction manual. As a fellow physician who discovered the power of R after my residency, I’ve encountered and navigated the same challenges you’re likely to face. This book synthesizes those experiences into a streamlined learning path that addresses our unique needs and use-cases in the medical field. It is a comprehensive roadmap, crafted to transform you from an R novice to a confident user, capable of leveraging this powerful tool to improve your research, data analysis, and overall work.\nOur goal is not to become software engineers or statisticians, but rather to harness the potential of R to make our tasks more efficient and our decisions more data-driven. To this end, this book covers the essentials of R programming, data manipulation, statistical analysis, and data visualization. Moreover, the lessons are grounded in real-world, relatable examples, including using medical datasets, making the learning experience engaging and intuitive. By the end of this book, you will have gained a robust understanding of R, its application in healthcare, and most importantly, the confidence to explore further and ask the right questions of your data."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "intro.html#what-is-r",
+    "href": "intro.html#what-is-r",
+    "title": "1  Introduction",
+    "section": "1.1 What is R?",
+    "text": "1.1 What is R?\nR is a free, open-source programming language and software environment specifically designed for statistical computing and graphics. Ross Ihaka and Robert Gentleman created R at the University of Auckland and it is now maintained by the R Development Core Team. R is essentially composed of a core language and a variety of user interfaces. The core language, often referred to as “base R”, is where all the computation and processing happens. The user interfaces, such as RStudio, provide an intuitive frontend where users write code, visualize data, and manage their workflows.\nThe idea for R came about when Drs. Ross Ihaka and Robert Gentleman were teaching an introductory statistics course and were unsatisfied with the statistical software available to them. They wanted to create a software that was free, user-friendly, and provided an effective way to teach their students statistics.\nInterestingly, R is named partly after the first names of the two R authors (Robert and Ross) and partly as a play on the name of S, an influential statistical programming language at the time.\nSince its creation, R has grown exponentially, with a vibrant community of users and developers from various fields like academia, industry, and data science. It’s maintained by a large, global group of volunteers who continually add to its capabilities by creating new packages."
+  },
+  {
+    "objectID": "intro.html#embracing-the-narrative",
+    "href": "intro.html#embracing-the-narrative",
+    "title": "1  Introduction",
+    "section": "1.2 Embracing the Narrative",
+    "text": "1.2 Embracing the Narrative\nThis method provides a natural and coherent flow to your work, a linear narrative, if you will. Instead of isolated tables and analyses separated by an output window, you have a comprehensive, logical story. It is this narrative-style approach that makes R not just a statistical tool, but a powerful and flexible language that transforms data analysis into a comprehensible, repeatable, and collaborative process."
+  },
+  {
+    "objectID": "intro.html#why-r",
+    "href": "intro.html#why-r",
+    "title": "1  Introduction",
+    "section": "1.2 Why R?",
+    "text": "1.2 Why R?\nFor those of us who’ve engaged with statistical analysis during our education or careers, the memory of installing a hard-to-get software replete with countless menus, allowing interaction primarily through mouse clicks, is all too familiar. Perhaps you ran various commands on data, or dove into different analyses, all while navigating through these menus and outputs. I recall those times vividly and suspect many of you have similar experiences.\nR, to many, might initially appear as an obscure programming language tucked away in academia or tech-based industries.\nBut let me challenge your perception!\nThe very traits of R that lend it an air of obscurity are, in fact, its most significant assets."
+  },
+  {
+    "objectID": "intro.html#embrace-the-narrative",
+    "href": "intro.html#embrace-the-narrative",
+    "title": "1  Introduction",
+    "section": "1.3 Embrace the Narrative",
+    "text": "1.3 Embrace the Narrative\nUnlike traditional software, R doesn’t demand space on your computer. It runs smoothly in the cloud, making it accessible from anywhere, on any device. More importantly, the scripts, the ‘statistical documents’ you write in R, are not one-off commands. They are reusable, editable, and shareable pieces of code that capture your entire analytical process from start to finish.\nThis method provides a natural and coherent flow to your work, a linear narrative, if you will. Instead of isolated tables and analyses separated by an output window, you have a comprehensive, logical story. It is this narrative-style approach that makes R not just a statistical tool, but a powerful and flexible language that transforms data analysis into a comprehensible, repeatable, and collaborative process."
+  },
+  {
+    "objectID": "intro.html#great-things-about-r",
+    "href": "intro.html#great-things-about-r",
+    "title": "1  Introduction",
+    "section": "1.3 Great things about R",
+    "text": "1.3 Great things about R\n\nYou don’t have to install R:\nUnlike traditional software, R doesn’t demand space on your computer. It runs smoothly in the cloud, making it accessible from anywhere, on any device. More importantly, the scripts, the ‘statistical documents’ you write in R, are not one-off commands. They are reusable, editable, and shareable pieces of code that capture your entire analytical process from start to finish.\nR is free:\nI still have bad memories of trying to find a student copy of an expensive statistics software I bought in college. The complete and latest R suite is free to run on the platform of your choice and the 100% cloud-based R-Studio has a generous amount of resources for their free plan.\nActive and Friendly Community:\nR has a large, active, and helpful user community. This means help is often readily available through online forums, blogs, and tutorials.\nNarratives, not isolation:\nWriting scripts in R provides a natural and coherent flow to your work, a linear narrative, if you will. Instead of isolated tables and analyses separated by an output window, you have a comprehensive, logical story.\nAwesome outputs:\nThe table and graphics capabilities of R are second to none. Packages such as flextable and ggplot2 provide advanced functionality for creating high-quality, customizable, and publication-ready graphics. You will quickly recognize in print and media that R is everywhere!\n\nAfter spending some time with R, becoming familiar with its capabilities, and experiencing its versatility firsthand, you might find it hard to even recognize it compared to the statistical programs you used back in college."
+  },
+  {
+    "objectID": "getting_started.html#using-rstudio-cloud",
+    "href": "getting_started.html#using-rstudio-cloud",
+    "title": "2  Getting Started",
+    "section": "2.1 Using RStudio Cloud",
+    "text": "2.1 Using RStudio Cloud\nRStudio Cloud is a great tool that simplifies the process of setting up R. It allows you to run R directly from your web browser, eliminating the need to install software locally and handle any setup hassles. In 2023, RStudio was renamed Posit Studio and Posit Cloud but in this book, I will continue to refer to it as RStudio and RCloud.\n\nCreating an Account\nFirst, navigate to the RStudio Cloud website (https://rstudio.cloud/). If you don’t have an account yet, click on “Sign Up” to create one. Enter your details, then click “Register”. You’ll receive an email to confirm your account.\n\n\n\nCreating a New Project\nAfter you’ve logged in, you’ll see your RStudio Cloud workspace. Click on the “New Project” button to start a new R project. Enter a name for your project and then click on “Create Project”.\n\n\n\nRStudio Cloud Interface\nNow you’re inside the RStudio interface, running within your web browser. On the left, you’ll see the R console where you can enter R commands. The right panel contains tabs for plots, packages, help, and files. The top-left panel is for scripts or R Markdown files.\n\n\n\nWriting and Running R Code\nTo start coding, click on the “File” menu, then “New File”, and then “R Script”. An editor will open where you can write your R code. After writing your code, you can run it by clicking on the “Run” button, or by pressing Ctrl+Enter (Cmd+Enter on Mac).\n\n\n\nRun some practice code\nLet’s test out your setup by printing “Hello World!”. In your empty script type print(\"Hellow World!\")` and click on the “Run” button.\n\n\n\nSaving and Sharing Your Work\nRStudio Cloud autosaves your work as you go, so you don’t have to worry about losing your code. If you want to share your project, click on the “Settings” gear icon in the top-right corner of the project, and set “Who can view this project” to “Everyone”. You can then share the URL of your project with others.\n\n\n\n\nCongratulations! You’re now up and running with RStudio Cloud. You have a versatile, powerful tool at your fingertips, ready to tackle your data analysis needs."
+  }
+]

@@ -1,0 +1,45 @@
+# Introduction
+
+## What is R? 
+
+R is a free, open-source programming language and software environment specifically designed for statistical computing and graphics. Ross Ihaka and Robert Gentleman created R at the University of Auckland and it is now maintained by the R Development Core Team. R is essentially composed of a core language and a variety of user interfaces. The core language, often referred to as "base R", is where all the computation and processing happens. The user interfaces, such as RStudio, provide an intuitive frontend where users write code, visualize data, and manage their workflows.
+
+The idea for R came about when Drs. Ross Ihaka and Robert Gentleman were teaching an introductory statistics course and were unsatisfied with the statistical software available to them. They wanted to create a software that was free, user-friendly, and provided an effective way to teach their students statistics.
+
+Interestingly, R is named partly after the first names of the two R authors (Robert and Ross) and partly as a play on the name of S, an influential statistical programming language at the time.
+
+Since its creation, R has grown exponentially, with a vibrant community of users and developers from various fields like academia, industry, and data science. It's maintained by a large, global group of volunteers who continually add to its capabilities by creating new packages.
+
+## Why R?
+
+For those of us who've engaged with statistical analysis during our education or careers, the memory of installing a hard-to-get software replete with countless menus, allowing interaction primarily through mouse clicks, is all too familiar. Perhaps you ran various commands on data, or dove into different analyses, all while navigating through these menus and outputs. I recall those times vividly and suspect many of you have similar experiences.
+
+R, to many, might initially appear as an obscure programming language tucked away in academia or tech-based industries.
+
+But let me challenge your perception!
+
+The very traits of R that lend it an air of obscurity are, in fact, its most significant assets.
+
+## Great things about R
+
+1.  **You don't have to install R**:
+
+    Unlike traditional software, R doesn't demand space on your computer. It runs smoothly in the cloud, making it accessible from anywhere, on any device. More importantly, the scripts, the 'statistical documents' you write in R, are not one-off commands. They are reusable, editable, and shareable pieces of code that capture your entire analytical process from start to finish.
+
+2.  **R is free:**
+
+    I still have bad memories of trying to find a student copy of an expensive statistics software I bought in college. The complete and latest R suite is free to run on the platform of your choice and the 100% cloud-based R-Studio has a generous amount of resources for their free plan.
+
+3.  **Active and Friendly Community:**
+
+    R has a large, active, and helpful user community. This means help is often readily available through online forums, blogs, and tutorials.
+
+4.  **Narratives, not isolation:**
+
+    Writing scripts in R provides a natural and coherent flow to your work, a linear narrative, if you will. Instead of isolated tables and analyses separated by an output window, you have a comprehensive, logical story.
+
+5.  **Awesome outputs:**
+
+    The table and graphics capabilities of R are second to none. Packages such as `flextable` and `ggplot2` provide advanced functionality for creating high-quality, customizable, and publication-ready graphics. You will quickly recognize in print and media that R is everywhere!
+
+After spending some time with R, becoming familiar with its capabilities, and experiencing its versatility firsthand, you might find it hard to even recognize it compared to the statistical programs you used back in college.

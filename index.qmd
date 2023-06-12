@@ -1,0 +1,13 @@
+# Preface {.unnumbered}
+
+Welcome to your essential guide to learning R for medical professionals. If you're a physician eager to master R, you may find yourself at a crossroads. On the one hand, you have the vast online universe of random tutorials, StackOverflow threads, and YouTube videos. On the other, you have highly-reviewed online courses that promise a comprehensive understanding of R but often don't cater to your specific needs as a medical professional.
+
+This book is different.
+
+As a physician who ventured into the world of R post-residency (and now uses it daily), I found myself mired in information overload. Online resources, while immensely helpful, were scattered and disjointed. Online courses, on the other hand, offered structure but lacked the specific context that physicians need. This gap is what led me to pen this guide - a streamlined, context-rich resource tailor-made for physicians.
+
+This guide is built on real-life experiences and hurdles that I faced in my journey of learning R. The issues that confused me, the challenges that stumped me, the "aha" moments I had - they're all in here. But more than that, this guide anticipates and addresses the likely issues that you, as a physician learning R, will encounter.
+
+Each chapter is a step further in your journey, with examples and use-cases centered around medical scenarios, making the learning experience highly relevant and practical for you. Whether it's data manipulation, statistical analysis, or data visualization, the examples and use-cases are drawn from medical scenarios to make your learning experience as relevant as possible.
+
+Embrace this guide as an ally in your pursuit of R mastery. It's a journey that's already been tread, with roadblocks cleared and signposts erected for easy navigation. This book isn't about wandering aimlessly through tutorials, it's about embarking on a well-blazed trail, specifically charted for physicians by a physician. So welcome aboard, let's turn the page and commence our shared adventure.

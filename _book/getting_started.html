@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Physicians: Learning with Ease &amp; Efficiency - 2&nbsp; Getting Started</title>
+<title>R for Physicians: Learning with Ease &amp; Efficiency - 2&nbsp; Getting Started with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./getting_started.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -127,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#using-rstudio-cloud" id="toc-using-rstudio-cloud" class="nav-link active" data-scroll-target="#using-rstudio-cloud"><span class="toc-section-number">2.1</span>  Using RStudio Cloud</a></li>
+  <li><a href="#introduction-to-the-data" id="toc-introduction-to-the-data" class="nav-link active" data-scroll-target="#introduction-to-the-data"><span class="toc-section-number">2.1</span>  Introduction to the data</a></li>
   </ul>
 </nav>
     </div>
@@ -136,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></h1>
 </div>
 
 
@@ -151,42 +151,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="using-rstudio-cloud" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="using-rstudio-cloud"><span class="header-section-number">2.1</span> Using RStudio Cloud</h2>
-<p>RStudio Cloud is a great tool that simplifies the process of setting up R. It allows you to run R directly from your web browser, eliminating the need to install software locally and handle any setup hassles. In 2023, RStudio was renamed Posit Studio and Posit Cloud but in this book, I will continue to refer to it as RStudio and RCloud.</p>
-<ol type="1">
-<li><p><strong>Creating an Account</strong></p>
-<p>First, navigate to the RStudio Cloud website (<a href="https://rstudio.cloud/"><strong>https://rstudio.cloud/</strong></a>). If you don’t have an account yet, click on “Sign Up” to create one. Enter your details, then click “Register”. You’ll receive an email to confirm your account.</p>
-<blockquote class="blockquote">
-<p><img src="images/posit.cloud_ (1).png" class="img-fluid"></p>
-</blockquote></li>
-<li><p><strong>Creating a New Project</strong></p>
-<p>After you’ve logged in, you’ll see your RStudio Cloud workspace. Click on the “New Project” button to start a new R project. Enter a name for your project and then click on “Create Project”.</p>
-<blockquote class="blockquote">
-<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35.png" class="img-fluid"></p>
-</blockquote></li>
-<li><p><strong>RStudio Cloud Interface</strong></p>
-<p>Now you’re inside the RStudio interface, running within your web browser. On the left, you’ll see the R console where you can enter R commands. The right panel contains tabs for plots, packages, help, and files. The top-left panel is for scripts or R Markdown files.</p>
-<blockquote class="blockquote">
-<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (1).png" class="img-fluid"></p>
-</blockquote></li>
-<li><p><strong>Writing and Running R Code</strong></p>
-<p>To start coding, click on the “File” menu, then “New File”, and then “R Script”. An editor will open where you can write your R code. After writing your code, you can run it by clicking on the “Run” button, or by pressing Ctrl+Enter (Cmd+Enter on Mac).</p>
-<blockquote class="blockquote">
-<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (3).png" class="img-fluid"></p>
-</blockquote></li>
-<li><p><strong>Run some practice code</strong></p>
-<p>Let’s test out your setup by printing “Hello World!”. In your empty script type <code>print("Hellow World!")`</code> and click on the “Run” button.</p>
-<blockquote class="blockquote">
-<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (2).png" class="img-fluid"></p>
-</blockquote></li>
-<li><p><strong>Saving and Sharing Your Work</strong></p>
-<p>RStudio Cloud autosaves your work as you go, so you don’t have to worry about losing your code. If you want to share your project, click on the “Settings” gear icon in the top-right corner of the project, and set “Who can view this project” to “Everyone”. You can then share the URL of your project with others.</p>
-<blockquote class="blockquote">
-<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (4).png" class="img-fluid"></p>
-</blockquote></li>
-</ol>
-<p>Congratulations! You’re now up and running with RStudio Cloud. You have a versatile, powerful tool at your fingertips, ready to tackle your data analysis needs.</p>
+<section id="introduction-to-the-data" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introduction-to-the-data"><span class="header-section-number">2.1</span> Introduction to the data</h2>
+<p>The <code>medicaldata</code> package is a collection of R datasets that are relevant to medical research. The package contains over 19 datasets, covering a wide range of medical topics, including cancer, cardiovascular disease, diabetes, and mental health. The datasets in the medicaldata package are all in a standard format, which makes them easy to use with R.</p>
 
 
 </section>

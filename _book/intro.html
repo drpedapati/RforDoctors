@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./getting_started.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -130,6 +130,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-is-r" id="toc-what-is-r" class="nav-link active" data-scroll-target="#what-is-r"><span class="toc-section-number">1.1</span>  What is R?</a></li>
   <li><a href="#why-r" id="toc-why-r" class="nav-link" data-scroll-target="#why-r"><span class="toc-section-number">1.2</span>  Why R?</a></li>
   <li><a href="#great-things-about-r" id="toc-great-things-about-r" class="nav-link" data-scroll-target="#great-things-about-r"><span class="toc-section-number">1.3</span>  Great things about R</a></li>
+  <li><a href="#using-rstudio-cloud" id="toc-using-rstudio-cloud" class="nav-link" data-scroll-target="#using-rstudio-cloud"><span class="toc-section-number">1.4</span>  Using RStudio Cloud</a></li>
   </ul>
 </nav>
     </div>
@@ -182,6 +183,43 @@ ul.task-list li input[type="checkbox"] {
 <p>The table and graphics capabilities of R are second to none. Packages such as <code>flextable</code> and <code>ggplot2</code> provide advanced functionality for creating high-quality, customizable, and publication-ready graphics. You will quickly recognize in print and media that R is everywhere!</p></li>
 </ol>
 <p>After spending some time with R, becoming familiar with its capabilities, and experiencing its versatility firsthand, you might find it hard to even recognize it compared to the statistical programs you used back in college.</p>
+</section>
+<section id="using-rstudio-cloud" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="using-rstudio-cloud"><span class="header-section-number">1.4</span> Using RStudio Cloud</h2>
+<p>RStudio Cloud is a great tool that simplifies the process of setting up R. It allows you to run R directly from your web browser, eliminating the need to install software locally and handle any setup hassles. In 2023, RStudio was renamed Posit Studio and Posit Cloud but in this book, I will continue to refer to it as RStudio and RCloud.</p>
+<ol type="1">
+<li><p><strong>Creating an Account</strong></p>
+<p>First, navigate to the RStudio Cloud website (<a href="https://rstudio.cloud/"><strong>https://rstudio.cloud/</strong></a>). If you don’t have an account yet, click on “Sign Up” to create one. Enter your details, then click “Register”. You’ll receive an email to confirm your account.</p>
+<blockquote class="blockquote">
+<p><img src="images/posit.cloud_ (1).png" class="img-fluid"></p>
+</blockquote></li>
+<li><p><strong>Creating a New Project</strong></p>
+<p>After you’ve logged in, you’ll see your RStudio Cloud workspace. Click on the “New Project” button to start a new R project. Enter a name for your project and then click on “Create Project”.</p>
+<blockquote class="blockquote">
+<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35.png" class="img-fluid"></p>
+</blockquote></li>
+<li><p><strong>RStudio Cloud Interface</strong></p>
+<p>Now you’re inside the RStudio interface, running within your web browser. On the left, you’ll see the R console where you can enter R commands. The right panel contains tabs for plots, packages, help, and files. The top-left panel is for scripts or R Markdown files.</p>
+<blockquote class="blockquote">
+<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (1).png" class="img-fluid"></p>
+</blockquote></li>
+<li><p><strong>Writing and Running R Code</strong></p>
+<p>To start coding, click on the “File” menu, then “New File”, and then “R Script”. An editor will open where you can write your R code. After writing your code, you can run it by clicking on the “Run” button, or by pressing Ctrl+Enter (Cmd+Enter on Mac).</p>
+<blockquote class="blockquote">
+<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (3).png" class="img-fluid"></p>
+</blockquote></li>
+<li><p><strong>Run some practice code</strong></p>
+<p>Let’s test out your setup by printing “Hello World!”. In your empty script type <code>print("Hellow World!")`</code> and click on the “Run” button.</p>
+<blockquote class="blockquote">
+<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (2).png" class="img-fluid"></p>
+</blockquote></li>
+<li><p><strong>Saving and Sharing Your Work</strong></p>
+<p>RStudio Cloud autosaves your work as you go, so you don’t have to worry about losing your code. If you want to share your project, click on the “Settings” gear icon in the top-right corner of the project, and set “Who can view this project” to “Everyone”. You can then share the URL of your project with others.</p>
+<blockquote class="blockquote">
+<p><img src="images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (4).png" class="img-fluid"></p>
+</blockquote></li>
+</ol>
+<p>Congratulations! You’re now up and running with RStudio Cloud. You have a versatile, powerful tool at your fingertips, ready to tackle your data analysis needs.</p>
 
 
 </section>
@@ -328,7 +366,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./getting_started.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started with R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

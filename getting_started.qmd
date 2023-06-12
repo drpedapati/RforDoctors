@@ -1,43 +1,13 @@
-# Getting Started
+# Getting Started with R
 
-## Using RStudio Cloud
+## Introduction to the data
 
-RStudio Cloud is a great tool that simplifies the process of setting up R. It allows you to run R directly from your web browser, eliminating the need to install software locally and handle any setup hassles. In 2023, RStudio was renamed Posit Studio and Posit Cloud but in this book, I will continue to refer to it as RStudio and RCloud.
+The `medicaldata` package is a collection of R datasets that are relevant to medical research. The package contains over 19 datasets, covering a wide range of medical topics, including cancer, cardiovascular disease, diabetes, and mental health. The datasets in the medicaldata package are all in a standard format, which makes them easy to use with R.
 
-1.  **Creating an Account**
+## Using packages in R
 
-    First, navigate to the RStudio Cloud website ([**https://rstudio.cloud/**](https://rstudio.cloud/)). If you don't have an account yet, click on "Sign Up" to create one. Enter your details, then click "Register". You'll receive an email to confirm your account.
+How do we get access to all of these interesting datasets? The beauty of R lies in its simplicity and ease of access to a wealth of data and tools. Unlike traditional methods where you might have to navigate to a website, download files, and manually place them into specific directories, R simplifies this process immensely. One of the big advantages of R is that it provides the capability to access numerous tools and datasets directly from the command line using a single line of code.
 
-    > ![](images/posit.cloud_ (1).png)
+### 
 
-2.  **Creating a New Project**
-
-    After you've logged in, you'll see your RStudio Cloud workspace. Click on the "New Project" button to start a new R project. Enter a name for your project and then click on "Create Project".
-
-    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35.png)
-
-3.  **RStudio Cloud Interface**
-
-    Now you're inside the RStudio interface, running within your web browser. On the left, you'll see the R console where you can enter R commands. The right panel contains tabs for plots, packages, help, and files. The top-left panel is for scripts or R Markdown files.
-
-    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (1).png)
-
-4.  **Writing and Running R Code**
-
-    To start coding, click on the "File" menu, then "New File", and then "R Script". An editor will open where you can write your R code. After writing your code, you can run it by clicking on the "Run" button, or by pressing Ctrl+Enter (Cmd+Enter on Mac).
-
-    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (3).png)
-
-5.  **Run some practice code**
-
-    Let's test out your setup by printing "Hello World!". In your empty script type `` print("Hellow World!")` `` and click on the "Run" button.
-
-    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (2).png)
-
-6.  **Saving and Sharing Your Work**
-
-    RStudio Cloud autosaves your work as you go, so you don't have to worry about losing your code. If you want to share your project, click on the "Settings" gear icon in the top-right corner of the project, and set "Who can view this project" to "Everyone". You can then share the URL of your project with others.
-
-    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35 (4).png)
-
-Congratulations! You're now up and running with RStudio Cloud. You have a versatile, powerful tool at your fingertips, ready to tackle your data analysis needs.
+In R, think of packages like toolboxes. Each toolbox is created by different people, and each one contains tools that are designed for specific tasks. You have to bring the toolbox into your workspace when you want to work on a project, similar to installing an R package. But just as having the toolbox in your workspace doesn't automatically mean you're ready to use every tool in it, installing an R package doesn't make its functions immediately available. You need to 'open' the toolbox to use the tools inside. There might also be times when you only need one specific tool from the box, rather than the whole set.

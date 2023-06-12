@@ -2,12 +2,32 @@
 
 ## Introduction to the data
 
-The `medicaldata` package is a collection of R datasets that are relevant to medical research. The package contains over 19 datasets, covering a wide range of medical topics, including cancer, cardiovascular disease, diabetes, and mental health. The datasets in the medicaldata package are all in a standard format, which makes them easy to use with R.
+The `medicaldata` package is a collection of R datasets that are relevant to medical research. It offers a robust collection of medical datasets extracted from a wide range of study designs, including randomized controlled trials, retrospective and prospective cohort studies, and case-control studies. These datasets encompass a diverse array of medical conditions and treatment approaches, providing rich opportunities for learning, exploration, and analysis. One of the datasets, strep_tb, for example, is drawn from the groundbreaking 1948 trial of Streptomycin treatment for tuberculosis, the first modern randomized, placebo-controlled clinical trial.
+
+
+The package contains over 19 datasets, covering a wide range of medical topics, including cancer, cardiovascular disease, diabetes, and mental health. The datasets in the medicaldata package are all in a standard format, which makes them easy to use with R.
+
+
 
 ## Using packages in R
 
 How do we get access to all of these interesting datasets? The beauty of R lies in its simplicity and ease of access to a wealth of data and tools. Unlike traditional methods where you might have to navigate to a website, download files, and manually place them into specific directories, R simplifies this process immensely. One of the big advantages of R is that it provides the capability to access numerous tools and datasets directly from the command line using a single line of code.
 
-### 
+### Useful Analogy 1.1: Packages are like Toolboxes
 
-In R, think of packages like toolboxes. Each toolbox is created by different people, and each one contains tools that are designed for specific tasks. You have to bring the toolbox into your workspace when you want to work on a project, similar to installing an R package. But just as having the toolbox in your workspace doesn't automatically mean you're ready to use every tool in it, installing an R package doesn't make its functions immediately available. You need to 'open' the toolbox to use the tools inside. There might also be times when you only need one specific tool from the box, rather than the whole set.
+Think of R as large workshop filled with various toolboxes and you are assigned a personal workbench. The toolboxes are designed and put together by different people, making them unique in the tools they contain. If you've identified a toolbox that you need for a specific project, you first have to bring that toolbox into your workbench.
+
+However, just lugging the toolbox in your workspace doesn't necessarily mean you can immediately use the tools it contains. If you want access to all the tools at once you need to open the whole toolbox. other times you might want access to a single tool. 
+
+
+then you might open up the toolbox. Take the two you want and close it.
+
+
+This is similar to using the `library()` function in R to make the functions of a package available to you.
+
+
+, much like the specialized functions within R packages.  This is similar to installing a package in R.
+
+
+
+Sometimes, you may need a specific tool from a toolbox without requiring the entire set. In such cases, you can reach into the box and pull out the tool you need. This is akin to using the `::` operator in R, which allows you to use a specific function from a package without needing to load the entire package into your workspace. This provides a practical and efficient way to use R, especially when you're dealing with complex projects and numerous packages.

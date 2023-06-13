@@ -50,6 +50,130 @@ Laryngoscope$Age
 
 This will display all the age values for the patients in the dataset.
 
+# Data types in R
+
+Understanding data types is fundamental to successful programming and data analysis in R. Each data type has unique properties that dictate how it can be used and manipulated. Identifying the data type is often the first step you take when you're working with new data. It allows you to understand the kind of information you are dealing with and how you can use it.
+
+For example, numerical data types can undergo mathematical operations, while string (character) data types cannot. Logical data types store true/false values and are essential for conditional programming. Factors, another important data type in R, are used for categorical data and can significantly impact the analysis and visualization of your data.
+
+Understanding and correctly identifying these data types ensures that you apply appropriate operations on them and that you choose the correct methods for analysis and visualization. Misunderstanding the type of data you are dealing with can lead to errors, incorrect analysis results, and misrepresentations of data.
+
+| Data Type | Description |
+|-----------|-------------|
+| Numeric   | These are the basic data type for storing numbers (integers and decimals). |
+| Integer   | These are numeric types that hold only integer values. |
+| Complex   | These store complex numbers. |
+| Character | These are used to store textual data. |
+| Logical   | These are Boolean types that hold either a `True` or `False` value. |
+| Factor    | These are used for categorical data and can be ordered or unordered. |
+| Date/Time | These are used for storing date and time information. |
+
+## Hands on experience with each data type
+
+1. **Numeric**: Calculate the average body mass index (BMI) of a patient over the last 12 months.
+    ```r
+    bmi_values <- c(25.1, 26.3, 25.9, 25.5, 26.0, 26.4, 26.1, 25.8, 26.3, 26.2, 26.0, 26.1)
+    average_bmi <- mean(bmi_values)
+    print(average_bmi)
+    ```
+2. **Integer**: Count the number of patient visits in a year.
+    ```r
+    visit_counts <- c(1, 2, 1, 2, 2, 3, 2, 2, 1, 2, 2, 1)
+    total_visits <- sum(visit_counts)
+    print(total_visits)
+    ```
+3. **Complex**: Not typically used in medical contexts, but can be used for mathematical calculations involving complex numbers.
+4. **Character**: Store a patient's name and print it.
+    ```r
+    patient_name <- "John Doe"
+    print(patient_name)
+    ```
+5. **Logical**: Check if a patient's BMI is above 25 at each visit.
+    ```r
+    bmi_above_25 <- bmi_values > 25
+    print(bmi_above_25)
+    ```
+6. **Factor**: Create a factor object for patient blood types and print the levels.
+    ```r
+    blood_types <- factor(c("A", "B", "AB", "O", "O", "A", "B", "AB", "O", "A"))
+    print(levels(blood_types))
+    ```
+7. **Date/Time**: Create a date object for patient visits and calculate the duration since the first visit.
+    ```r
+    visit_dates <- as.Date(c("2023-01-01", "2023-02-01", "2023-03-01", "2023-04-01", "2023-05-01", "2023-06-01"))
+    duration <- Sys.Date() - min(visit_dates)
+    print(duration)
+    ```
+
+Please replace `Sys.Date()` with the actual date when running the exercise.
+
+## additional programming concepts raised by these examples
+
+Absolutely, these examples do bring up some important programming concepts used in R:
+
+1. **The `c` function**: In R, `c()` stands for 'concatenate' or 'combine.' It is used to combine values into a vector. For example, in `bmi_values <- c(25.1, 26.3, 25.9, 25.5)`, we are using `c()` to combine the BMI values into a numeric vector.
+
+2. **Quotes**: In R, both single (`'`) and double (`"`) quotes can denote character strings. For example, `"John Doe"` is a character string. It's important to start and end a string with the same type of quote. 
+
+3. **Operators**: These examples use several types of operators. The `<-` symbol is the assignment operator, used to assign values to variables (e.g., `bmi_values <- c(25.1, 26.3, 25.9, 25.5)`). The `>` symbol is a comparison operator, used to compare values (e.g., `bmi_values > 25` checks if each value in `bmi_values` is greater than 25). The `+` and `-` symbols are arithmetic operators, used for mathematical calculations.
+
+4. **Assignment**: In R, we use the `<-` operator to assign values to variables. A variable is a storage place for values that you want to use or manipulate. For example, `bmi_values <- c(25.1, 26.3, 25.9, 25.5)` creates a variable named `bmi_values` and assigns it the values specified in the `c()` function.
+
+5. **Functions**: Functions are pieces of code that perform a specific task. R has many built-in functions (like `c()`, `mean()`, `sum()`, `print()`, `as.Date()`, `min()`) that take inputs (arguments), perform certain computations, and return outputs. Functions are invoked by their name followed by parentheses containing the arguments.
+
+6. **Logical values**: The output of the comparison operation `bmi_values > 25` is a logical vector that indicates whether each BMI value is greater than 25. Logical vectors are crucial for performing operations based on certain conditions.
+
+These are some of the basic programming concepts in R. As you progress, you will encounter more advanced concepts, but these form the foundation of programming in R.
+
+Vectors and lists are two fundamental data structures in R, and they're related to the concept of data types. 
+
+1. **Vectors**: A vector in R is a sequence of data elements of the same basic type. Members in a vector are officially called components. All components of a vector must be of the same type. Hence, we have numeric, logical, character, and complex vectors. 
+
+    Example of a numeric vector: 
+    ```r
+    patient_ages <- c(25, 30, 35, 40)
+    ```
+
+2. **Lists**: A list in R, however, is an ordered collection of objects, where these objects can be of different types (numeric, character, logical, etc.). This is a major difference from vectors. In other words, a list in R can contain numbers, strings, vectors, other lists, and so on.
+
+    Example of a list:
+    ```r
+    patient_info <- list(name = "John Doe", age = 35, disease = "Hypertension", visit_dates = as.Date(c("2023-01-01", "2023-02-01")))
+    ```
+
+In the context of data types, vectors and lists are containers that hold data. However, vectors can hold only one type of data at a time (all numeric, all character, etc.), while lists can hold multiple types of data at once (numeric, character, other lists, vectors, etc.). 
+
+This flexibility makes lists particularly useful for complex data manipulation tasks and for creating data frames (which are a specific type of list where each element is a vector of equal length - think of them like a spreadsheet with columns of different types of data, but the same number of rows in each column).
+
+## exercise lists and vectors
+1. **Vectors:**
+
+   Imagine you're a doctor and you have several patients. You could create a vector for each type of patient information. For example, you might have a vector of patient ages, another vector for patient names, and so on. Each vector contains only one type of information (either all numbers, all characters, etc.).
+
+   ```r
+   patient_names <- c("John Doe", "Jane Doe", "Mary Johnson", "James Smith")
+   patient_ages <- c(25, 30, 35, 40)
+   ```
+
+   Here, `patient_names` is a character vector containing names of patients, and `patient_ages` is a numeric vector containing the ages of the patients. All the data elements in each vector are of the same type.
+
+2. **Lists:**
+
+   Now imagine that you want to keep all the information related to each patient together. In other words, you want a structure that contains the name, age, and perhaps even the medical history for each patient. This is where lists come in.
+
+   ```r
+   john_doe_info <- list(name = "John Doe", age = 25, diseases = c("Hypertension", "Diabetes"))
+   jane_doe_info <- list(name = "Jane Doe", age = 30, diseases = c("Asthma"))
+   ```
+
+   Here, `john_doe_info` and `jane_doe_info` are lists that contain different types of data. For each patient, we have a character string (name), a numeric value (age), and a character vector (diseases).
+
+3. **Practice Exercise**:
+
+   Now that you've seen these examples, try creating a vector and a list for a new patient. The vector should contain the patient's systolic blood pressure measurements from their last three visits, and the list should contain the patient's name, age, and diseases.
+   
+Remember, vectors are great for handling sequences of data of the same type, while lists allow you to group together related data of different types. Understanding when to use each one is a key part of becoming proficient in R.
+
 # Understanding the different R ecosystems
 
 One of the beautiful aspects of R is its flexibility and versatility, which is largely due to the variety of packages and methodologies it offers for carrying out similar tasks. Base R, the Tidyverse, and data.table each provide different ecosystems with unique sets of functions and syntax that can be used to achieve the same ends. 

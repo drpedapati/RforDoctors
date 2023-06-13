@@ -1,5 +1,18 @@
 # Getting started with R programming
 
+I can't hide that learning R means you will also learn programming. But this is an advantage to learning the ins and outs of a specific statistical program that can't be used anywhere else. Once you learn the basics of the R language you will be  
+
+
+But these methods are not exclusive to R or a specific statistical program. 
+
+
+Data types, functions, and loops will become familar. 
+
+
+
+
+Learning R is like learning a new language. At first, it might seem hard, but once you get the hang of it, you can do a lot of cool things. It's not just for math or stats. You can also use it to clean up data, make charts, write reports, and even make apps for the web. And the best part? The skills you learn can be used in other places, too.
+
 While diving into R does entail grasping some fundamental programming concepts and terms, it's important to remember that this learning curve serves as a gateway to a host of potent capabilities. The concepts you acquire along the way aren't just exclusive to R or a specific statistical program. Instead, these principles, such as variables, data types, control structures, and functions, form the bedrock of many other programming languages. 
 
 This means that the skills you cultivate through learning R are transferrable, opening up the possibility of applying them in numerous different domains and environments. Remember that R is not limited to statistical analysis. It is also a powerful tool for data cleaning, visualization, reporting, and even interactive web applications.

@@ -1,0 +1,75 @@
+# Getting started with R programming
+
+While diving into R does entail grasping some fundamental programming concepts and terms, it's important to remember that this learning curve serves as a gateway to a host of potent capabilities. The concepts you acquire along the way aren't just exclusive to R or a specific statistical program. Instead, these principles, such as variables, data types, control structures, and functions, form the bedrock of many other programming languages. 
+
+This means that the skills you cultivate through learning R are transferrable, opening up the possibility of applying them in numerous different domains and environments. Remember that R is not limited to statistical analysis. It is also a powerful tool for data cleaning, visualization, reporting, and even interactive web applications.
+
+This chapter is written with the assumption that the reader may have never been exposed to programming in any form. Thus, if you have some experience this chapter is most likely review or gives you an opportunity to see how common programming conventions are implemented in R.
+
+# What does programming in R entail?
+
+If you're familiar with office applications like Excel, then you already have experience with data manipulation and analysis, albeit in a different form. Programming in R is a logical step forward, providing a more sophisticated and powerful means to handle data. Imagine you're working in Excel, but instead of clicking through menus and dialogs, you give direct written instructions about what you want to do. These instructions, which are lines of code in R, can range from simple tasks like importing data and calculating averages, to more complex ones like creating plots, running statistical tests, or building predictive models.
+
+R programming brings consistency, repeatability, and automation to the data analysis process. Suppose you've created a detailed report in Excel, and then receive a new set of data. You'd likely have to repeat a substantial amount of manual work. In contrast, with an R script, you could simply run the same script on the new data, saving substantial time and effort.
+
+Programming might seem intimidating at first, especially if you've never done it before. However, with a bit of patience and practice, it becomes a powerful tool that can make your data work more efficient, effective, and even enjoyable.
+
+# Introduction to the Laryngoscope dataset
+
+Lets write some code to explore the Laryngoscope dataset found in the 'medicaldata' package. The Laryngoscope dataset contains data on 99 adult patients who required orotracheal intubation for elective surgery. The dataset includes patient demographics, airway assessment data, intubation success rate, time to intubation, ease of intubation, and occurrence of complications. This dataset is a valuable resource for researchers and clinicians who are interested in studying the factors that contribute to successful orotracheal intubation.
+
+The Laryngoscope dataset serves as an excellent resource for us, containing a wide variety of data types. It provides an opportunity to explore and understand numerous fundamental programming functions in R.
+
+# Working with the Laryngoscope dataset
+
+To start working with the Laryngoscope dataset, you first need to load it into your R environment. The dataset is already included in the ‘medicaldata’ package, so if you have this package installed and loaded (as we did earlier), you can load the dataset with the following command:
+
+data("Laryngoscope", package = "medicaldata")
+
+This command tells R to look for a dataset called "Laryngoscope" in the "medicaldata" package and load it into your current workspace.
+
+To get an overview of the data, use the head() function, which shows the first six rows of the dataset:
+
+head(Laryngoscope)
+
+To get the structure of your data frame – like the number of rows, number of columns, and the type of data in each column – use the str() function:
+
+str(Laryngoscope)
+
+This will provide you an output indicating the class of each variable (numeric, integer, factor etc.), along with the first few entries of each.
+
+We also can summarize the data using the summary() function:
+
+summary(Laryngoscope)
+
+The summary() function provides a statistical summary of the dataset, giving the minimum, 1st quartile, median, mean, 3rd quartile, and maximum for numerical columns, and the number of levels for categorical columns.
+
+Each of the variables in the dataset can be accessed using the $ operator. For example, to view the ‘Age’ column, you would use:
+
+Laryngoscope$Age
+
+This will display all the age values for the patients in the dataset.
+
+# Understanding the different R ecosystems
+
+One of the beautiful aspects of R is its flexibility and versatility, which is largely due to the variety of packages and methodologies it offers for carrying out similar tasks. Base R, the Tidyverse, and data.table each provide different ecosystems with unique sets of functions and syntax that can be used to achieve the same ends. 
+
+While it may initially seem premature to delve into discussions about different ecosystems in our introductory programming chapter, there's good reason for this approach. Introducing these concepts early on allows us to create a foundational understanding of the varied programming landscapes within R. This awareness aids in navigating the expansive world of R, recognizing the interconnectedness of various ecosystems, and making informed choices about the tools and approaches best suited for our work.
+
+Frankly, starting with traditional R syntax and slowly progressing towards more modern forms is not the most efficient learning pathway. Modern R ecosystems, such as the tidyverse, have been developed with a focus on user-friendly and intuitive syntax. They simplify the process of data analysis, visualization, and manipulation, effectively minimizing the frustrations and quirks that characterized earlier versions of R. By starting with these modern tools, you're better equipped to navigate and utilize the power of R from the get-go.
+
+# The three major R ecosystems
+
+There are various ecosystems within R that cater to different needs and approaches when it comes to data analysis. Among them, three stand out due to their extensive use and comprehensive capabilities - Base R, Tidyverse, and data.table. It's worth noting that each of these ecosystems is self-sufficient, meaning you can conduct an entire analysis without needing to switch ecosystems. That being said, each ecosystem has its unique strengths and is best suited to different use cases, so it's beneficial to be familiar with all three. We will delve into the specifics of these ecosystems in the following sections.
+
+Understanding these different R ecosystems can be likened to the experience of cooking in different types of kitchens with various sets of utensils and appliances.
+
+1. Base R is like a traditional kitchen. It's the fundamental cooking space that comes equipped with all the basic tools and utensils you need: pots, pans, knives, a stove, and an oven. It's fully functional, but might lack some specialized or modern equipment. A traditional kitchen is universally understood and functional, and a well-versed chef can create a wide variety of dishes, albeit sometimes needing a bit more time and effort.
+
+2. The Tidyverse is akin to a modern, user-friendly kitchen with the latest appliances and gadgets. This includes things like air fryers, sous vide machines, or a multi-functioning Instant Pot. These tools can simplify the cooking process, making it more accessible to beginners, while still providing the ability to create a diverse array of dishes. However, the user must first understand the new rules and methods that these modern tools require.
+
+3. The data.table package is like a high-efficiency, industrial kitchen seen in professional restaurants. It's designed for speed and handling large volumes of food preparation, equipped with powerful grills, large capacity mixers, and high-speed processors. It may seem less intuitive for a home cook or beginner, but once mastered, it allows for remarkably efficient cooking, especially when catering for large numbers.
+
+In each case, you can achieve the same end result - a prepared meal (or in the case of R, a processed dataset). However, the method you choose depends on your specific requirements, the scale of your meal/data, and your personal preference or familiarity with the tools at hand.
+
+

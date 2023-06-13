@@ -12,13 +12,13 @@ The package contains over 19 datasets, covering a wide range of medical topics, 
 
 How do we get access to all of these interesting datasets? The beauty of R lies in its simplicity and ease of access to a wealth of data and tools. Unlike traditional methods where you might have to navigate to a website, download files, and manually place them into specific directories, R simplifies this process immensely. One of the big advantages of R is that it provides the capability to access numerous tools and datasets directly from the command line using a single line of code.
 
-## Useful Analogy 1.1: Packages are like Toolboxes
+## Useful Analogy: Packages are like Toolboxes
 
 Think of R as large workshop with access to a main tool depot. with access to lots of specialized toolkits. In this workshop you are assigned a personal workbench. The toolboxes are designed and put together by different craftsmen, making them unique in the tools they contain. If you've identified a toolbox that you need for a specific project, you first have to bring that toolbox into your workbench. In fact, it would not be unusual to retrieve several toolkits depending on needs of your project.
 
 However, just lugging the toolboxes to your workbench doesn't necessarily mean you can immediately use the tools they contains. If you want access to all your screwdrivers at once, you will need open a specialized screwdriver toolkit. On the otherhand, you might only want a single screwdriver from a special toolkit. this is more than just keeping your workbench tidy, you also don't want to have duplicates of similar tools around which may lead to confusion.
 
-## 
+## Unpacking the Analogy
 Building on our workshop analogy, think of CRAN as the main tool depot where all officially approved and tested toolboxes are stored. These toolboxes are well-documented, reliable, and updated regularly. So, if you need a tool for a common task, you're likely to find a toolbox containing it in the CRAN depot.
 
 Now, imagine that apart from this main depot, there are also smaller, specialized workshops where innovative craftspeople are continuously designing new and experimental toolboxes. These places are like GitHub and other development repositories. They offer exciting, cutting-edge tools that may not have made their way to the main CRAN depot yet. While the tools from these workshops can be highly useful, they also come with a word of caution as they may not be as thoroughly tested and documented as those in the CRAN depot.

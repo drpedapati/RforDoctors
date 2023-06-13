@@ -130,7 +130,7 @@ data(package = "medicaldata")
 
 Once you execute this command, R will display an interactive window showing you all the datasets available in the "medicaldata" package. Each dataset is listed with a brief description of the kind of data it contains, which can be very useful when deciding which dataset to use for a particular analysis.
 
-![](images/CleanShot 2023-06-12 at 23.00.17@2x.png)
+![](images/CleanShot%202023-06-12%20at%2023.00.17@2x.png)
 
 ## Entering data within a script versus the console
 

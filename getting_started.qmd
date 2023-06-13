@@ -1,22 +1,26 @@
 # Getting Started with R
 
-## Chapter highlights
+![](images/workshop.png)
 
--   
+Figure 2.1: AI-generated representation of the R "workshop" analogy
 
-## Introduction to the data
+## The Big Picture
 
-The `medicaldata` package is a collection of R datasets that are relevant to medical research. It offers a robust collection of medical datasets extracted from a wide range of study designs, including randomized controlled trials, retrospective and prospective cohort studies, and case-control studies. These datasets encompass a diverse array of medical conditions and treatment approaches, providing rich opportunities for learning, exploration, and analysis.
+In previous chapters, we learned what R is and why we would want to use it. We setup access to R though our web browser by signing up for a free RStudio account. Let's move ahead to learning about R packages. R packages instantly give you access to a universe of tools and datasets.
+
+## Introduction
+
+The `medicaldata` package is a collection of datasets that are relevant to medical research. It offers a robust collection of medical datasets extracted from a wide range of study designs, including randomized controlled trials, retrospective and prospective cohort studies, and case-control studies. These datasets encompass a diverse array of medical conditions and treatment approaches, providing rich opportunities for learning, exploration, and analysis.
 
 The package contains over 19 datasets, covering a wide range of medical topics, including cancer, cardiovascular disease, diabetes, and mental health. One of the datasets, 'strep_tb', for example, is drawn from the groundbreaking 1948 trial of Streptomycin treatment for tuberculosis, the first modern randomized, placebo-controlled clinical trial. The datasets in the `medicaldata` package are all in a standard format, which makes them easy to use with R.
 
-## Using packages in R
+## R Packages
 
 How do we get access to all of these interesting datasets?
 
 The beauty of R lies in its simplicity and ease of access to a wealth of data and tools. Unlike traditional methods where you might have to navigate to a website, download files, and manually place them into specific directories, R simplifies this process immensely. One of the big advantages of R is that it provides the capability to access numerous tools and datasets directly from the command line using a single line of code.
 
-## Useful Analogy: Packages are like Toolboxes
+## Packages are Toolboxes
 
 Think of R as large workshop with access to a main tool depot. with access to lots of specialized toolkits. In this workshop you are assigned a personal workbench. The toolboxes are designed and put together by different craftsmen, making them unique in the tools they contain. If you've identified a toolbox that you need for a specific project, you first have to bring that toolbox into your workbench. In fact, it would not be unusual to retrieve several toolkits depending on needs of your project.
 
@@ -135,6 +139,8 @@ Once you execute this command, R will display an interactive window showing you 
 ## Entering data within a script versus the console
 
 When you're working with R, you have two main places where you can enter your data or commands: the script editor and the console.
+
+![](images/CleanShot 2023-06-13 at 11.12.19@2x.png)
 
 The script editor is your workspace for crafting R scripts. This is where you write your lines of code, organize your thoughts, define functions, and generally create your R programs. Anything you write in the script editor is saved and can be run as many times as you want, making it ideal for larger, more complex analyses.
 

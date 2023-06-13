@@ -1,14 +1,97 @@
+## Chapter 2: Data Frames in R
 
+![](images/abstract table.png)
 
-## Chapter 2: Understanding Data Frames in R
+Figure 2.1: AI-generated art of an abstract perspective of a data frame.
 
-Data frames are perhaps one of the most important and widely used data structures in R. If you're familiar with spreadsheets from software like Excel, then you can think of a data frame like a spreadsheet in R. It is a two-dimensional table where each column contains values of one variable, and each row contains one set of values from each column.
+## The big picture
 
-A key thing to note about data frames is that different columns can contain different types of data (numeric, character, etc.) but each column must contain the same number of data items (rows).
+Now that you've set up your rstudio.cloud account and familiarized yourself with the key elements of the interface, such as the code editor and command console, it's time to delve into the world of data frames. In the realm of medical practice, data frames serve as indispensable tools for organizing and analyzing clinical data.
+
+## Introduction
+
+Data frames are perhaps one of the most important and widely used data structures in R. If you're familiar with spreadsheets from software like Excel, then you can think of a data frame like a spreadsheet in R. It is a two-dimensional table where each column contains values of one variable, and each row contains one set of values from each column. A key thing to note about data frames is that different columns can contain different types of data (numeric, character, etc.), but each column must contain the same number of data items (rows).
+
+## The many names of data frames in R
+
+Data frames in R come with an assortment of names, which can make the initial stages of learning R a bit confusing. Recognizing and understanding these terminologies is crucial as data frames are foundational to data handling in R.
+
+Traditionally, a data frame in R is referred to as a 'data.frame'. However, with the advent of packages like 'tibble' in the tidyverse ecosystem, a data frame can also be called a 'tibble'. Meanwhile, in the data.table package, it's called a 'data.table'.
+
+Each of these types has its unique characteristics and benefits, but they all share the same primary purpose - to help you manage data in a structured, tabular format. Don't let the various names confuse you; they all revolve around the same fundamental concept.
+
+## Exercise 2.1 Hands-on with a data frame
+
+### The lunch lecture
+
+Let's take a hands-on tour of investigating a dataset through a practical vignette. There are no shortage of ways in R to interact with data frames.
+
+> Vignette 1: You are a 3rd year infectious disease fellow on a research block. Your supervisor has asked you to present a captivating lunch lecture to several visiting faculty. Knowing that many history buffs will be present, you decide to present a reanalysis of an infectious disease landmark - the discovery of streptomycin as a treatment for tuberculosis (TB).
+>
+> After all, why not? You have heard that the original dataset is only a few lines away in R!
+
+![](images/thelunchtalk.png)
+
+Figure 2.2 AI generated imagine of the captivating lunch talk
+
+### The Lunch Lecture: Finding the Dataset
+
+> You break into a sweat realizing that the talk is only 24 hours away and you haven't thought about it once since you were asked. However, your last few weeks\' priorities had other, undoubtedly urgent, plans. Here you are, with R as unfamiliar as before and the talk lurking just a day away. But hey, who needs calm preparation when you can have adrenaline-fueled learning marathons, right? Let the last-minute hustle begin! You sit down at your computer and open http://rstudio.cloud ...
+
+As we have empathy for the
+
+We can certainly empathize with the fellow's predicament. Let's imagine the questions racing through her head and see if we can help!
+
+**Where do I start?**
+
+R differs from many statistical software packages where you typically start with your data. Instead, R operates more like a word processor. The ideal starting point is to open a new file, akin to launching a fresh document. Right after, it's advisable to name and save the file promptly. Let's designate ours "chapter2.R".
+
+![](images/CleanShot 2023-06-13 at 15.08.59@2x.png)
+
+**What do I type into my blank script?**
+
+It's normal when starting R to find a blank script daunting. As you gain experience, this fear will fade and scripting will become intuitive. For now, starting with a template, much like you would in a word processor, can provide a supportive starting point, making the learning curve less steep.
+
+Enter the following:
+
+``` R
+# Subject: Lunch Lecture on TB
+# Date: 6/7/2023
+# Author: Dr. Wall
+
+# Open the medicaldata toolbox
+library(medicaldata)
+
+# View the available datasets
+# instructions at https://higgi13425.github.io/medicaldata/
+data(package = "medicaldata")
+```
+
+![](images/CleanShot 2023-06-13 at 15.18.19@2x.png)
+
+**Figure 2.2:** A template script to access the `medicaldata` package.
+
+**How do I "run" the code?**
+
+Let's jump right in - code, unlike a document, can be "run" or "executed" so the computer follows a set of instructions. The only catch is that the instructions must follow a certain set of rules or syntax.
+
+*The simplest way to run code in R is to execute the current line where your cursor is located.* You can do this by pressing 'Ctrl + Enter' if you are using Windows/Linux or 'Cmd + Enter' if you are on a Mac.
+
+What distinguishes code from a simple document is its nature as a series of instructions. These instructions are bound by a specific set of rules - the syntax. When you write code sticking to this syntax, it transforms from static text into dynamic instructions that can be "executed" or "run." This running of code breathes life into your commands, turning them into actions that your computer understands and carries out.
+
+Let's go over the different methods of executing code in R, starting with the most commonly used:
+
+1.  **Execute Current Line**: The simplest way to run code in R is to execute the current line where your cursor is located. You can do this by pressing 'Ctrl + Enter' if you are using Windows/Linux or 'Cmd + Enter' if you are on a Mac.
+
+2.  **Run a Specific Section of Code**: In R, you can choose to run a specific section of your code. This is particularly useful when working with larger scripts where you need to test or debug a certain part of your code. To do this, simply highlight the section you want to run and press 'Shift + Ctrl + Enter' or 'Shift + Cmd + Enter'.
+
+3.  **Run the Entire Script**: If you want to execute all the commands in your script in one go, you can run the entire script. This is often done to ensure that your entire code works as expected from start to finish. You can run the entire script by clicking on the 'Source' button in the upper right of the script pane, or by using the shortcut 'Ctrl + Shift + S' on Windows/Linux or 'Cmd + Shift + S' on Mac.
+
+Remember, executing your code regularly is a good practice as it allows you to catch and fix any errors or bugs as soon as they arise.
 
 For instance, let's consider a simple medical example:
 
-```r
+``` r
 patient_data <- data.frame(
   name = c("John Doe", "Jane Doe", "Mary Johnson", "James Smith"),
   age = c(25, 30, 35, 40),
@@ -17,11 +100,11 @@ patient_data <- data.frame(
 )
 ```
 
-Here, `patient_data` is a data frame that contains four columns: `name`, `age`, `disease`, and `checkup_date`. Each column is a different type of data: character, numeric, character, and date, respectively. 
+Here, `patient_data` is a data frame that contains four columns: `name`, `age`, `disease`, and `checkup_date`. Each column is a different type of data: character, numeric, character, and date, respectively.
 
 You can access the individual columns of a data frame in the following way:
 
-```r
+``` r
 patient_data$name
 ```
 
@@ -29,24 +112,25 @@ This will return the `name` column of the `patient_data` data frame.
 
 The ability to contain different types of data in each column makes data frames particularly suitable for managing and analyzing real-world data. The majority of the data you'll likely be working with in R will be in the form of data frames.
 
-In the following chapters, we will explore various operations we can perform on data frames such as filtering rows, selecting columns, arranging (or sorting) the data, and summarizing it. 
+In the following chapters, we will explore various operations we can perform on data frames such as filtering rows, selecting columns, arranging (or sorting) the data, and summarizing it.
 
 For now, try to create a data frame of your own using the `data.frame()` function. Perhaps you could create a data frame for lab test results, where each row is a patient's lab test and the columns contain details about the test, such as patient's name, test name, test result, and the date of the test.
 
 Let's talk about the three major ecosystems for data manipulation in R: **base R**, **tidyverse**, and **data.table**. These three ecosystems each have different ways of creating and interacting with data frames, and it's important to be aware of these differences.
 
-1. **Base R**: In base R, we use the `data.frame()` function to create data frames. The operations in base R are straightforward but can sometimes become complex for intricate data manipulation tasks.
+1.  **Base R**: In base R, we use the `data.frame()` function to create data frames. The operations in base R are straightforward but can sometimes become complex for intricate data manipulation tasks.
 
-2. **Tidyverse**: This is a collection of R packages that share an underlying philosophy and common APIs. `tibble`, part of the tidyverse, is an enhanced version of data frames which are easier to work with. Tidyverse functions are highly readable and are often favored for data manipulation and exploration.
+2.  **Tidyverse**: This is a collection of R packages that share an underlying philosophy and common APIs. `tibble`, part of the tidyverse, is an enhanced version of data frames which are easier to work with. Tidyverse functions are highly readable and are often favored for data manipulation and exploration.
 
-3. **Data.table**: This package offers data frames that are faster and more memory-efficient, along with syntax that is more concise. However, it may have a steeper learning curve.
+3.  **Data.table**: This package offers data frames that are faster and more memory-efficient, along with syntax that is more concise. However, it may have a steeper learning curve.
 
 **Exercise**
 
 Let's create a data frame in each ecosystem using patient information.
 
-1. Base R:
-```r
+1.  Base R:
+
+``` r
 patient_data_base <- data.frame(
   name = c("John Doe", "Jane Doe", "Mary Johnson", "James Smith"),
   age = c(25, 30, 35, 40),
@@ -54,8 +138,9 @@ patient_data_base <- data.frame(
 )
 ```
 
-2. Tidyverse:
-```r
+2.  Tidyverse:
+
+``` r
 library(tibble)
 patient_data_tidy <- tibble(
   name = c("John Doe", "Jane Doe", "Mary Johnson", "James Smith"),
@@ -64,8 +149,9 @@ patient_data_tidy <- tibble(
 )
 ```
 
-3. Data.table:
-```r
+3.  Data.table:
+
+``` r
 library(data.table)
 patient_data_dt <- data.table(
   name = c("John Doe", "Jane Doe", "Mary Johnson", "James Smith"),

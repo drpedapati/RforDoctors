@@ -1,19 +1,14 @@
 # Getting started with R programming
 
-I can't hide that learning R means you will also learn programming. But this is an advantage to learning the ins and outs of a specific statistical program that can't be used anywhere else. Once you learn the basics of the R language you will be  
+I can't hide that learning R means you will also learn programming. But this is an advantage to learning the ins and outs of a specific statistical program that can't be used anywhere else. Once you learn the basics of the R language you will be
 
+But these methods are not exclusive to R or a specific statistical program.
 
-But these methods are not exclusive to R or a specific statistical program. 
-
-
-Data types, functions, and loops will become familar. 
-
-
-
+Data types, functions, and loops will become familar.
 
 Learning R is like learning a new language. At first, it might seem hard, but once you get the hang of it, you can do a lot of cool things. It's not just for math or stats. You can also use it to clean up data, make charts, write reports, and even make apps for the web. And the best part? The skills you learn can be used in other places, too.
 
-While diving into R does entail grasping some fundamental programming concepts and terms, it's important to remember that this learning curve serves as a gateway to a host of potent capabilities. The concepts you acquire along the way aren't just exclusive to R or a specific statistical program. Instead, these principles, such as variables, data types, control structures, and functions, form the bedrock of many other programming languages. 
+While diving into R does entail grasping some fundamental programming concepts and terms, it's important to remember that this learning curve serves as a gateway to a host of potent capabilities. The concepts you acquire along the way aren't just exclusive to R or a specific statistical program. Instead, these principles, such as variables, data types, control structures, and functions, form the bedrock of many other programming languages.
 
 This means that the skills you cultivate through learning R are transferrable, opening up the possibility of applying them in numerous different domains and environments. Remember that R is not limited to statistical analysis. It is also a powerful tool for data cleaning, visualization, reporting, and even interactive web applications.
 
@@ -35,7 +30,7 @@ The Laryngoscope dataset serves as an excellent resource for us, containing a wi
 
 # Working with the Laryngoscope dataset
 
-To start working with the Laryngoscope dataset, you first need to load it into your R environment. The dataset is already included in the ‘medicaldata’ package, so if you have this package installed and loaded (as we did earlier), you can load the dataset with the following command:
+To start working with the Laryngoscope dataset, you first need to load it into your R environment. The dataset is already included in the 'medicaldata' package, so if you have this package installed and loaded (as we did earlier), you can load the dataset with the following command:
 
 data("Laryngoscope", package = "medicaldata")
 
@@ -45,7 +40,7 @@ To get an overview of the data, use the head() function, which shows the first s
 
 head(Laryngoscope)
 
-To get the structure of your data frame – like the number of rows, number of columns, and the type of data in each column – use the str() function:
+To get the structure of your data frame -- like the number of rows, number of columns, and the type of data in each column -- use the str() function:
 
 str(Laryngoscope)
 
@@ -57,9 +52,9 @@ summary(Laryngoscope)
 
 The summary() function provides a statistical summary of the dataset, giving the minimum, 1st quartile, median, mean, 3rd quartile, and maximum for numerical columns, and the number of levels for categorical columns.
 
-Each of the variables in the dataset can be accessed using the $ operator. For example, to view the ‘Age’ column, you would use:
+Each of the variables in the dataset can be accessed using the \$ operator. For example, to view the 'Age' column, you would use:
 
-Laryngoscope$Age
+Laryngoscope\$Age
 
 This will display all the age values for the patients in the dataset.
 
@@ -71,52 +66,25 @@ For example, numerical data types can undergo mathematical operations, while str
 
 Understanding and correctly identifying these data types ensures that you apply appropriate operations on them and that you choose the correct methods for analysis and visualization. Misunderstanding the type of data you are dealing with can lead to errors, incorrect analysis results, and misrepresentations of data.
 
-| Data Type | Description |
-|-----------|-------------|
+| Data Type | Description                                                                |
+|-----------|----------------------------------------------------------------------------|
 | Numeric   | These are the basic data type for storing numbers (integers and decimals). |
-| Integer   | These are numeric types that hold only integer values. |
-| Complex   | These store complex numbers. |
-| Character | These are used to store textual data. |
-| Logical   | These are Boolean types that hold either a `True` or `False` value. |
-| Factor    | These are used for categorical data and can be ordered or unordered. |
-| Date/Time | These are used for storing date and time information. |
+| Integer   | These are numeric types that hold only integer values.                     |
+| Complex   | These store complex numbers.                                               |
+| Character | These are used to store textual data.                                      |
+| Logical   | These are Boolean types that hold either a `True` or `False` value.        |
+| Factor    | These are used for categorical data and can be ordered or unordered.       |
+| Date/Time | These are used for storing date and time information.                      |
 
 ## Hands on experience with each data type
 
-1. **Numeric**: Calculate the average body mass index (BMI) of a patient over the last 12 months.
-    ```r
-    bmi_values <- c(25.1, 26.3, 25.9, 25.5, 26.0, 26.4, 26.1, 25.8, 26.3, 26.2, 26.0, 26.1)
-    average_bmi <- mean(bmi_values)
-    print(average_bmi)
-    ```
-2. **Integer**: Count the number of patient visits in a year.
-    ```r
-    visit_counts <- c(1, 2, 1, 2, 2, 3, 2, 2, 1, 2, 2, 1)
-    total_visits <- sum(visit_counts)
-    print(total_visits)
-    ```
-3. **Complex**: Not typically used in medical contexts, but can be used for mathematical calculations involving complex numbers.
-4. **Character**: Store a patient's name and print it.
-    ```r
-    patient_name <- "John Doe"
-    print(patient_name)
-    ```
-5. **Logical**: Check if a patient's BMI is above 25 at each visit.
-    ```r
-    bmi_above_25 <- bmi_values > 25
-    print(bmi_above_25)
-    ```
-6. **Factor**: Create a factor object for patient blood types and print the levels.
-    ```r
-    blood_types <- factor(c("A", "B", "AB", "O", "O", "A", "B", "AB", "O", "A"))
-    print(levels(blood_types))
-    ```
-7. **Date/Time**: Create a date object for patient visits and calculate the duration since the first visit.
-    ```r
-    visit_dates <- as.Date(c("2023-01-01", "2023-02-01", "2023-03-01", "2023-04-01", "2023-05-01", "2023-06-01"))
-    duration <- Sys.Date() - min(visit_dates)
-    print(duration)
-    ```
+1.  **Numeric**: Calculate the average body mass index (BMI) of a patient over the last 12 months. `r     bmi_values <- c(25.1, 26.3, 25.9, 25.5, 26.0, 26.4, 26.1, 25.8, 26.3, 26.2, 26.0, 26.1)     average_bmi <- mean(bmi_values)     print(average_bmi)`
+2.  **Integer**: Count the number of patient visits in a year. `r     visit_counts <- c(1, 2, 1, 2, 2, 3, 2, 2, 1, 2, 2, 1)     total_visits <- sum(visit_counts)     print(total_visits)`
+3.  **Complex**: Not typically used in medical contexts, but can be used for mathematical calculations involving complex numbers.
+4.  **Character**: Store a patient's name and print it. `r     patient_name <- "John Doe"     print(patient_name)`
+5.  **Logical**: Check if a patient's BMI is above 25 at each visit. `r     bmi_above_25 <- bmi_values > 25     print(bmi_above_25)`
+6.  **Factor**: Create a factor object for patient blood types and print the levels. `r     blood_types <- factor(c("A", "B", "AB", "O", "O", "A", "B", "AB", "O", "A"))     print(levels(blood_types))`
+7.  **Date/Time**: Create a date object for patient visits and calculate the duration since the first visit. `r     visit_dates <- as.Date(c("2023-01-01", "2023-02-01", "2023-03-01", "2023-04-01", "2023-05-01", "2023-06-01"))     duration <- Sys.Date() - min(visit_dates)     print(duration)`
 
 Please replace `Sys.Date()` with the actual date when running the exercise.
 
@@ -124,72 +92,67 @@ Please replace `Sys.Date()` with the actual date when running the exercise.
 
 Absolutely, these examples do bring up some important programming concepts used in R:
 
-1. **The `c` function**: In R, `c()` stands for 'concatenate' or 'combine.' It is used to combine values into a vector. For example, in `bmi_values <- c(25.1, 26.3, 25.9, 25.5)`, we are using `c()` to combine the BMI values into a numeric vector.
+1.  **The `c` function**: In R, `c()` stands for 'concatenate' or 'combine.' It is used to combine values into a vector. For example, in `bmi_values <- c(25.1, 26.3, 25.9, 25.5)`, we are using `c()` to combine the BMI values into a numeric vector.
 
-2. **Quotes**: In R, both single (`'`) and double (`"`) quotes can denote character strings. For example, `"John Doe"` is a character string. It's important to start and end a string with the same type of quote. 
+2.  **Quotes**: In R, both single (`'`) and double (`"`) quotes can denote character strings. For example, `"John Doe"` is a character string. It's important to start and end a string with the same type of quote.
 
-3. **Operators**: These examples use several types of operators. The `<-` symbol is the assignment operator, used to assign values to variables (e.g., `bmi_values <- c(25.1, 26.3, 25.9, 25.5)`). The `>` symbol is a comparison operator, used to compare values (e.g., `bmi_values > 25` checks if each value in `bmi_values` is greater than 25). The `+` and `-` symbols are arithmetic operators, used for mathematical calculations.
+3.  **Operators**: These examples use several types of operators. The `<-` symbol is the assignment operator, used to assign values to variables (e.g., `bmi_values <- c(25.1, 26.3, 25.9, 25.5)`). The `>` symbol is a comparison operator, used to compare values (e.g., `bmi_values > 25` checks if each value in `bmi_values` is greater than 25). The `+` and `-` symbols are arithmetic operators, used for mathematical calculations.
 
-4. **Assignment**: In R, we use the `<-` operator to assign values to variables. A variable is a storage place for values that you want to use or manipulate. For example, `bmi_values <- c(25.1, 26.3, 25.9, 25.5)` creates a variable named `bmi_values` and assigns it the values specified in the `c()` function.
+4.  **Assignment**: In R, we use the `<-` operator to assign values to variables. A variable is a storage place for values that you want to use or manipulate. For example, `bmi_values <- c(25.1, 26.3, 25.9, 25.5)` creates a variable named `bmi_values` and assigns it the values specified in the `c()` function.
 
-5. **Functions**: Functions are pieces of code that perform a specific task. R has many built-in functions (like `c()`, `mean()`, `sum()`, `print()`, `as.Date()`, `min()`) that take inputs (arguments), perform certain computations, and return outputs. Functions are invoked by their name followed by parentheses containing the arguments.
+5.  **Functions**: Functions are pieces of code that perform a specific task. R has many built-in functions (like `c()`, `mean()`, `sum()`, `print()`, `as.Date()`, `min()`) that take inputs (arguments), perform certain computations, and return outputs. Functions are invoked by their name followed by parentheses containing the arguments.
 
-6. **Logical values**: The output of the comparison operation `bmi_values > 25` is a logical vector that indicates whether each BMI value is greater than 25. Logical vectors are crucial for performing operations based on certain conditions.
+6.  **Logical values**: The output of the comparison operation `bmi_values > 25` is a logical vector that indicates whether each BMI value is greater than 25. Logical vectors are crucial for performing operations based on certain conditions.
 
 These are some of the basic programming concepts in R. As you progress, you will encounter more advanced concepts, but these form the foundation of programming in R.
 
-Vectors and lists are two fundamental data structures in R, and they're related to the concept of data types. 
+Vectors and lists are two fundamental data structures in R, and they're related to the concept of data types.
 
-1. **Vectors**: A vector in R is a sequence of data elements of the same basic type. Members in a vector are officially called components. All components of a vector must be of the same type. Hence, we have numeric, logical, character, and complex vectors. 
+1.  **Vectors**: A vector in R is a sequence of data elements of the same basic type. Members in a vector are officially called components. All components of a vector must be of the same type. Hence, we have numeric, logical, character, and complex vectors.
 
-    Example of a numeric vector: 
-    ```r
-    patient_ages <- c(25, 30, 35, 40)
-    ```
+    Example of a numeric vector: `r  patient_ages <- c(25, 30, 35, 40)`
 
-2. **Lists**: A list in R, however, is an ordered collection of objects, where these objects can be of different types (numeric, character, logical, etc.). This is a major difference from vectors. In other words, a list in R can contain numbers, strings, vectors, other lists, and so on.
+2.  **Lists**: A list in R, however, is an ordered collection of objects, where these objects can be of different types (numeric, character, logical, etc.). This is a major difference from vectors. In other words, a list in R can contain numbers, strings, vectors, other lists, and so on.
 
-    Example of a list:
-    ```r
-    patient_info <- list(name = "John Doe", age = 35, disease = "Hypertension", visit_dates = as.Date(c("2023-01-01", "2023-02-01")))
-    ```
+    Example of a list: `r  patient_info <- list(name = "John Doe", age = 35, disease = "Hypertension", visit_dates = as.Date(c("2023-01-01", "2023-02-01")))`
 
-In the context of data types, vectors and lists are containers that hold data. However, vectors can hold only one type of data at a time (all numeric, all character, etc.), while lists can hold multiple types of data at once (numeric, character, other lists, vectors, etc.). 
+In the context of data types, vectors and lists are containers that hold data. However, vectors can hold only one type of data at a time (all numeric, all character, etc.), while lists can hold multiple types of data at once (numeric, character, other lists, vectors, etc.).
 
 This flexibility makes lists particularly useful for complex data manipulation tasks and for creating data frames (which are a specific type of list where each element is a vector of equal length - think of them like a spreadsheet with columns of different types of data, but the same number of rows in each column).
 
 ## exercise lists and vectors
-1. **Vectors:**
 
-   Imagine you're a doctor and you have several patients. You could create a vector for each type of patient information. For example, you might have a vector of patient ages, another vector for patient names, and so on. Each vector contains only one type of information (either all numbers, all characters, etc.).
+1.  **Vectors:**
 
-   ```r
-   patient_names <- c("John Doe", "Jane Doe", "Mary Johnson", "James Smith")
-   patient_ages <- c(25, 30, 35, 40)
-   ```
+    Imagine you're a doctor and you have several patients. You could create a vector for each type of patient information. For example, you might have a vector of patient ages, another vector for patient names, and so on. Each vector contains only one type of information (either all numbers, all characters, etc.).
 
-   Here, `patient_names` is a character vector containing names of patients, and `patient_ages` is a numeric vector containing the ages of the patients. All the data elements in each vector are of the same type.
+    ``` r
+    patient_names <- c("John Doe", "Jane Doe", "Mary Johnson", "James Smith")
+    patient_ages <- c(25, 30, 35, 40)
+    ```
 
-2. **Lists:**
+    Here, `patient_names` is a character vector containing names of patients, and `patient_ages` is a numeric vector containing the ages of the patients. All the data elements in each vector are of the same type.
 
-   Now imagine that you want to keep all the information related to each patient together. In other words, you want a structure that contains the name, age, and perhaps even the medical history for each patient. This is where lists come in.
+2.  **Lists:**
 
-   ```r
-   john_doe_info <- list(name = "John Doe", age = 25, diseases = c("Hypertension", "Diabetes"))
-   jane_doe_info <- list(name = "Jane Doe", age = 30, diseases = c("Asthma"))
-   ```
+    Now imagine that you want to keep all the information related to each patient together. In other words, you want a structure that contains the name, age, and perhaps even the medical history for each patient. This is where lists come in.
 
-   Here, `john_doe_info` and `jane_doe_info` are lists that contain different types of data. For each patient, we have a character string (name), a numeric value (age), and a character vector (diseases).
+    ``` r
+    john_doe_info <- list(name = "John Doe", age = 25, diseases = c("Hypertension", "Diabetes"))
+    jane_doe_info <- list(name = "Jane Doe", age = 30, diseases = c("Asthma"))
+    ```
 
-3. **Practice Exercise**:
+    Here, `john_doe_info` and `jane_doe_info` are lists that contain different types of data. For each patient, we have a character string (name), a numeric value (age), and a character vector (diseases).
 
-   Now that you've seen these examples, try creating a vector and a list for a new patient. The vector should contain the patient's systolic blood pressure measurements from their last three visits, and the list should contain the patient's name, age, and diseases.
-   
+3.  **Practice Exercise**:
+
+    Now that you've seen these examples, try creating a vector and a list for a new patient. The vector should contain the patient's systolic blood pressure measurements from their last three visits, and the list should contain the patient's name, age, and diseases.
+
 Remember, vectors are great for handling sequences of data of the same type, while lists allow you to group together related data of different types. Understanding when to use each one is a key part of becoming proficient in R.
 
 # Understanding the different R ecosystems
 
-One of the beautiful aspects of R is its flexibility and versatility, which is largely due to the variety of packages and methodologies it offers for carrying out similar tasks. Base R, the Tidyverse, and data.table each provide different ecosystems with unique sets of functions and syntax that can be used to achieve the same ends. 
+One of the beautiful aspects of R is its flexibility and versatility, which is largely due to the variety of packages and methodologies it offers for carrying out similar tasks. Base R, the Tidyverse, and data.table each provide different ecosystems with unique sets of functions and syntax that can be used to achieve the same ends.
 
 While it may initially seem premature to delve into discussions about different ecosystems in our introductory programming chapter, there's good reason for this approach. Introducing these concepts early on allows us to create a foundational understanding of the varied programming landscapes within R. This awareness aids in navigating the expansive world of R, recognizing the interconnectedness of various ecosystems, and making informed choices about the tools and approaches best suited for our work.
 
@@ -201,12 +164,10 @@ There are various ecosystems within R that cater to different needs and approach
 
 Understanding these different R ecosystems can be likened to the experience of cooking in different types of kitchens with various sets of utensils and appliances.
 
-1. Base R is like a traditional kitchen. It's the fundamental cooking space that comes equipped with all the basic tools and utensils you need: pots, pans, knives, a stove, and an oven. It's fully functional, but might lack some specialized or modern equipment. A traditional kitchen is universally understood and functional, and a well-versed chef can create a wide variety of dishes, albeit sometimes needing a bit more time and effort.
+1.  Base R is like a traditional kitchen. It's the fundamental cooking space that comes equipped with all the basic tools and utensils you need: pots, pans, knives, a stove, and an oven. It's fully functional, but might lack some specialized or modern equipment. A traditional kitchen is universally understood and functional, and a well-versed chef can create a wide variety of dishes, albeit sometimes needing a bit more time and effort.
 
-2. The Tidyverse is akin to a modern, user-friendly kitchen with the latest appliances and gadgets. This includes things like air fryers, sous vide machines, or a multi-functioning Instant Pot. These tools can simplify the cooking process, making it more accessible to beginners, while still providing the ability to create a diverse array of dishes. However, the user must first understand the new rules and methods that these modern tools require.
+2.  The Tidyverse is akin to a modern, user-friendly kitchen with the latest appliances and gadgets. This includes things like air fryers, sous vide machines, or a multi-functioning Instant Pot. These tools can simplify the cooking process, making it more accessible to beginners, while still providing the ability to create a diverse array of dishes. However, the user must first understand the new rules and methods that these modern tools require.
 
-3. The data.table package is like a high-efficiency, industrial kitchen seen in professional restaurants. It's designed for speed and handling large volumes of food preparation, equipped with powerful grills, large capacity mixers, and high-speed processors. It may seem less intuitive for a home cook or beginner, but once mastered, it allows for remarkably efficient cooking, especially when catering for large numbers.
+3.  The data.table package is like a high-efficiency, industrial kitchen seen in professional restaurants. It's designed for speed and handling large volumes of food preparation, equipped with powerful grills, large capacity mixers, and high-speed processors. It may seem less intuitive for a home cook or beginner, but once mastered, it allows for remarkably efficient cooking, especially when catering for large numbers.
 
 In each case, you can achieve the same end result - a prepared meal (or in the case of R, a processed dataset). However, the method you choose depends on your specific requirements, the scale of your meal/data, and your personal preference or familiarity with the tools at hand.
-
-

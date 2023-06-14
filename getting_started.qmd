@@ -1,8 +1,6 @@
 # Getting Started with R
 
-![](images/workshop.png)
-
-Figure 2.1: AI-generated representation of the R "workshop" analogy
+![Depiction of the R "workshop" analogy](images/workshop.png){#fig-workshop}
 
 ## The Big Picture
 
@@ -62,15 +60,19 @@ Let's walk through loading the `medicaldata` package which will provide the data
 
 1.  First create a new R project in R Cloud
 
-![](images/posit.cloud_login_code=RjaPWEO8K1VLgeNKrf5fPzXTp4ezfa%20(1)-01.png)
+![Posit/RStudio Cloud Homepage](images/posit.cloud_login_code=RjaPWEO8K1VLgeNKrf5fPzXTp4ezfa%20(1)-01.png){#fig-cloud1}
 
-2.  Create a new empty R script
+2.  Give your project a name by clicking above the menu bar. Type in RforDoctors.
 
-![](images/CleanShot%202023-06-12%20at%2022.18.53@2x.png)
+    ![](images/CleanShot%202023-06-13%20at%2018.23.45@2x.png)
+
+3.  Create a new empty R script
+
+![Adding a new file](images/CleanShot%202023-06-12%20at%2022.18.53@2x.png){#fig-cloud2}
 
 3.  Save the File as chapter1.R
 
-    ![](images/CleanShot%202023-06-12%20at%2022.21.34@2x.png)
+    ![Saving a file](images/CleanShot%202023-06-12%20at%2022.21.34@2x.png){#fig-cloud3}
 
 4.  Type the following into your blank script:
 
@@ -84,11 +86,11 @@ library(medicaldata)
 
 5.  Access the `Code` menu and select `Run All`
 
-![](images/CleanShot%202023-06-12%20at%2022.26.59@2x.png)
+![Running your code](images/CleanShot%202023-06-12%20at%2022.26.59@2x.png){#fig-cloud4}
 
 6.  Examine the output in the console window.
 
-![](images/CleanShot%202023-06-12%20at%2022.29.32@2x.png)
+![The R Console](images/CleanShot%202023-06-12%20at%2022.29.32@2x.png){#fig-cloud5}
 
 ## Reviewing the Code
 
@@ -108,9 +110,9 @@ Diving into the code we've written, several key points need to be highlighted.
 
 Our first interactive coding command produced some interesting output in the R console. Let's take a moment to discuss the R console and understand what it just told us.
 
-The R console is akin to a live conversation with R. When you type a command and hit enter, R listens, processes the request, and then speaks back to you. This "speech" is the output you see on your screen. Let's look at the output from our script.
+The R console is akin to a live conversation with R. When you type a command and hit enter, R listens, processes the request, and then speaks back to you. This "speech" is the output you see on your screen. Let's look at the output from our script:
 
-![](images/CleanShot%202023-06-12%20at%2022.29.32@2x-01.png)
+![Reviewing the console output](images/CleanShot%202023-06-12%20at%2022.29.32@2x-01.png){#fig-cloud7}
 
 Now, back to the output of our first command, **`install.packages("medicaldata")`**. This command tells R to install the "medicaldata" package, a collection of ready-made functions and data. R takes this command, connects to a server, and starts to download the package. It provides us with live updates, telling us how large the package is (650 KB), and its download status.
 
@@ -134,13 +136,13 @@ data(package = "medicaldata")
 
 Once you execute this command, R will display an interactive window showing you all the datasets available in the "medicaldata" package. Each dataset is listed with a brief description of the kind of data it contains, which can be very useful when deciding which dataset to use for a particular analysis.
 
-![](images/CleanShot%202023-06-12%20at%2023.00.17@2x.png)
+![Datasets within the medicaldata package](images/CleanShot%202023-06-12%20at%2023.00.17@2x.png){#fig-cloud8}
 
 ## Entering data within a script versus the console
 
 When you're working with R, you have two main places where you can enter your data or commands: the script editor and the console.
 
-![](images/CleanShot 2023-06-13 at 11.12.19@2x.png)
+![Navigating the RStudio Interface](images/CleanShot%202023-06-13%20at%2011.12.19@2x.png){#fig-cloud9}
 
 The script editor is your workspace for crafting R scripts. This is where you write your lines of code, organize your thoughts, define functions, and generally create your R programs. Anything you write in the script editor is saved and can be run as many times as you want, making it ideal for larger, more complex analyses.
 

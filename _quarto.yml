@@ -2,6 +2,7 @@ project:
   type: book
 
 book:
+  cover-image: images/abstract3.png
   title: "R for Physicians: Learning with Ease & Efficiency"
   author: "Ernie Pedapati, MD"
   date: "6/12/2023"

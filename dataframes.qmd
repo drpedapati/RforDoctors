@@ -1,44 +1,26 @@
-## Chapter 2: Data Frames in R
+# Data Frames
 
-![](images/abstract table.png)
+![Abstract Perspective of a Data Frame](images/abstract%20table.png){#fig-dataframe1}
 
-Figure 2.1: AI-generated art of an abstract perspective of a data frame.
+## The big picture (so far)
 
-## The big picture
+Now that you've set up your rstudio.cloud account and familiarized yourself with the interface including the code editor and command console, it's time to delve into the world of data frames. In the realm of medical practice, data frames serve as indispensable tools for organizing and analyzing clinical data.
 
-Now that you've set up your rstudio.cloud account and familiarized yourself with the key elements of the interface, such as the code editor and command console, it's time to delve into the world of data frames. In the realm of medical practice, data frames serve as indispensable tools for organizing and analyzing clinical data.
+## What are data frames?
 
-## Introduction
+Data frames are the most widely used data structure in R and help you manage data in a structured, tabular format.
 
-Data frames are perhaps one of the most important and widely used data structures in R. If you're familiar with spreadsheets from software like Excel, then you can think of a data frame like a spreadsheet in R. It is a two-dimensional table where each column contains values of one variable, and each row contains one set of values from each column. A key thing to note about data frames is that different columns can contain different types of data (numeric, character, etc.), but each column must contain the same number of data items (rows).
+Data frames are similar in appearance to spreadsheets. It is a two-dimensional table where each column contains values of one variable, and each row contains one set of values from each column. A key thing to note about data frames is that different columns can contain different types of data (numeric, character, etc.), but each column must contain the same number of data items (rows).
 
-## The many names of data frames in R
+## The many names of data frames
 
-Data frames in R come with an assortment of names, which can make the initial stages of learning R a bit confusing. Recognizing and understanding these terminologies is crucial as data frames are foundational to data handling in R.
+Data frames in R come with an assortment of names, which can make the initial stages of learning R a bit confusing. Traditionally, a data frame in R is referred to as a 'data.frame'. However, with the advent of packages like 'tibble' in the tidyverse ecosystem, a data frame can also be called a 'tibble'. Meanwhile, in the data.table package, it's called a 'data.table'. Don't let the various names confuse you; they all revolve around the same fundamental concept.
 
-Traditionally, a data frame in R is referred to as a 'data.frame'. However, with the advent of packages like 'tibble' in the tidyverse ecosystem, a data frame can also be called a 'tibble'. Meanwhile, in the data.table package, it's called a 'data.table'.
+## Vignette: The Lunch Lecture Cram
 
-Each of these types has its unique characteristics and benefits, but they all share the same primary purpose - to help you manage data in a structured, tabular format. Don't let the various names confuse you; they all revolve around the same fundamental concept.
+![A captivating lunch lecture?](images/thelunchtalk.png){#fig-lunchtalk}
 
-## Exercise 2.1 Hands-on with a data frame
-
-### The lunch lecture
-
-Let's take a hands-on tour of investigating a dataset through a practical vignette. There are no shortage of ways in R to interact with data frames.
-
-> Vignette 1: You are a 3rd year infectious disease fellow on a research block. Your supervisor has asked you to present a captivating lunch lecture to several visiting faculty. Knowing that many history buffs will be present, you decide to present a reanalysis of an infectious disease landmark - the discovery of streptomycin as a treatment for tuberculosis (TB).
->
-> After all, why not? You have heard that the original dataset is only a few lines away in R!
-
-![](images/thelunchtalk.png)
-
-Figure 2.2 AI generated imagine of the captivating lunch talk
-
-### The Lunch Lecture: Finding the Dataset
-
-> You break into a sweat realizing that the talk is only 24 hours away and you haven't thought about it once since you were asked. However, your last few weeks\' priorities had other, undoubtedly urgent, plans. Here you are, with R as unfamiliar as before and the talk lurking just a day away. But hey, who needs calm preparation when you can have adrenaline-fueled learning marathons, right? Let the last-minute hustle begin! You sit down at your computer and open http://rstudio.cloud ...
-
-As we have empathy for the
+> You are a 3rd year infectious disease fellow on a research block. Your supervisor has asked you to present a captivating lunch lecture to several visiting faculty. Knowing that many history buffs will be present, you decide to present a reanalysis of an infectious disease landmark - the discovery of streptomycin as a treatment for tuberculosis (TB). After all, why not? You have heard that the original dataset is only a few lines away in R! Fast forward a few weeks later. You break into a sweat realizing that the talk is only 24 hours away and you haven't thought about it once since you were asked. However, your last few weeks' priorities had other, undoubtedly urgent, plans. Here you are, with R as unfamiliar as before and the talk lurking just a day away. But hey, who needs calm preparation when you can have adrenaline-fueled learning marathons, right? Let the last-minute hustle begin! You sit down at your computer and open http://rstudio.cloud ...
 
 We can certainly empathize with the fellow's predicament. Let's imagine the questions racing through her head and see if we can help!
 
@@ -46,7 +28,7 @@ We can certainly empathize with the fellow's predicament. Let's imagine the ques
 
 R differs from many statistical software packages where you typically start with your data. Instead, R operates more like a word processor. The ideal starting point is to open a new file, akin to launching a fresh document. Right after, it's advisable to name and save the file promptly. Let's designate ours "chapter2.R".
 
-![](images/CleanShot 2023-06-13 at 15.08.59@2x.png)
+![](images/CleanShot%202023-06-13%20at%2015.08.59@2x.png)
 
 **What do I type into my blank script?**
 
@@ -54,7 +36,7 @@ It's normal when starting R to find a blank script daunting. As you gain experie
 
 Enter the following:
 
-``` R
+``` r
 # Subject: Lunch Lecture on TB
 # Date: 6/7/2023
 # Author: Dr. Wall
@@ -65,9 +47,10 @@ library(medicaldata)
 # View the available datasets
 # instructions at https://higgi13425.github.io/medicaldata/
 data(package = "medicaldata")
-```
 
-![](images/CleanShot 2023-06-13 at 15.18.19@2x.png)
+# Print the strep_tb dataset
+strep_tb
+```
 
 **Figure 2.2:** A template script to access the `medicaldata` package.
 
@@ -75,89 +58,72 @@ data(package = "medicaldata")
 
 Let's jump right in - code, unlike a document, can be "run" or "executed" so the computer follows a set of instructions. The only catch is that the instructions must follow a certain set of rules or syntax.
 
-*The simplest way to run code in R is to execute the current line where your cursor is located.* You can do this by pressing 'Ctrl + Enter' if you are using Windows/Linux or 'Cmd + Enter' if you are on a Mac.
+*The simplest way to run code in R is to execute the current line where your cursor is located.* You can do this by pressing 'Ctrl + Enter' if you are using Windows/Linux or 'Cmd + Enter' if you are on a Mac. You can also click the "Run" button.
 
-What distinguishes code from a simple document is its nature as a series of instructions. These instructions are bound by a specific set of rules - the syntax. When you write code sticking to this syntax, it transforms from static text into dynamic instructions that can be "executed" or "run." This running of code breathes life into your commands, turning them into actions that your computer understands and carries out.
+![](images/CleanShot%202023-06-13%20at%2018.27.52@2x.png)
 
-Let's go over the different methods of executing code in R, starting with the most commonly used:
+**What is the best strategy to run code?**
 
-1.  **Execute Current Line**: The simplest way to run code in R is to execute the current line where your cursor is located. You can do this by pressing 'Ctrl + Enter' if you are using Windows/Linux or 'Cmd + Enter' if you are on a Mac.
+It's important to think of an R script as a story with a beginning, middle, and end. Though you can run sections in whatever order you want, however, it may not make any sense when R tries to execute the code.
 
-2.  **Run a Specific Section of Code**: In R, you can choose to run a specific section of your code. This is particularly useful when working with larger scripts where you need to test or debug a certain part of your code. To do this, simply highlight the section you want to run and press 'Shift + Ctrl + Enter' or 'Shift + Cmd + Enter'.
+Let's think about our current piece of code that consists of three parts:
 
-3.  **Run the Entire Script**: If you want to execute all the commands in your script in one go, you can run the entire script. This is often done to ensure that your entire code works as expected from start to finish. You can run the entire script by clicking on the 'Source' button in the upper right of the script pane, or by using the shortcut 'Ctrl + Shift + S' on Windows/Linux or 'Cmd + Shift + S' on Mac.
+![](images/CleanShot%202023-06-13%20at%2018.27.52@2x-01.png)
 
-Remember, executing your code regularly is a good practice as it allows you to catch and fix any errors or bugs as soon as they arise.
+1.  Comments (Lines 1-3, 5, 8-9)
+2.  An instruction to open the `medicaldata` package (line 6)
+3.  An instruction to view all the data in the `medicaldata` package (line 10)
 
-For instance, let's consider a simple medical example:
+Similarly, when writing a script in R, certain instructions or packages must be initiated before others. If we consider an R package as a character in our story, you must first introduce (load) the character into the plot (the R environment) before they can take any actions (functions).
 
-``` r
-patient_data <- data.frame(
-  name = c("John Doe", "Jane Doe", "Mary Johnson", "James Smith"),
-  age = c(25, 30, 35, 40),
-  disease = c("Hypertension", "Diabetes", "Asthma", "None"),
-  checkup_date = as.Date(c("2023-01-01", "2023-01-15", "2023-02-01", "2023-02-15"))
-)
-```
+Also, if you modify any section of your code, you should plan on re-executing that section so R has an up to date understanding of what you want to do. Remember, executing your code regularly is a good practice as it allows you to catch and fix any errors or bugs as soon as they arise.
 
-Here, `patient_data` is a data frame that contains four columns: `name`, `age`, `disease`, and `checkup_date`. Each column is a different type of data: character, numeric, character, and date, respectively.
+**What about comments?**
 
-You can access the individual columns of a data frame in the following way:
+Comments are the exception to the rule. Comments do NOT have to be executed. A properly formatted comments (i.e. starting with a pound symbol) is only interpreted by the human reading the code, it doesn't have any particular meaning to R. So you can really place comments in what ever order you want.
 
-``` r
-patient_data$name
-```
+**So, can we see the dataset now?**
 
-This will return the `name` column of the `patient_data` data frame.
+We're now ready to explore the dataset. Despite the initial learning process being somewhat tedious - stepping back - the process isn't overly complicated. We've managed to carry out all tasks within a web browser, starting from an empty script and adding 2-3 lines of code. This has provided us with access to the specific data we're interested in examining.
 
-The ability to contain different types of data in each column makes data frames particularly suitable for managing and analyzing real-world data. The majority of the data you'll likely be working with in R will be in the form of data frames.
+**Three Runs: Finally, let's run some code!**
 
-In the following chapters, we will explore various operations we can perform on data frames such as filtering rows, selecting columns, arranging (or sorting) the data, and summarizing it.
+Let's start by moving our cursor to line #1. This assures us that we are at the very beginning of the script and we don't miss executing any lines of instructions. Let's start by using either the hot key for running a line or clicking the "Run" button above the editor. We are going to do three consecutive runs and see what we can learn.
 
-For now, try to create a data frame of your own using the `data.frame()` function. Perhaps you could create a data frame for lab test results, where each row is a patient's lab test and the columns contain details about the test, such as patient's name, test name, test result, and the date of the test.
+![](images/CleanShot%202023-06-13%20at%2019.24.28@2x.png)
 
-Let's talk about the three major ecosystems for data manipulation in R: **base R**, **tidyverse**, and **data.table**. These three ecosystems each have different ways of creating and interacting with data frames, and it's important to be aware of these differences.
+**The First Run**
 
-1.  **Base R**: In base R, we use the `data.frame()` function to create data frames. The operations in base R are straightforward but can sometimes become complex for intricate data manipulation tasks.
+R will skip over each comment until it gets to the first instruction (Line 6). It will then execute the instruction. The cursor will end up on the comment on Line 8. You will notice new output in the console that prints the instruction that was run.
 
-2.  **Tidyverse**: This is a collection of R packages that share an underlying philosophy and common APIs. `tibble`, part of the tidyverse, is an enhanced version of data frames which are easier to work with. Tidyverse functions are highly readable and are often favored for data manipulation and exploration.
+In this case, using the `library` function with the input of `medicaldata` did not result in any visible output. This is often referred to as silent output. If no warning or error messages are generated, this means the instruction was a success.
 
-3.  **Data.table**: This package offers data frames that are faster and more memory-efficient, along with syntax that is more concise. However, it may have a steeper learning curve.
+From R's perspective, we have now opened the `medicaldata` package and it is available for use. The Packages tab in the Files pane can confirm which packages are ready to use via a library function vs. packages that are generally available in your workspace.
 
-**Exercise**
+![](images/CleanShot%202023-06-13%20at%2019.37.29@2x.png)
 
-Let's create a data frame in each ecosystem using patient information.
+**The Second Run**
 
-1.  Base R:
+"Proceed with running the next line of code. As before, R will ignore comments and execute the data function instruction. However, this time, the result isn't silent. A new tab should appear in your editor, presenting all the datasets housed within the medicaldata package.
 
-``` r
-patient_data_base <- data.frame(
-  name = c("John Doe", "Jane Doe", "Mary Johnson", "James Smith"),
-  age = c(25, 30, 35, 40),
-  disease = c("Hypertension", "Diabetes", "Asthma", "None")
-)
-```
+Please scroll through this list until you find the Streptomycin/TB dataset that we're interested in, and make sure to note down its name."
 
-2.  Tidyverse:
+This is a good example of how certain instructions may not be the best to leave within a script. In this case, trying to run this code as a single script may be interrupted by opening a new window. There is a very simple way, however, to keep track of this function without having to erase it. Just add \# sign in front of it to comment it out. Even though it is a valid R instruction, the comment symbol will not let R see it as an instruction and it will not run. However, you will be able to know the command is still available and what purpose it served. If you need to run it again in the future, simply uncomment the line.
 
-``` r
-library(tibble)
-patient_data_tidy <- tibble(
-  name = c("John Doe", "Jane Doe", "Mary Johnson", "James Smith"),
-  age = c(25, 30, 35, 40),
-  disease = c("Hypertension", "Diabetes", "Asthma", "None")
-)
-```
+Indeed, it's important to note that not all instructions are optimal to include in a script that's intended to be run as a whole. In this instance, if a piece of code triggers the opening of a new window, it could disrupt the execution flow of the script. However, there's a straightforward solution to this: we can use the hashtag (#) to comment out this line of code.
 
-3.  Data.table:
+When you prepend a line of code with the \# symbol, it effectively turns it into a comment. Despite being a valid R command, the interpreter will not execute it as such due to the comment symbol. This prevents the code from running, but it allows you to keep the command in your script for future reference or use.
 
-``` r
-library(data.table)
-patient_data_dt <- data.table(
-  name = c("John Doe", "Jane Doe", "Mary Johnson", "James Smith"),
-  age = c(25, 30, 35, 40),
-  disease = c("Hypertension", "Diabetes", "Asthma", "None")
-)
-```
+By leaving the command as a commented line, you can quickly see what function it served and how it was used. If you need to execute this line in the future, all you need to do is remove the \# sign to uncomment the line, making it a live command once more.
 
-Notice how the syntax changes slightly between the three ecosystems. Throughout this book, we will be focusing mainly on base R and tidyverse, but it's good to be aware of data.table, especially for large datasets. Practice creating these data frames and examine how they are displayed differently in your R console.
+**The Third Run**
+
+Proceed with the next line of code. Instead of a quiet output or triggering a new window, the console will start displaying a cascade of data table columns.
+
+Well done, this is your initial view of the strep_tb dataset!
+
+![](images/CleanShot%202023-06-13%20at%2019.54.17@2x.png)
+
+You may find this partial view a bit limiting. Before learning R, many of us, including myself, primarily managed our data using software like Excel. Excel has its own challenges, but it undeniably offers an immediate and comprehensive view of all your data.
+
+Don't fear! Much like my own experience, you're likely to be pleasantly surprised by the vast array of powerful tools that R brings to the table. In the following sections you will see how quickly you can have x-ray vision to see a dataset.

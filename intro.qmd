@@ -2,8 +2,6 @@
 
 ## What is R?
 
-![](images/abstract3.png)
-
 Figure 1.1 AI-generated art capturing R statistics in the abstract
 
 R is a free, open-source programming language and software environment specifically designed for statistical computing and graphics. Ross Ihaka and Robert Gentleman created R at the University of Auckland and it is now maintained by the R Development Core Team. R is essentially composed of a core language and a variety of user interfaces. The core language, often referred to as "base R", is where all the computation and processing happens. The user interfaces, such as RStudio, provide an intuitive frontend where users write code, visualize data, and manage their workflows.

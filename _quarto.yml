@@ -8,8 +8,8 @@ book:
   date: "6/12/2023"
   chapters:
     - index.qmd
-    - intro.qmd
     - getting_started.qmd
+    - workshop.qmd
     - dataframes.qmd
     - summary.qmd
     - references.qmd

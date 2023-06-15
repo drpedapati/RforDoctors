@@ -92,7 +92,7 @@ Let's start by moving our cursor to line #1. This assures us that we are at the 
 
 ![](images/CleanShot%202023-06-13%20at%2019.24.28@2x.png)
 
-**The First Run**
+**The First Run Line**
 
 R will skip over each comment until it gets to the first instruction (Line 6). It will then execute the instruction. The cursor will end up on the comment on Line 8. You will notice new output in the console that prints the instruction that was run.
 
@@ -102,7 +102,7 @@ From R's perspective, we have now opened the `medicaldata` package and it is ava
 
 ![](images/CleanShot%202023-06-13%20at%2019.37.29@2x.png)
 
-**The Second Run**
+**The Second Run Line**
 
 "Proceed with running the next line of code. As before, R will ignore comments and execute the data function instruction. However, this time, the result isn't silent. A new tab should appear in your editor, presenting all the datasets housed within the medicaldata package.
 
@@ -116,7 +116,7 @@ When you prepend a line of code with the \# symbol, it effectively turns it into
 
 By leaving the command as a commented line, you can quickly see what function it served and how it was used. If you need to execute this line in the future, all you need to do is remove the \# sign to uncomment the line, making it a live command once more.
 
-**The Third Run**
+**The Third Run Line**
 
 Proceed with the next line of code. Instead of a quiet output or triggering a new window, the console will start displaying a cascade of data table columns.
 
@@ -126,4 +126,4 @@ Well done, this is your initial view of the strep_tb dataset!
 
 You may find this partial view a bit limiting. Before learning R, many of us, including myself, primarily managed our data using software like Excel. Excel has its own challenges, but it undeniably offers an immediate and comprehensive view of all your data.
 
-Don't fear! Much like my own experience, you're likely to be pleasantly surprised by the vast array of powerful tools that R brings to the table. In the following sections you will see how quickly you can have x-ray vision to see a dataset.
+Don't fear! Much like my own experience, you're likely to be pleasantly surprised by the vast array of powerful tools that R - including viewing the data as a spreadsheet. In the next chapter we will use these tools to get "x-ray" vision into our dataset.

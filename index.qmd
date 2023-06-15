@@ -1,8 +1,6 @@
 # Preface {.unnumbered}
 
-![](images/adventuremap.png)
-
-Figure: AI-generated art depicting an adventure map.
+![An adventure map](images/adventuremap.png){#fig-map}
 
 Welcome to your essential guide to learning R for medical professionals. If you're a physician eager to master R, you may find yourself at a crossroads. On the one hand, you have the vast online universe of random tutorials, StackOverflow threads, and YouTube videos. On the other, you have highly-reviewed online courses that promise a comprehensive understanding of R but often don't cater to your specific needs as a medical professional.
 

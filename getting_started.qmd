@@ -1,157 +1,89 @@
-# Getting Started with R
+# Getting Started
 
-![Depiction of the R "workshop" analogy](images/workshop.png){#fig-workshop}
+## What is R?
 
-## The Big Picture
+Figure 1.1 AI-generated art capturing R statistics in the abstract
 
-In previous chapters, we learned what R is and why we would want to use it. We setup access to R though our web browser by signing up for a free RStudio account. Let's move ahead to learning about R packages. R packages instantly give you access to a universe of tools and datasets.
+R is a free, open-source programming language and software environment specifically designed for statistical computing and graphics. Ross Ihaka and Robert Gentleman created R at the University of Auckland and it is now maintained by the R Development Core Team. R is essentially composed of a core language and a variety of user interfaces. The core language, often referred to as "base R", is where all the computation and processing happens. The user interfaces, such as RStudio, provide an intuitive frontend where users write code, visualize data, and manage their workflows.
 
-## Introduction
+The idea for R came about when Drs. Ross Ihaka and Robert Gentleman were teaching an introductory statistics course and were unsatisfied with the statistical software available to them. They wanted to create a software that was free, user-friendly, and provided an effective way to teach their students statistics.
 
-The `medicaldata` package is a collection of datasets that are relevant to medical research. It offers a robust collection of medical datasets extracted from a wide range of study designs, including randomized controlled trials, retrospective and prospective cohort studies, and case-control studies. These datasets encompass a diverse array of medical conditions and treatment approaches, providing rich opportunities for learning, exploration, and analysis.
+Interestingly, R is named partly after the first names of the two R authors (Robert and Ross) and partly as a play on the name of S, an influential statistical programming language at the time.
 
-The package contains over 19 datasets, covering a wide range of medical topics, including cancer, cardiovascular disease, diabetes, and mental health. One of the datasets, 'strep_tb', for example, is drawn from the groundbreaking 1948 trial of Streptomycin treatment for tuberculosis, the first modern randomized, placebo-controlled clinical trial. The datasets in the `medicaldata` package are all in a standard format, which makes them easy to use with R.
+Since its creation, R has grown exponentially, with a vibrant community of users and developers from various fields like academia, industry, and data science. It's maintained by a large, global group of volunteers who continually add to its capabilities by creating new packages.
 
-## R Packages
+## Why R?
 
-How do we get access to all of these interesting datasets?
+For those of us who've engaged with statistical analysis during our education or careers, the memory of installing a hard-to-get software replete with countless menus, allowing interaction primarily through mouse clicks, is all too familiar. Perhaps you ran various commands on data, or dove into different analyses, all while navigating through these menus and outputs. I recall those times vividly and suspect many of you have similar experiences.
 
-The beauty of R lies in its simplicity and ease of access to a wealth of data and tools. Unlike traditional methods where you might have to navigate to a website, download files, and manually place them into specific directories, R simplifies this process immensely. One of the big advantages of R is that it provides the capability to access numerous tools and datasets directly from the command line using a single line of code.
+R, to many, might initially appear as an obscure programming language tucked away in academia or tech-based industries.
 
-## Packages are Toolboxes
+But let me challenge your perception!
 
-Think of R as large workshop with access to a main tool depot. with access to lots of specialized toolkits. In this workshop you are assigned a personal workbench. The toolboxes are designed and put together by different craftsmen, making them unique in the tools they contain. If you've identified a toolbox that you need for a specific project, you first have to bring that toolbox into your workbench. In fact, it would not be unusual to retrieve several toolkits depending on needs of your project.
+The very traits of R that lend it an air of obscurity are, in fact, its most significant assets.
 
-However, just lugging the toolboxes to your workbench doesn't necessarily mean you can immediately use the tools they contains. If you want access to all your screwdrivers at once, you will need open a specialized screwdriver toolkit. On the other hand, you might only want a single screwdriver from a special toolkit. this is more than just keeping your workbench tidy, you also don't want to have duplicates of similar tools around which may lead to confusion.
+## Great things about R
 
-## Breaking down the workshop analogy
+1.  **You don't have to install R**:
 
-Let's connect this analogy with learning R
+    Unlike traditional software, R doesn't demand space on your computer. It runs smoothly in the cloud, making it accessible from anywhere, on any device. More importantly, the scripts, the 'statistical documents' you write in R, are not one-off commands. They are reusable, editable, and shareable pieces of code that capture your entire analytical process from start to finish.
 
--   The workshop represents R and RStudio
+2.  **R is free:**
 
--   The personal workbench is your R project
+    I still have bad memories of trying to find a student copy of an expensive statistics software I bought in college. The complete and latest R suite is free to run on the platform of your choice and the 100% cloud-based R-Studio has a generous amount of resources for their free plan.
 
--   The toolboxes are R packages
+3.  **Active and Friendly Community:**
 
--   The tool depot is the Comprehensive R Archive Network (CRAN) package repository (more on this later!)
+    R has a large, active, and helpful user community. This means help is often readily available through online forums, blogs, and tutorials.
 
--   Lugging the toolkit to your workbench is analogous to installing the package
+4.  **Narratives, not isolation:**
 
--   Opening the entire toolkit is adding it to your active R libraries
+    Writing scripts in R provides a natural and coherent flow to your work, a linear narrative, if you will. Instead of isolated tables and analyses separated by an output window, you have a comprehensive, logical story.
 
--   Selecting a single tool from a toolkit is the same as using the `::` operator on a package.
+5.  **Awesome outputs:**
 
-## Software repositories in R
+    The table and graphics capabilities of R are second to none. Packages such as `flextable` and `ggplot2` provide advanced functionality for creating high-quality, customizable, and publication-ready graphics. You will quickly recognize in print and media that R is everywhere!
 
-### CRAN (<https://cran.r-project.org/>)
+After spending some time with R, becoming familiar with its capabilities, and experiencing its versatility firsthand, you might find it hard to even recognize it compared to the statistical programs you used back in college.
 
-The CRAN repository where officially approved and tested packages are stored.These packages are well-documented, reliable, and updated regularly. So, if you need a tool for a common task, you're likely to find a toolbox containing it in the CRAN repository.
+## Using RStudio Cloud
 
-### Development repositories
+RStudio Cloud is a great tool that simplifies the process of setting up R. It allows you to run R directly from your web browser, eliminating the need to install software locally and handle any setup hassles. In 2023, RStudio was renamed Posit Studio and Posit Cloud but in this book, I will continue to refer to it as RStudio and RCloud.
 
-Places like Github and other code repositories offer exciting, cutting-edge tools that may not have made their way to the main CRAN depot yet. While the tools from these workshops can be highly useful, they also come with a word of caution as they may not be as thoroughly tested and documented as those in the CRAN depot. You may also you need to use the latest advancements with well-known packages that have not been updated on CRAN yet.
+1.  **Creating an Account**
 
-## Walkthrough
+    First, navigate to the RStudio Cloud website ([**https://rstudio.cloud/**](https://rstudio.cloud/)). If you don't have an account yet, click on "Sign Up" to create one. Enter your details, then click "Register". You'll receive an email to confirm your account.
 
-Let's walk through loading the `medicaldata` package which will provide the datasets we will use thoughout the rest of book.
+    > ![](images/posit.cloud_%20(1).png)
 
-### Setting the stage
+2.  **Creating a New Project**
 
-1.  First create a new R project in R Cloud
+    After you've logged in, you'll see your RStudio Cloud workspace. Click on the "New Project" button to start a new R project. Enter a name for your project and then click on "Create Project".
 
-![Posit/RStudio Cloud Homepage](images/posit.cloud_login_code=RjaPWEO8K1VLgeNKrf5fPzXTp4ezfa%20(1)-01.png){#fig-cloud1}
+    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35.png)
 
-2.  Give your project a name by clicking above the menu bar. Type in RforDoctors.
+3.  **RStudio Cloud Interface**
 
-    ![](images/CleanShot%202023-06-13%20at%2018.23.45@2x.png)
+    Now you're inside the RStudio interface, running within your web browser. On the left, you'll see the R console where you can enter R commands. The right panel contains tabs for plots, packages, help, and files. The top-left panel is for scripts or R Markdown files.
 
-3.  Create a new empty R script
+    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35%20(1).png)
 
-![Adding a new file](images/CleanShot%202023-06-12%20at%2022.18.53@2x.png){#fig-cloud2}
+4.  **Writing and Running R Code**
 
-3.  Save the File as chapter1.R
+    To start coding, click on the "File" menu, then "New File", and then "R Script". An editor will open where you can write your R code. After writing your code, you can run it by clicking on the "Run" button, or by pressing Ctrl+Enter (Cmd+Enter on Mac).
 
-    ![Saving a file](images/CleanShot%202023-06-12%20at%2022.21.34@2x.png){#fig-cloud3}
+    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35%20(3).png)
 
-4.  Type the following into your blank script:
+5.  **Run some practice code**
 
-``` r
-# Install the R package medicaldata
-install.packages("medicaldata")
+    Let's test out your setup by printing "Hello World!". In your empty script type `` print("Hellow World!")` `` and click on the "Run" button.
 
-# Load package into active library
-library(medicaldata)
-```
+    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35%20(2).png)
 
-5.  Access the `Code` menu and select `Run All`
+6.  **Saving and Sharing Your Work**
 
-![Running your code](images/CleanShot%202023-06-12%20at%2022.26.59@2x.png){#fig-cloud4}
+    RStudio Cloud autosaves your work as you go, so you don't have to worry about losing your code. If you want to share your project, click on the "Settings" gear icon in the top-right corner of the project, and set "Who can view this project" to "Everyone". You can then share the URL of your project with others.
 
-6.  Examine the output in the console window.
+    > ![](images/posit.cloud_login_code=sObwdDsWld0OQQ5q2vyhnQKQLbqk35%20(4).png)
 
-![The R Console](images/CleanShot%202023-06-12%20at%2022.29.32@2x.png){#fig-cloud5}
-
-## Reviewing the Code
-
-Diving into the code we've written, several key points need to be highlighted.
-
--   Code isn't like regular writing. Forget paragraphs; each command you write stands alone on its own line.
-
--   The pound symbol \# leads us to the next key point. Placing this at the start of a line tells R to gloss over this part when executing code. This is what we call a comment and it's a handy way to leave notes for yourself and others.
-
--   The third point concerns functions, such as `install.packages()` and `library()`. Consider functions as time-saving shortcuts for complicated operations. They take inputs and give outputs.
-
--   When you see parentheses associated with a term, think function. Whatever goes inside these parentheses are known as input parameters to the function.
-
--   Look closely at the use of quotes around `medicaldata` in the `install.packages` line, but their absence in the `library` line. In R, quotes aren't just punctuation, they serve a specific function which we'll delve deeper into later.
-
-## Examining the output
-
-Our first interactive coding command produced some interesting output in the R console. Let's take a moment to discuss the R console and understand what it just told us.
-
-The R console is akin to a live conversation with R. When you type a command and hit enter, R listens, processes the request, and then speaks back to you. This "speech" is the output you see on your screen. Let's look at the output from our script:
-
-![Reviewing the console output](images/CleanShot%202023-06-12%20at%2022.29.32@2x-01.png){#fig-cloud7}
-
-Now, back to the output of our first command, **`install.packages("medicaldata")`**. This command tells R to install the "medicaldata" package, a collection of ready-made functions and data. R takes this command, connects to a server, and starts to download the package. It provides us with live updates, telling us how large the package is (650 KB), and its download status.
-
-The next few lines, **`* installing *binary* package ‘medicaldata’ ...`** and **`* DONE (medicaldata)`**, tell us that R has successfully installed the package.
-
-The last line of the output, **`‘/tmp/Rtmpi7lTow/downloaded_packages’`**, is R's way of saying "If you need the downloaded files, here's where I've stored them".
-
-Once the installation is complete, we run **`library(medicaldata)`**. This command tells R to open the toolbox of `medicaldata` and make its tools available for use. There's no output after this command, which usually indicates that the command has run successfully and the package is ready to use.
-
-## Checking the results of our work
-
-Installing packages is a fundamental aspect of using R. In the next few chapters we will learn more about the language of R to manipulate and process data, but for now let's see the fruit of our labor.
-
-Most R packages have excellent documentation. The medicaldata package is no exception. The guide to the datasets in the package can be found at this link: <https://higgi13425.github.io/medicaldata/>.
-
-Let's use the instructions from the package author to view the different datasets we now have installed by typing into the console:
-
-``` r
-data(package = "medicaldata")
-```
-
-Once you execute this command, R will display an interactive window showing you all the datasets available in the "medicaldata" package. Each dataset is listed with a brief description of the kind of data it contains, which can be very useful when deciding which dataset to use for a particular analysis.
-
-![Datasets within the medicaldata package](images/CleanShot%202023-06-12%20at%2023.00.17@2x.png){#fig-cloud8}
-
-## Entering data within a script versus the console
-
-When you're working with R, you have two main places where you can enter your data or commands: the script editor and the console.
-
-![Navigating the RStudio Interface](images/CleanShot%202023-06-13%20at%2011.12.19@2x.png){#fig-cloud9}
-
-The script editor is your workspace for crafting R scripts. This is where you write your lines of code, organize your thoughts, define functions, and generally create your R programs. Anything you write in the script editor is saved and can be run as many times as you want, making it ideal for larger, more complex analyses.
-
-On the other hand, the console is the live interaction space where R executes commands and displays results. Anything you type directly into the console is run immediately, but it's not saved once you close your R session. It's a great place for quick calculations, testing small bits of code, or inspecting data.
-
-In essence, the script editor is your drafting table where you design and plan, and the console is more like a chat where you can immediately execute and see your plans come to life. As you continue to work with R, you'll become more comfortable determining when to use each for different tasks.
-
-Indeed, certain commands are best suited for direct execution in the console, especially those that serve to inspect data or check a package's contents. The command to view the datasets within the **`medicaldata`** package is a good example of this. It's a 'single-use' operation that doesn't necessarily form part of the core workflow in your script, but rather provides you with valuable contextual information.
-
-## Chapter Summary
-
-In this chapter, we introduced the basics of using R, with a specific focus on accessing and utilizing packages from CRAN. We introduced the concept of functions, explained the role of comments, and highlighted the differences between writing code in a script versus executing commands in the console. Through the installation and exploration of the 'medicaldata' package, we demonstrated the ease and power of working with packages in R. This foundational knowledge will serve as a solid base as we delve deeper into R programming in subsequent chapters.
+Congratulations! You're now up and running with RStudio Cloud. You have a versatile, powerful tool at your fingertips, ready to tackle your data analysis needs.

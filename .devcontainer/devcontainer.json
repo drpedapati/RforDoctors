@@ -8,6 +8,10 @@
       "python.linting.enabled": true,
       "python.linting.pylintEnabled": true
     },
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
     "extensions": [
       "ms-python.python",
       "ikuyadeu.r",

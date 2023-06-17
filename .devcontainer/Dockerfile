@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN R -e "install.packages('renv')"
 
 # Copy the renv.lock file
-COPY renv.lock /app/renv.lock
+COPY renv.lock .
 
 # Restore R packages from the renv.lock file
 RUN R -e "renv::restore()"

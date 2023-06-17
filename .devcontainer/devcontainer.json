@@ -1,0 +1,19 @@
+{
+    "name": "Python and R Dev Container",
+    "dockerFile": "Dockerfile",
+    "forwardPorts": [],
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash",
+      "python.pythonPath": "/usr/local/bin/python",
+      "python.linting.enabled": true,
+      "python.linting.pylintEnabled": true
+    },
+    "extensions": [
+      "ms-python.python",
+      "ikuyadeu.r",
+      "REditorSupport.r-lsp",
+      "ms-toolsai.jupyter",
+      "ms-python.vscode-pylance",
+      "VisualStudioExptTeam.vscodeintellicode"
+    ]
+  }

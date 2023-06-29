@@ -15,6 +15,10 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory
 WORKDIR /app
 
+RUN PWD
+
+RUN ls -l 
+
 # Copy the requirements.txt file and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt

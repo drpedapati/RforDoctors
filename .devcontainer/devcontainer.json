@@ -1,23 +1,34 @@
 {
-    "name": "Python and R Dev Container",
-    "dockerFile": "Dockerfile",
-    "forwardPorts": [],
-    "settings": {
-      "terminal.integrated.shell.linux": "/bin/bash",
-      "python.pythonPath": "/usr/local/bin/python",
-      "python.linting.enabled": true,
-      "python.linting.pylintEnabled": true
-    },
-    "build": {
-      "dockerfile": "Dockerfile",
-      "context": ".."
-    },
-    "extensions": [
-      "ms-python.python",
-      "ikuyadeu.r",
-      "REditorSupport.r-lsp",
-      "ms-toolsai.jupyter",
-      "ms-python.vscode-pylance",
-      "VisualStudioExptTeam.vscodeintellicode"
-    ]
-  }
+	"id": "r-ver",
+	"version": "1.0.1",
+	"name": "R (rocker/r-ver base)",
+	"description": "A container-based development environment for the R language. Includes many commonly used R packages.",
+	"documentationURL": "https://github.com/rocker-org/devcontainer-templates/tree/main/src/r-ver",
+	"publisher": "Rocker Project",
+	"licenseURL": "https://github.com/rocker-org/devcontainer-templates/blob/main/LICENSE",
+	"options": {
+		"imageVariant": {
+			"type": "string",
+			"description": "R version:",
+			"proposals": [
+				"4",
+				"4.3",
+				"4.2"
+			],
+			"default": "4.3"
+		},
+		"baseVariant": {
+			"type": "string",
+			"description": "Base image. Minimal (r-ver), tidyverse installed (tidyverse), or full image (geospatial). Only r-ver supports the arm64 platform:",
+			"proposals": [
+				"r-ver",
+				"tidyverse",
+				"geospatial"
+			],
+			"default": "tidyverse"
+		}
+	},
+	"platforms": [
+		"R"
+	]
+}

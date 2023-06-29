@@ -67,7 +67,7 @@ For example, numerical data types can undergo mathematical operations, while str
 Understanding and correctly identifying these data types ensures that you apply appropriate operations on them and that you choose the correct methods for analysis and visualization. Misunderstanding the type of data you are dealing with can lead to errors, incorrect analysis results, and misrepresentations of data.
 
 | Data Type | Description                                                                |
-|-----------|----------------------------------------------------------------------------|
+|--------------|----------------------------------------------------------|
 | Numeric   | These are the basic data type for storing numbers (integers and decimals). |
 | Integer   | These are numeric types that hold only integer values.                     |
 | Complex   | These store complex numbers.                                               |
@@ -78,13 +78,46 @@ Understanding and correctly identifying these data types ensures that you apply 
 
 ## Hands on experience with each data type
 
-1.  **Numeric**: Calculate the average body mass index (BMI) of a patient over the last 12 months. `r     bmi_values <- c(25.1, 26.3, 25.9, 25.5, 26.0, 26.4, 26.1, 25.8, 26.3, 26.2, 26.0, 26.1)     average_bmi <- mean(bmi_values)     print(average_bmi)`
-2.  **Integer**: Count the number of patient visits in a year. `r     visit_counts <- c(1, 2, 1, 2, 2, 3, 2, 2, 1, 2, 2, 1)     total_visits <- sum(visit_counts)     print(total_visits)`
+1.  **Numeric**: Calculate the average body mass index (BMI) of a patient over the last 12 months.
+
+```r
+bmi_values <- c(25.1, 26.3, 25.9, 25.5, 26.0, 26.4, 26.1, 25.8, 26.3, 26.2, 26.0, 26.1)     average_bmi <- mean(bmi_values)     
+print(average_bmi)
+```
+
+2.  **Integer**: Count the number of patient visits in a year. 
+```r     
+visit_counts <- c(1, 2, 1, 2, 2, 3, 2, 2, 1, 2, 2, 1)
+total_visits <- sum(visit_counts)     
+print(total_visits)
+```
+
 3.  **Complex**: Not typically used in medical contexts, but can be used for mathematical calculations involving complex numbers.
-4.  **Character**: Store a patient's name and print it. `r     patient_name <- "John Doe"     print(patient_name)`
-5.  **Logical**: Check if a patient's BMI is above 25 at each visit. `r     bmi_above_25 <- bmi_values > 25     print(bmi_above_25)`
-6.  **Factor**: Create a factor object for patient blood types and print the levels. `r     blood_types <- factor(c("A", "B", "AB", "O", "O", "A", "B", "AB", "O", "A"))     print(levels(blood_types))`
-7.  **Date/Time**: Create a date object for patient visits and calculate the duration since the first visit. `r     visit_dates <- as.Date(c("2023-01-01", "2023-02-01", "2023-03-01", "2023-04-01", "2023-05-01", "2023-06-01"))     duration <- Sys.Date() - min(visit_dates)     print(duration)`
+
+4.  **Character**: Store a patient's name and print it. 
+```r     
+patient_name <- "John Doe"     
+print(patient_name)
+```
+
+5.  **Logical**: Check if a patient's BMI is above 25 at each visit. 
+```r     
+bmi_above_25 <- bmi_values > 25     
+print(bmi_above_25)
+```
+
+6.  **Factor**: Create a factor object for patient blood types and print the levels. 
+```r     
+blood_types <- factor(c("A", "B", "AB", "O", "O", "A", "B", "AB", "O", "A"))     
+print(levels(blood_types))
+```
+
+7.  **Date/Time**: Create a date object for patient visits and calculate the duration since the first visit. 
+```r
+visit_dates <- as.Date(c("2023-01-01", "2023-02-01", "2023-03-01", "2023-04-01", "2023-05-01", "2023-06-01"))
+duration <- Sys.Date() - min(visit_dates)
+print(duration)
+```
 
 Please replace `Sys.Date()` with the actual date when running the exercise.
 
@@ -110,12 +143,17 @@ Vectors and lists are two fundamental data structures in R, and they're related 
 
 1.  **Vectors**: A vector in R is a sequence of data elements of the same basic type. Members in a vector are officially called components. All components of a vector must be of the same type. Hence, we have numeric, logical, character, and complex vectors.
 
-    Example of a numeric vector: `r  patient_ages <- c(25, 30, 35, 40)`
+    Example of a numeric vector: 
+    ```r  
+    patient_ages <- c(25, 30, 35, 40)
+    ```
 
 2.  **Lists**: A list in R, however, is an ordered collection of objects, where these objects can be of different types (numeric, character, logical, etc.). This is a major difference from vectors. In other words, a list in R can contain numbers, strings, vectors, other lists, and so on.
 
-    Example of a list: `r  patient_info <- list(name = "John Doe", age = 35, disease = "Hypertension", visit_dates = as.Date(c("2023-01-01", "2023-02-01")))`
-
+    Example of a list: 
+    ```r  
+    patient_info <- list(name = "John Doe", age = 35, disease = "Hypertension", visit_dates = as.Date(c("2023-01-01", "2023-02-01")))
+    ```
 In the context of data types, vectors and lists are containers that hold data. However, vectors can hold only one type of data at a time (all numeric, all character, etc.), while lists can hold multiple types of data at once (numeric, character, other lists, vectors, etc.).
 
 This flexibility makes lists particularly useful for complex data manipulation tasks and for creating data frames (which are a specific type of list where each element is a vector of equal length - think of them like a spreadsheet with columns of different types of data, but the same number of rows in each column).

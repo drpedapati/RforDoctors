@@ -1,0 +1,47 @@
+# Data Frames
+
+## Vignette: The Lunch Lecture Cram (Continued...)
+
+In the last chapter, we found our intrepid lunch lecturer using the trial by fire approach to learning R. Let's pick up where we left off and review the initial chunk of code that we wrote to help our lecturer get started.
+
+```{r} 
+#| output: false
+# Subject: Lunch Lecture on TB
+# Date: 6/7/2023
+# Author: Dr. Wall
+
+# Install the medicaldata package
+install.packages("medicaldata")
+
+# Open the medicaldata toolbox
+library(medicaldata)
+
+# View the available datasets
+# instructions at https://higgi13425.github.io/medicaldata/
+data(package = "medicaldata")
+
+# Print the strep_tb dataset
+strep_tb
+```
+
+## Arg! The Data is Too Big!: The head() function
+
+The strep_tb dataset can be printed to the console by running the code. However, the current format of the printed dataset is not very readable. It is hard to distinguish between columns and rows, and too many rows are printed to the console.
+
+Let's use the head() function to print the first 10 rows of the strep_tb dataset to the console.
+
+```{r}
+head(strep_tb, n = 5)
+```
+
+By default head() will print the first 10 rows of a dataset (head = "header"). We have added an argument to the head() function to print the first 5 rows of the strep_tb dataset (n = 5).
+
+Using the head function when opening new datasets is a good way to get a quick overview of the data. 
+
+## Viewing the data as a spreadsheet: the View() function
+
+Of course, there are many limitations to viewing a dataset in the console window. The View() function to view the strep_tb dataset as a spreadsheet. When you run this command a new window "tab" will open with a table view of the entire data. The "tab" works similar to a browser tab. You can switch between the console and the "tab" by clicking on the tab. You can close the tab by clicking on the "x" in the upper right corner of the tab to retun to your initial code.
+
+```r
+view(strep_tb)
+```

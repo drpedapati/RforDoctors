@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R for Physicians: Learning with Ease &amp; Efficiency - 3&nbsp; Data Frames</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./workshop.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dataframes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Frames</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Physicians: Learning with Ease &amp; Efficiency</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The R Workshop</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Frames</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-big-picture-so-far" id="toc-the-big-picture-so-far" class="nav-link active" data-scroll-target="#the-big-picture-so-far"><span class="header-section-number">3.1</span> The big picture (so far)</a></li>
+  <li><a href="#what-are-data-frames" id="toc-what-are-data-frames" class="nav-link" data-scroll-target="#what-are-data-frames"><span class="header-section-number">3.2</span> What are data frames?</a></li>
+  <li><a href="#the-many-names-of-data-frames" id="toc-the-many-names-of-data-frames" class="nav-link" data-scroll-target="#the-many-names-of-data-frames"><span class="header-section-number">3.3</span> The many names of data frames</a></li>
+  <li><a href="#vignette-the-lunch-lecture-cram" id="toc-vignette-the-lunch-lecture-cram" class="nav-link" data-scroll-target="#vignette-the-lunch-lecture-cram"><span class="header-section-number">3.4</span> Vignette: The Lunch Lecture Cram</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Frames</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div id="fig-dataframe1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/abstract table.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.1: Abstract Perspective of a Data Frame</figcaption>
+</figure>
+</div>
+<section id="the-big-picture-so-far" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-big-picture-so-far"><span class="header-section-number">3.1</span> The big picture (so far)</h2>
+<p>Now that you’ve set up your rstudio.cloud account and familiarized yourself with the interface including the code editor and command console, it’s time to delve into the world of data frames. In the realm of medical practice, data frames serve as indispensable tools for organizing and analyzing clinical data.</p>
+</section>
+<section id="what-are-data-frames" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="what-are-data-frames"><span class="header-section-number">3.2</span> What are data frames?</h2>
+<p>Data frames are the most widely used data structure in R and help you manage data in a structured, tabular format.</p>
+<p>Data frames are similar in appearance to spreadsheets. It is a two-dimensional table where each column contains values of one variable, and each row contains one set of values from each column. A key thing to note about data frames is that different columns can contain different types of data (numeric, character, etc.), but each column must contain the same number of data items (rows).</p>
+</section>
+<section id="the-many-names-of-data-frames" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="the-many-names-of-data-frames"><span class="header-section-number">3.3</span> The many names of data frames</h2>
+<p>Data frames in R come with an assortment of names, which can make the initial stages of learning R a bit confusing. Traditionally, a data frame in R is referred to as a ‘data.frame’. However, with the advent of packages like ‘tibble’ in the tidyverse ecosystem, a data frame can also be called a ‘tibble’. Meanwhile, in the data.table package, it’s called a ‘data.table’. Don’t let the various names confuse you; they all revolve around the same fundamental concept.</p>
+</section>
+<section id="vignette-the-lunch-lecture-cram" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="vignette-the-lunch-lecture-cram"><span class="header-section-number">3.4</span> Vignette: The Lunch Lecture Cram</h2>
+<div id="fig-lunchtalk" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/thelunchtalk.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.2: A captivating lunch lecture?</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>You are a 3rd year infectious disease fellow on a research block. Your supervisor has asked you to present a captivating lunch lecture to several visiting faculty. Knowing that many history buffs will be present, you decide to present a reanalysis of an infectious disease landmark - the discovery of streptomycin as a treatment for tuberculosis (TB). After all, why not? You have heard that the original dataset is only a few lines away in R! Fast forward a few weeks later. You break into a sweat realizing that the talk is only 24 hours away and you haven’t thought about it once since you were asked. However, your last few weeks’ priorities had other, undoubtedly urgent, plans. Here you are, with R as unfamiliar as before and the talk lurking just a day away. But hey, who needs calm preparation when you can have adrenaline-fueled learning marathons, right? Let the last-minute hustle begin! You sit down at your computer and open http://rstudio.cloud …</p>
+</blockquote>
+<p>We can certainly empathize with the fellow’s predicament. Let’s imagine the questions racing through her head and see if we can help!</p>
+<p><strong>Where do I start?</strong></p>
+<p>R differs from many statistical software packages where you typically start with your data. Instead, R operates more like a word processor. The ideal starting point is to open a new file, akin to launching a fresh document. Right after, it’s advisable to name and save the file promptly. Let’s designate ours “chapter2.R”.</p>
+<p><img src="images/CleanShot 2023-06-13 at 15.08.59@2x.png" class="img-fluid"></p>
+<p><strong>What do I type into my blank script?</strong></p>
+<p>It’s normal when starting R to find a blank script daunting. As you gain experience, this fear will fade and scripting will become intuitive. For now, starting with a template, much like you would in a word processor, can provide a supportive starting point, making the learning curve less steep.</p>
+<p>Enter the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subject: Lunch Lecture on TB</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Date: 6/7/2023</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: Dr. Wall</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the medicaldata toolbox</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(medicaldata)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the available datasets</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># instructions at https://higgi13425.github.io/medicaldata/</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">"medicaldata"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the strep_tb dataset</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>strep_tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Figure 2.2:</strong> A template script to access the <code>medicaldata</code> package.</p>
+<p><strong>How do I “run” the code?</strong></p>
+<p>Let’s jump right in - code, unlike a document, can be “run” or “executed” so the computer follows a set of instructions. The only catch is that the instructions must follow a certain set of rules or syntax.</p>
+<p><em>The simplest way to run code in R is to execute the current line where your cursor is located.</em> You can do this by pressing ‘Ctrl + Enter’ if you are using Windows/Linux or ‘Cmd + Enter’ if you are on a Mac. You can also click the “Run” button.</p>
+<p><img src="images/CleanShot 2023-06-13 at 18.27.52@2x.png" class="img-fluid"></p>
+<p><strong>What is the best strategy to run code?</strong></p>
+<p>It’s important to think of an R script as a story with a beginning, middle, and end. Though you can run sections in whatever order you want, however, it may not make any sense when R tries to execute the code.</p>
+<p>Let’s think about our current piece of code that consists of three parts:</p>
+<p><img src="images/CleanShot 2023-06-13 at 18.27.52@2x-01.png" class="img-fluid"></p>
+<ol type="1">
+<li>Comments (Lines 1-3, 5, 8-9)</li>
+<li>An instruction to open the <code>medicaldata</code> package (line 6)</li>
+<li>An instruction to view all the data in the <code>medicaldata</code> package (line 10)</li>
+</ol>
+<p>Similarly, when writing a script in R, certain instructions or packages must be initiated before others. If we consider an R package as a character in our story, you must first introduce (load) the character into the plot (the R environment) before they can take any actions (functions).</p>
+<p>Also, if you modify any section of your code, you should plan on re-executing that section so R has an up to date understanding of what you want to do. Remember, executing your code regularly is a good practice as it allows you to catch and fix any errors or bugs as soon as they arise.</p>
+<p><strong>What about comments?</strong></p>
+<p>Comments are the exception to the rule. Comments do NOT have to be executed. A properly formatted comments (i.e.&nbsp;starting with a pound symbol) is only interpreted by the human reading the code, it doesn’t have any particular meaning to R. So you can really place comments in what ever order you want.</p>
+<p><strong>So, can we see the dataset now?</strong></p>
+<p>We’re now ready to explore the dataset. Despite the initial learning process being somewhat tedious - stepping back - the process isn’t overly complicated. We’ve managed to carry out all tasks within a web browser, starting from an empty script and adding 2-3 lines of code. This has provided us with access to the specific data we’re interested in examining.</p>
+<p><strong>Three Runs: Finally, let’s run some code!</strong></p>
+<p>Let’s start by moving our cursor to line #1. This assures us that we are at the very beginning of the script and we don’t miss executing any lines of instructions. Let’s start by using either the hot key for running a line or clicking the “Run” button above the editor. We are going to do three consecutive runs and see what we can learn.</p>
+<p><img src="images/CleanShot 2023-06-13 at 19.24.28@2x.png" class="img-fluid"></p>
+<p><strong>The First Run Line</strong></p>
+<p>R will skip over each comment until it gets to the first instruction (Line 6). It will then execute the instruction. The cursor will end up on the comment on Line 8. You will notice new output in the console that prints the instruction that was run.</p>
+<p>In this case, using the <code>library</code> function with the input of <code>medicaldata</code> did not result in any visible output. This is often referred to as silent output. If no warning or error messages are generated, this means the instruction was a success.</p>
+<p>From R’s perspective, we have now opened the <code>medicaldata</code> package and it is available for use. The Packages tab in the Files pane can confirm which packages are ready to use via a library function vs.&nbsp;packages that are generally available in your workspace.</p>
+<p><img src="images/CleanShot 2023-06-13 at 19.37.29@2x.png" class="img-fluid"></p>
+<p><strong>The Second Run Line</strong></p>
+<p>“Proceed with running the next line of code. As before, R will ignore comments and execute the data function instruction. However, this time, the result isn’t silent. A new tab should appear in your editor, presenting all the datasets housed within the medicaldata package.</p>
+<p>Please scroll through this list until you find the Streptomycin/TB dataset that we’re interested in, and make sure to note down its name.”</p>
+<p>This is a good example of how certain instructions may not be the best to leave within a script. In this case, trying to run this code as a single script may be interrupted by opening a new window. There is a very simple way, however, to keep track of this function without having to erase it. Just add # sign in front of it to comment it out. Even though it is a valid R instruction, the comment symbol will not let R see it as an instruction and it will not run. However, you will be able to know the command is still available and what purpose it served. If you need to run it again in the future, simply uncomment the line.</p>
+<p>Indeed, it’s important to note that not all instructions are optimal to include in a script that’s intended to be run as a whole. In this instance, if a piece of code triggers the opening of a new window, it could disrupt the execution flow of the script. However, there’s a straightforward solution to this: we can use the hashtag (#) to comment out this line of code.</p>
+<p>When you prepend a line of code with the # symbol, it effectively turns it into a comment. Despite being a valid R command, the interpreter will not execute it as such due to the comment symbol. This prevents the code from running, but it allows you to keep the command in your script for future reference or use.</p>
+<p>By leaving the command as a commented line, you can quickly see what function it served and how it was used. If you need to execute this line in the future, all you need to do is remove the # sign to uncomment the line, making it a live command once more.</p>
+<p><strong>The Third Run Line</strong></p>
+<p>Proceed with the next line of code. Instead of a quiet output or triggering a new window, the console will start displaying a cascade of data table columns.</p>
+<p>Well done, this is your initial view of the strep_tb dataset!</p>
+<p><img src="images/CleanShot 2023-06-13 at 19.54.17@2x.png" class="img-fluid"></p>
+<p>You may find this partial view a bit limiting. Before learning R, many of us, including myself, primarily managed our data using software like Excel. Excel has its own challenges, but it undeniably offers an immediate and comprehensive view of all your data.</p>
+<p>Don’t fear! Much like my own experience, you’re likely to be pleasantly surprised by the vast array of powerful tools that R - including viewing the data as a spreadsheet. In the next chapter we will use these tools to get “x-ray” vision into our dataset.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./workshop.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The R Workshop</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

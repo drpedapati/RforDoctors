@@ -11,6 +11,7 @@ book:
     - getting_started.qmd
     - workshop.qmd
     - dataframes.qmd
+    - rprogramming.qmd
     - summary.qmd
     - references.qmd
 

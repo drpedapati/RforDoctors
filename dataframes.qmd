@@ -127,3 +127,8 @@ Well done, this is your initial view of the strep_tb dataset!
 You may find this partial view a bit limiting. Before learning R, many of us, including myself, primarily managed our data using software like Excel. Excel has its own challenges, but it undeniably offers an immediate and comprehensive view of all your data.
 
 Don't fear! Much like my own experience, you're likely to be pleasantly surprised by the vast array of powerful tools that R - including viewing the data as a spreadsheet. In the next chapter we will use these tools to get "x-ray" vision into our dataset.
+
+## Summary
+
+In this chapter, we learned how to use RStudio to create a new script and run code. We also learned how to use the `library` function to open a package and the `data` function to view the datasets within a package. We also learned how to use the hashtag symbol to comment out a line of code. 
+

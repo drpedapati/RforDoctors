@@ -81,6 +81,44 @@ Let's add another tool to our data exploration toolbox.The summary() function pr
 summary(strep_tb)
 ```
 
+## Reviewing the primary source
+
+It can be easy to get caught up in the technical details of data analysis and forget about the data itself. When working with any dataset it is essential to learn about the data from the source.
+
+In this case, the creators of the `medicaldata` package have carefully annotated their datasets to provide a wealth of useful (and interesting!) information. To learn more about the `medicaldata` package, visit the [package website](https://higgi13425.github.io/medicaldata/) or in RStudio package pane, click on the `medicaldata` package to view the help files.
+
+Since the strep_tb dataset is included as a curated dataset, you can access the description of the dataset and the variables by running the following code:
+
+```{r}
+?strep_tb
+```
+
+Indeed, our medical fellow can not only learn about the dataset, but the authors have also linked the PDF of the original 1948 manuscript in the British Medical Journal.
+
+## Adding notes to your code using comments
+
+Since your R code serves as a kind of living notebook, you can also cut and paste any information from the help files into your code. It might be helpful to add comments in your code to remind yourself the meanings of the variable names and their definitions. 
+
+```{r}
+
+# patient_id
+# invented id number for each participant; type: character
+
+# arm
+# assigned treatment arm, Streptomycin or Control; type: factor
+
+# dose_strep_g
+# grams, dose of Streptomycin: numeric, 0, 1, or 2 grams
+
+# dose_PAS_g
+# grams, dose of PAS (Para-Amino-Salicylate): numeric, 5, 10, # or 20 grams. Note that no one in this intial study (study A) # received PAS. This was added for combination therapy in # studies B and C, as reported in 1952.
+
+```
+
+## Bulk commenting: the Comment/Uncomment Lines function
+
+When you have large blocks of text you want to comment, don't worry about adding a # to each line. You can use the menu option `Code > Comment/Uncomment Lines` or the keyboard shortcut `command + shift + c` to comment out multiple lines of code at once.
+
 ## Summary of Overview Functions
 
 So far in this chapter, we learned how to use the head(), View(), str(), and summary() functions to explore the strep_tb dataset. These functions are found within the s`base` package of R. This package is automatically loaded when you start R and so immediately available to you.

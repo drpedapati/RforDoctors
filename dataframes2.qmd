@@ -1,8 +1,6 @@
-# Data Frames
+# Getting a Handle on Your Data: The Overview Functions
 
-## Vignette: The Lunch Lecture Cram (Continued...)
-
-In the last chapter, we found our intrepid lunch lecturer using the trial by fire approach to learning R. Let's pick up where we left off and review the initial chunk of code that we wrote to help our lecturer get started.
+In the last chapter, we found our intrepid medical fellow using the trial by fire approach to learning R. Let's review her code:
 
 ```{r} 
 #| output: false
@@ -11,7 +9,7 @@ In the last chapter, we found our intrepid lunch lecturer using the trial by fir
 # Author: Dr. Wall
 
 # Install the medicaldata package
-install.packages("medicaldata")
+# install.packages("medicaldata")
 
 # Open the medicaldata toolbox
 library(medicaldata)
@@ -23,6 +21,17 @@ data(package = "medicaldata")
 # Print the strep_tb dataset
 strep_tb
 ```
+
+We used several functions:
+
+- `install.packages()` to install the medicaldata package
+- `library()` to open the medicaldata package
+- `data()` to view the available datasets
+- `strep_tb` to print the strep_tb dataset
+
+We accomplished our goal of getting the strep_tb dataset into R, but we did not learn much about the dataset itself. In fact, our method of viewing the data by printing it to the console may add to the intimidation factor of R! 
+
+In this chapter, we will add several practical tools to our arsenal to help us quickly get an overview of our data. 
 
 ## Arg! The Data is Too Big!: The head() function
 
@@ -40,8 +49,38 @@ Using the head function when opening new datasets is a good way to get a quick o
 
 ## Viewing the data as a spreadsheet: the View() function
 
-Of course, there are many limitations to viewing a dataset in the console window. The View() function to view the strep_tb dataset as a spreadsheet. When you run this command a new window "tab" will open with a table view of the entire data. The "tab" works similar to a browser tab. You can switch between the console and the "tab" by clicking on the tab. You can close the tab by clicking on the "x" in the upper right corner of the tab to retun to your initial code.
+Viewing a dataset in the console window has its limitations.Try the following code in your console window:
 
 ```r
-view(strep_tb)
+View(strep_tb)
 ```
+
+ The View() function allows you to see the strep_tb dataset in a spreadsheet-like format. When executed, this command opens a new tab with a comprehensive table of the data. This tab operates like a browser tab, allowing easy toggling between the console and the data view. To return to your initial code, simply close the tab by clicking on the 'x' in its upper right corner.
+
+::: {.callout-warning}
+Commands and variable names in R are case sensitive. View() is not the same as view(). If you type view() instead of View() you will get an error message.
+:::
+
+## X-ray vision: the str() function
+
+The strep_tb dataset contains 10 variables. The head() function allows us to see the first 5 rows of the dataset, but it does not tell us anything about the variables in the dataset. The str() function provides a quick overview of the variables in a dataset.
+
+```{r}
+str(strep_tb)
+```
+
+The str() function provides a summary of the variables in a dataset. The first column of the output lists the variable names. The second column lists the variable types. The third column lists the first few values of each variable. 
+
+## Something useful: the summary() function
+
+Up to this point, we have been getting an overview of the strep_tb dataset. The head() and str() functions are useful for getting a quick overview of a dataset, but they do not provide much information about the data itself. 
+
+Let's add another tool to our data exploration toolbox.The summary() function provides a more detailed overview of the data.
+
+```{r}
+summary(strep_tb)
+```
+
+## Summary of Overview Functions
+
+So far in this chapter, we learned how to use the head(), View(), str(), and summary() functions to explore the strep_tb dataset. These functions are found within the s`base` package of R. This package is automatically loaded when you start R and so immediately available to you.

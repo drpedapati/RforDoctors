@@ -1,34 +1,25 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/rocker-org/devcontainer-templates/tree/main/src/r-ver
 {
-	"id": "r-ver",
-	"version": "1.0.1",
 	"name": "R (rocker/r-ver base)",
-	"description": "A container-based development environment for the R language. Includes many commonly used R packages.",
-	"documentationURL": "https://github.com/rocker-org/devcontainer-templates/tree/main/src/r-ver",
-	"publisher": "Rocker Project",
-	"licenseURL": "https://github.com/rocker-org/devcontainer-templates/blob/main/LICENSE",
-	"options": {
-		"imageVariant": {
-			"type": "string",
-			"description": "R version:",
-			"proposals": [
-				"4",
-				"4.3",
-				"4.2"
-			],
-			"default": "4.3"
-		},
-		"baseVariant": {
-			"type": "string",
-			"description": "Base image. Minimal (r-ver), tidyverse installed (tidyverse), or full image (geospatial). Only r-ver supports the arm64 platform:",
-			"proposals": [
-				"r-ver",
-				"tidyverse",
-				"geospatial"
-			],
-			"default": "tidyverse"
-		}
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "ghcr.io/rocker-org/devcontainer/r-ver:4.3",
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {}
 	},
-	"platforms": [
-		"R"
-	]
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "R -q -e 'renv::install()'",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }

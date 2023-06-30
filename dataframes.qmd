@@ -1,4 +1,4 @@
-# Data Frames
+# Introduction to Data Frames
 
 ![Abstract Perspective of a Data Frame](images/abstract%20table.png){#fig-dataframe1}
 

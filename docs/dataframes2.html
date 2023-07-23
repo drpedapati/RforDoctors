@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>dataframes2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="dataframes2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="dataframes2_files/libs/quarto-html/quarto.js"></script>
+<script src="dataframes2_files/libs/quarto-html/popper.min.js"></script>
+<script src="dataframes2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="dataframes2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="dataframes2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="dataframes2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="dataframes2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="dataframes2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="dataframes2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="getting-a-handle-on-your-data-the-overview-functions" class="level1">
+<h1>Getting a Handle on Your Data: The Overview Functions</h1>
+<p>In the last chapter, we found our intrepid medical fellow using the trial by fire approach to learning R. Let’s review her code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subject: Lunch Lecture on TB</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Date: 6/7/2023</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: Dr. Wall</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the medicaldata package</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("medicaldata")</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the medicaldata toolbox</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(medicaldata)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># View the available datasets</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># instructions at https://higgi13425.github.io/medicaldata/</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">"medicaldata"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the strep_tb dataset</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>strep_tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We used several functions:</p>
+<ul>
+<li><code>install.packages()</code> to install the medicaldata package</li>
+<li><code>library()</code> to open the medicaldata package</li>
+<li><code>data()</code> to view the available datasets</li>
+<li><code>strep_tb</code> to print the strep_tb dataset</li>
+</ul>
+<p>We accomplished our goal of getting the strep_tb dataset into R, but we did not do a very good job of exploring the data.</p>
+<p>In this chapter, we will add several practical tools to our arsenal to help us quickly get an overview of our data.</p>
+<section id="arg-the-data-is-too-big-the-head-function" class="level2">
+<h2 class="anchored" data-anchor-id="arg-the-data-is-too-big-the-head-function">Arg! The Data is Too Big!: The head() function</h2>
+<p>The strep_tb dataset can be printed to the console by running the code. However, the current format of the printed dataset is not very readable. It is hard to distinguish between columns and rows, and too many rows are printed to the console.</p>
+<p>Let’s use the head() function to print the first 10 rows of the strep_tb dataset to the console.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(strep_tb, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  patient_id     arm dose_strep_g dose_PAS_g gender baseline_condition
+1       0001 Control            0          0      M             1_Good
+2       0002 Control            0          0      F             1_Good
+3       0003 Control            0          0      F             1_Good
+4       0004 Control            0          0      M             1_Good
+5       0005 Control            0          0      F             1_Good
+  baseline_temp baseline_esr baseline_cavitation strep_resistance
+1    1_98-98.9F      2_11-20                 yes       1_sens_0-8
+2  3_100-100.9F      2_11-20                  no       1_sens_0-8
+3    1_98-98.9F      3_21-50                  no       1_sens_0-8
+4    1_98-98.9F      3_21-50                  no       1_sens_0-8
+5    2_99-99.9F      3_21-50                  no       1_sens_0-8
+               radiologic_6m rad_num improved
+1 6_Considerable_improvement       6     TRUE
+2     5_Moderate_improvement       5     TRUE
+3     5_Moderate_improvement       5     TRUE
+4     5_Moderate_improvement       5     TRUE
+5     5_Moderate_improvement       5     TRUE</code></pre>
+</div>
+</div>
+<p>By default head() will print the first 10 rows of a dataset (head = “header”). We have added an argument to the head() function to print the first 5 rows of the strep_tb dataset (n = 5).</p>
+<p>Using the head function when opening new datasets is a good way to get a quick overview of the data.</p>
+</section>
+<section id="viewing-the-data-as-a-spreadsheet-the-view-function" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-the-data-as-a-spreadsheet-the-view-function">Viewing the data as a spreadsheet: the View() function</h2>
+<p>Viewing a dataset in the console window has its limitations.Try the following code in your console window:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(strep_tb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The View() function allows you to see the strep_tb dataset in a spreadsheet-like format. When executed, this command opens a new tab with a comprehensive table of the data. This tab operates like a browser tab, allowing easy toggling between the console and the data view. To return to your initial code, simply close the tab by clicking on the ‘x’ in its upper right corner.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Commands and variable names in R are case sensitive. View() is not the same as view(). If you type view() instead of View() you will get an error message.</p>
+</div>
+</div>
+</section>
+<section id="x-ray-vision-the-str-function" class="level2">
+<h2 class="anchored" data-anchor-id="x-ray-vision-the-str-function">X-ray vision: the str() function</h2>
+<p>The strep_tb dataset contains 10 variables. The head() function allows us to see the first 5 rows of the dataset, but it does not tell us anything about the variables in the dataset. The str() function provides a quick overview of the variables in a dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(strep_tb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Classes 'tbl_df', 'tbl' and 'data.frame':   107 obs. of  13 variables:
+ $ patient_id         : chr  "0001" "0002" "0003" "0004" ...
+ $ arm                : Factor w/ 2 levels "Streptomycin",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ dose_strep_g       : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ dose_PAS_g         : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ gender             : Factor w/ 2 levels "F","M": 2 1 1 2 1 2 1 2 1 2 ...
+ $ baseline_condition : Factor w/ 3 levels "1_Good","2_Fair",..: 1 1 1 1 1 1 1 1 2 2 ...
+ $ baseline_temp      : Factor w/ 4 levels "1_98-98.9F","2_99-99.9F",..: 1 3 1 1 2 3 2 2 2 4 ...
+ $ baseline_esr       : Factor w/ 4 levels "1_0-10","2_11-20",..: 2 2 3 3 3 3 3 3 3 3 ...
+ $ baseline_cavitation: Factor w/ 2 levels "no","yes": 2 1 1 1 1 1 2 2 2 2 ...
+ $ strep_resistance   : Factor w/ 3 levels "1_sens_0-8","2_mod_8-99",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ radiologic_6m      : Factor w/ 6 levels "6_Considerable_improvement",..: 1 2 2 2 2 1 2 2 2 2 ...
+ $ rad_num            : num  6 5 5 5 5 6 5 5 5 5 ...
+ $ improved           : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...</code></pre>
+</div>
+</div>
+<p>The str() function provides a summary of the variables in a dataset. The first column of the output lists the variable names. The second column lists the variable types. The third column lists the first few values of each variable.</p>
+</section>
+<section id="something-useful-the-summary-function" class="level2">
+<h2 class="anchored" data-anchor-id="something-useful-the-summary-function">Something useful: the summary() function</h2>
+<p>Up to this point, we have been getting an overview of the strep_tb dataset. The head() and str() functions are useful for getting a quick overview of a dataset, but they do not provide much information about the data itself.</p>
+<p>Let’s add another tool to our data exploration toolbox.The summary() function provides a more detailed overview of the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(strep_tb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  patient_id                  arm      dose_strep_g     dose_PAS_g gender
+ Length:107         Streptomycin:55   Min.   :0.000   Min.   :0    F:59  
+ Class :character   Control     :52   1st Qu.:0.000   1st Qu.:0    M:48  
+ Mode  :character                     Median :2.000   Median :0          
+                                      Mean   :1.028   Mean   :0          
+                                      3rd Qu.:2.000   3rd Qu.:0          
+                                      Max.   :2.000   Max.   :0          
+ baseline_condition      baseline_temp  baseline_esr baseline_cavitation
+ 1_Good:16          1_98-98.9F  : 7    1_0-10 : 0    no :45             
+ 2_Fair:37          2_99-99.9F  :25    2_11-20: 5    yes:62             
+ 3_Poor:54          3_100-100.9F:32    3_21-50:36                       
+                    4_100F+     :43    4_51+  :65                       
+                                       NA's   : 1                       
+                                                                        
+      strep_resistance                      radiologic_6m    rad_num     
+ 1_sens_0-8   :65      6_Considerable_improvement  :32    Min.   :1.000  
+ 2_mod_8-99   : 8      5_Moderate_improvement      :23    1st Qu.:2.000  
+ 3_resist_100+:34      4_No_change                 : 5    Median :5.000  
+                       3_Moderate_deterioration    :17    Mean   :3.925  
+                       2_Considerable_deterioration:12    3rd Qu.:6.000  
+                       1_Death                     :18    Max.   :6.000  
+  improved      
+ Mode :logical  
+ FALSE:52       
+ TRUE :55       
+                
+                
+                </code></pre>
+</div>
+</div>
+</section>
+<section id="summary-of-overview-functions" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-overview-functions">Summary of Overview Functions</h2>
+<p>So far in this chapter, we learned how to use the head(), View(), str(), and summary() functions to explore the strep_tb dataset. These functions are found within the s<code>base</code> package of R. This package is automatically loaded when you start R and so immediately available to you.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

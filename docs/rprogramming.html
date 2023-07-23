@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R for Physicians: Learning with Ease &amp; Efficiency - 5&nbsp; Getting started with R programming</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./dataframes2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rprogramming.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Getting started with R programming</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Physicians: Learning with Ease &amp; Efficiency</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The R Workshop</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to Data Frames</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataframes2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting a Handle on Your Data: The Overview Functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rprogramming.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Getting started with R programming</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-does-programming-in-r-entail" id="toc-what-does-programming-in-r-entail" class="nav-link active" data-scroll-target="#what-does-programming-in-r-entail"><span class="header-section-number">6</span> What does programming in R entail?</a></li>
+  <li><a href="#introduction-to-the-laryngoscope-dataset" id="toc-introduction-to-the-laryngoscope-dataset" class="nav-link" data-scroll-target="#introduction-to-the-laryngoscope-dataset"><span class="header-section-number">7</span> Introduction to the Laryngoscope dataset</a></li>
+  <li><a href="#working-with-the-laryngoscope-dataset" id="toc-working-with-the-laryngoscope-dataset" class="nav-link" data-scroll-target="#working-with-the-laryngoscope-dataset"><span class="header-section-number">8</span> Working with the Laryngoscope dataset</a></li>
+  <li><a href="#data-types-in-r" id="toc-data-types-in-r" class="nav-link" data-scroll-target="#data-types-in-r"><span class="header-section-number">9</span> Data types in R</a>
+  <ul class="collapse">
+  <li><a href="#hands-on-experience-with-each-data-type" id="toc-hands-on-experience-with-each-data-type" class="nav-link" data-scroll-target="#hands-on-experience-with-each-data-type"><span class="header-section-number">9.1</span> Hands on experience with each data type</a></li>
+  <li><a href="#additional-programming-concepts-raised-by-these-examples" id="toc-additional-programming-concepts-raised-by-these-examples" class="nav-link" data-scroll-target="#additional-programming-concepts-raised-by-these-examples"><span class="header-section-number">9.2</span> additional programming concepts raised by these examples</a></li>
+  <li><a href="#exercise-lists-and-vectors" id="toc-exercise-lists-and-vectors" class="nav-link" data-scroll-target="#exercise-lists-and-vectors"><span class="header-section-number">9.3</span> exercise lists and vectors</a></li>
+  </ul></li>
+  <li><a href="#understanding-the-different-r-ecosystems" id="toc-understanding-the-different-r-ecosystems" class="nav-link" data-scroll-target="#understanding-the-different-r-ecosystems"><span class="header-section-number">10</span> Understanding the different R ecosystems</a></li>
+  <li><a href="#the-three-major-r-ecosystems" id="toc-the-three-major-r-ecosystems" class="nav-link" data-scroll-target="#the-three-major-r-ecosystems"><span class="header-section-number">11</span> The three major R ecosystems</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Getting started with R programming</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>I can’t hide that learning R means you will also learn programming. But this is an advantage to learning the ins and outs of a specific statistical program that can’t be used anywhere else. Once you learn the basics of the R language you will be</p>
+<p>But these methods are not exclusive to R or a specific statistical program.</p>
+<p>Data types, functions, and loops will become familar.</p>
+<p>Learning R is like learning a new language. At first, it might seem hard, but once you get the hang of it, you can do a lot of cool things. It’s not just for math or stats. You can also use it to clean up data, make charts, write reports, and even make apps for the web. And the best part? The skills you learn can be used in other places, too.</p>
+<p>While diving into R does entail grasping some fundamental programming concepts and terms, it’s important to remember that this learning curve serves as a gateway to a host of potent capabilities. The concepts you acquire along the way aren’t just exclusive to R or a specific statistical program. Instead, these principles, such as variables, data types, control structures, and functions, form the bedrock of many other programming languages.</p>
+<p>This means that the skills you cultivate through learning R are transferrable, opening up the possibility of applying them in numerous different domains and environments. Remember that R is not limited to statistical analysis. It is also a powerful tool for data cleaning, visualization, reporting, and even interactive web applications.</p>
+<p>This chapter is written with the assumption that the reader may have never been exposed to programming in any form. Thus, if you have some experience this chapter is most likely review or gives you an opportunity to see how common programming conventions are implemented in R.</p>
+<section id="what-does-programming-in-r-entail" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> What does programming in R entail?</h1>
+<p>If you’re familiar with office applications like Excel, then you already have experience with data manipulation and analysis, albeit in a different form. Programming in R is a logical step forward, providing a more sophisticated and powerful means to handle data. Imagine you’re working in Excel, but instead of clicking through menus and dialogs, you give direct written instructions about what you want to do. These instructions, which are lines of code in R, can range from simple tasks like importing data and calculating averages, to more complex ones like creating plots, running statistical tests, or building predictive models.</p>
+<p>R programming brings consistency, repeatability, and automation to the data analysis process. Suppose you’ve created a detailed report in Excel, and then receive a new set of data. You’d likely have to repeat a substantial amount of manual work. In contrast, with an R script, you could simply run the same script on the new data, saving substantial time and effort.</p>
+<p>Programming might seem intimidating at first, especially if you’ve never done it before. However, with a bit of patience and practice, it becomes a powerful tool that can make your data work more efficient, effective, and even enjoyable.</p>
+</section>
+<section id="introduction-to-the-laryngoscope-dataset" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Introduction to the Laryngoscope dataset</h1>
+<p>Lets write some code to explore the Laryngoscope dataset found in the ‘medicaldata’ package. The Laryngoscope dataset contains data on 99 adult patients who required orotracheal intubation for elective surgery. The dataset includes patient demographics, airway assessment data, intubation success rate, time to intubation, ease of intubation, and occurrence of complications. This dataset is a valuable resource for researchers and clinicians who are interested in studying the factors that contribute to successful orotracheal intubation.</p>
+<p>The Laryngoscope dataset serves as an excellent resource for us, containing a wide variety of data types. It provides an opportunity to explore and understand numerous fundamental programming functions in R.</p>
+</section>
+<section id="working-with-the-laryngoscope-dataset" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Working with the Laryngoscope dataset</h1>
+<p>To start working with the Laryngoscope dataset, you first need to load it into your R environment. The dataset is already included in the ‘medicaldata’ package, so if you have this package installed and loaded (as we did earlier), you can load the dataset with the following command:</p>
+<p>data(“Laryngoscope”, package = “medicaldata”)</p>
+<p>This command tells R to look for a dataset called “Laryngoscope” in the “medicaldata” package and load it into your current workspace.</p>
+<p>To get an overview of the data, use the head() function, which shows the first six rows of the dataset:</p>
+<p>head(Laryngoscope)</p>
+<p>To get the structure of your data frame – like the number of rows, number of columns, and the type of data in each column – use the str() function:</p>
+<p>str(Laryngoscope)</p>
+<p>This will provide you an output indicating the class of each variable (numeric, integer, factor etc.), along with the first few entries of each.</p>
+<p>We also can summarize the data using the summary() function:</p>
+<p>summary(Laryngoscope)</p>
+<p>The summary() function provides a statistical summary of the dataset, giving the minimum, 1st quartile, median, mean, 3rd quartile, and maximum for numerical columns, and the number of levels for categorical columns.</p>
+<p>Each of the variables in the dataset can be accessed using the $ operator. For example, to view the ‘Age’ column, you would use:</p>
+<p>Laryngoscope$Age</p>
+<p>This will display all the age values for the patients in the dataset.</p>
+</section>
+<section id="data-types-in-r" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Data types in R</h1>
+<p>Understanding data types is fundamental to successful programming and data analysis in R. Each data type has unique properties that dictate how it can be used and manipulated. Identifying the data type is often the first step you take when you’re working with new data. It allows you to understand the kind of information you are dealing with and how you can use it.</p>
+<p>For example, numerical data types can undergo mathematical operations, while string (character) data types cannot. Logical data types store true/false values and are essential for conditional programming. Factors, another important data type in R, are used for categorical data and can significantly impact the analysis and visualization of your data.</p>
+<p>Understanding and correctly identifying these data types ensures that you apply appropriate operations on them and that you choose the correct methods for analysis and visualization. Misunderstanding the type of data you are dealing with can lead to errors, incorrect analysis results, and misrepresentations of data.</p>
+<table class="table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Numeric</td>
+<td>These are the basic data type for storing numbers (integers and decimals).</td>
+</tr>
+<tr class="even">
+<td>Integer</td>
+<td>These are numeric types that hold only integer values.</td>
+</tr>
+<tr class="odd">
+<td>Complex</td>
+<td>These store complex numbers.</td>
+</tr>
+<tr class="even">
+<td>Character</td>
+<td>These are used to store textual data.</td>
+</tr>
+<tr class="odd">
+<td>Logical</td>
+<td>These are Boolean types that hold either a <code>True</code> or <code>False</code> value.</td>
+</tr>
+<tr class="even">
+<td>Factor</td>
+<td>These are used for categorical data and can be ordered or unordered.</td>
+</tr>
+<tr class="odd">
+<td>Date/Time</td>
+<td>These are used for storing date and time information.</td>
+</tr>
+</tbody>
+</table>
+<section id="hands-on-experience-with-each-data-type" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="hands-on-experience-with-each-data-type"><span class="header-section-number">9.1</span> Hands on experience with each data type</h2>
+<ol type="1">
+<li><strong>Numeric</strong>: Calculate the average body mass index (BMI) of a patient over the last 12 months.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bmi_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">25.1</span>, <span class="fl">26.3</span>, <span class="fl">25.9</span>, <span class="fl">25.5</span>, <span class="fl">26.0</span>, <span class="fl">26.4</span>, <span class="fl">26.1</span>, <span class="fl">25.8</span>, <span class="fl">26.3</span>, <span class="fl">26.2</span>, <span class="fl">26.0</span>, <span class="fl">26.1</span>)     average_bmi <span class="ot">&lt;-</span> <span class="fu">mean</span>(bmi_values)     </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(average_bmi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Integer</strong>: Count the number of patient visits in a year.</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>visit_counts <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>total_visits <span class="ot">&lt;-</span> <span class="fu">sum</span>(visit_counts)     </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(total_visits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><p><strong>Complex</strong>: Not typically used in medical contexts, but can be used for mathematical calculations involving complex numbers.</p></li>
+<li><p><strong>Character</strong>: Store a patient’s name and print it.</p></li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>patient_name <span class="ot">&lt;-</span> <span class="st">"John Doe"</span>     </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(patient_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li><strong>Logical</strong>: Check if a patient’s BMI is above 25 at each visit.</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bmi_above_25 <span class="ot">&lt;-</span> bmi_values <span class="sc">&gt;</span> <span class="dv">25</span>     </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bmi_above_25)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="6" type="1">
+<li><strong>Factor</strong>: Create a factor object for patient blood types and print the levels.</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>blood_types <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"AB"</span>, <span class="st">"O"</span>, <span class="st">"O"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"AB"</span>, <span class="st">"O"</span>, <span class="st">"A"</span>))     </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">levels</span>(blood_types))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="7" type="1">
+<li><strong>Date/Time</strong>: Create a date object for patient visits and calculate the duration since the first visit.</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>visit_dates <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2023-01-01"</span>, <span class="st">"2023-02-01"</span>, <span class="st">"2023-03-01"</span>, <span class="st">"2023-04-01"</span>, <span class="st">"2023-05-01"</span>, <span class="st">"2023-06-01"</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>duration <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="fu">min</span>(visit_dates)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(duration)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Please replace <code>Sys.Date()</code> with the actual date when running the exercise.</p>
+</section>
+<section id="additional-programming-concepts-raised-by-these-examples" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="additional-programming-concepts-raised-by-these-examples"><span class="header-section-number">9.2</span> additional programming concepts raised by these examples</h2>
+<p>Absolutely, these examples do bring up some important programming concepts used in R:</p>
+<ol type="1">
+<li><p><strong>The <code>c</code> function</strong>: In R, <code>c()</code> stands for ‘concatenate’ or ‘combine.’ It is used to combine values into a vector. For example, in <code>bmi_values &lt;- c(25.1, 26.3, 25.9, 25.5)</code>, we are using <code>c()</code> to combine the BMI values into a numeric vector.</p></li>
+<li><p><strong>Quotes</strong>: In R, both single (<code>'</code>) and double (<code>"</code>) quotes can denote character strings. For example, <code>"John Doe"</code> is a character string. It’s important to start and end a string with the same type of quote.</p></li>
+<li><p><strong>Operators</strong>: These examples use several types of operators. The <code>&lt;-</code> symbol is the assignment operator, used to assign values to variables (e.g., <code>bmi_values &lt;- c(25.1, 26.3, 25.9, 25.5)</code>). The <code>&gt;</code> symbol is a comparison operator, used to compare values (e.g., <code>bmi_values &gt; 25</code> checks if each value in <code>bmi_values</code> is greater than 25). The <code>+</code> and <code>-</code> symbols are arithmetic operators, used for mathematical calculations.</p></li>
+<li><p><strong>Assignment</strong>: In R, we use the <code>&lt;-</code> operator to assign values to variables. A variable is a storage place for values that you want to use or manipulate. For example, <code>bmi_values &lt;- c(25.1, 26.3, 25.9, 25.5)</code> creates a variable named <code>bmi_values</code> and assigns it the values specified in the <code>c()</code> function.</p></li>
+<li><p><strong>Functions</strong>: Functions are pieces of code that perform a specific task. R has many built-in functions (like <code>c()</code>, <code>mean()</code>, <code>sum()</code>, <code>print()</code>, <code>as.Date()</code>, <code>min()</code>) that take inputs (arguments), perform certain computations, and return outputs. Functions are invoked by their name followed by parentheses containing the arguments.</p></li>
+<li><p><strong>Logical values</strong>: The output of the comparison operation <code>bmi_values &gt; 25</code> is a logical vector that indicates whether each BMI value is greater than 25. Logical vectors are crucial for performing operations based on certain conditions.</p></li>
+</ol>
+<p>These are some of the basic programming concepts in R. As you progress, you will encounter more advanced concepts, but these form the foundation of programming in R.</p>
+<p>Vectors and lists are two fundamental data structures in R, and they’re related to the concept of data types.</p>
+<ol type="1">
+<li><p><strong>Vectors</strong>: A vector in R is a sequence of data elements of the same basic type. Members in a vector are officially called components. All components of a vector must be of the same type. Hence, we have numeric, logical, character, and complex vectors.</p>
+<p>Example of a numeric vector:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>patient_ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Lists</strong>: A list in R, however, is an ordered collection of objects, where these objects can be of different types (numeric, character, logical, etc.). This is a major difference from vectors. In other words, a list in R can contain numbers, strings, vectors, other lists, and so on.</p>
+<p>Example of a list:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>patient_info <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="st">"John Doe"</span>, <span class="at">age =</span> <span class="dv">35</span>, <span class="at">disease =</span> <span class="st">"Hypertension"</span>, <span class="at">visit_dates =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"2023-01-01"</span>, <span class="st">"2023-02-01"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the context of data types, vectors and lists are containers that hold data. However, vectors can hold only one type of data at a time (all numeric, all character, etc.), while lists can hold multiple types of data at once (numeric, character, other lists, vectors, etc.).</p></li>
+</ol>
+<p>This flexibility makes lists particularly useful for complex data manipulation tasks and for creating data frames (which are a specific type of list where each element is a vector of equal length - think of them like a spreadsheet with columns of different types of data, but the same number of rows in each column).</p>
+</section>
+<section id="exercise-lists-and-vectors" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="exercise-lists-and-vectors"><span class="header-section-number">9.3</span> exercise lists and vectors</h2>
+<ol type="1">
+<li><p><strong>Vectors:</strong></p>
+<p>Imagine you’re a doctor and you have several patients. You could create a vector for each type of patient information. For example, you might have a vector of patient ages, another vector for patient names, and so on. Each vector contains only one type of information (either all numbers, all characters, etc.).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>patient_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"John Doe"</span>, <span class="st">"Jane Doe"</span>, <span class="st">"Mary Johnson"</span>, <span class="st">"James Smith"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>patient_ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, <code>patient_names</code> is a character vector containing names of patients, and <code>patient_ages</code> is a numeric vector containing the ages of the patients. All the data elements in each vector are of the same type.</p></li>
+<li><p><strong>Lists:</strong></p>
+<p>Now imagine that you want to keep all the information related to each patient together. In other words, you want a structure that contains the name, age, and perhaps even the medical history for each patient. This is where lists come in.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>john_doe_info <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="st">"John Doe"</span>, <span class="at">age =</span> <span class="dv">25</span>, <span class="at">diseases =</span> <span class="fu">c</span>(<span class="st">"Hypertension"</span>, <span class="st">"Diabetes"</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>jane_doe_info <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="st">"Jane Doe"</span>, <span class="at">age =</span> <span class="dv">30</span>, <span class="at">diseases =</span> <span class="fu">c</span>(<span class="st">"Asthma"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, <code>john_doe_info</code> and <code>jane_doe_info</code> are lists that contain different types of data. For each patient, we have a character string (name), a numeric value (age), and a character vector (diseases).</p></li>
+<li><p><strong>Practice Exercise</strong>:</p>
+<p>Now that you’ve seen these examples, try creating a vector and a list for a new patient. The vector should contain the patient’s systolic blood pressure measurements from their last three visits, and the list should contain the patient’s name, age, and diseases.</p></li>
+</ol>
+<p>Remember, vectors are great for handling sequences of data of the same type, while lists allow you to group together related data of different types. Understanding when to use each one is a key part of becoming proficient in R.</p>
+</section>
+</section>
+<section id="understanding-the-different-r-ecosystems" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Understanding the different R ecosystems</h1>
+<p>One of the beautiful aspects of R is its flexibility and versatility, which is largely due to the variety of packages and methodologies it offers for carrying out similar tasks. Base R, the Tidyverse, and data.table each provide different ecosystems with unique sets of functions and syntax that can be used to achieve the same ends.</p>
+<p>While it may initially seem premature to delve into discussions about different ecosystems in our introductory programming chapter, there’s good reason for this approach. Introducing these concepts early on allows us to create a foundational understanding of the varied programming landscapes within R. This awareness aids in navigating the expansive world of R, recognizing the interconnectedness of various ecosystems, and making informed choices about the tools and approaches best suited for our work.</p>
+<p>Frankly, starting with traditional R syntax and slowly progressing towards more modern forms is not the most efficient learning pathway. Modern R ecosystems, such as the tidyverse, have been developed with a focus on user-friendly and intuitive syntax. They simplify the process of data analysis, visualization, and manipulation, effectively minimizing the frustrations and quirks that characterized earlier versions of R. By starting with these modern tools, you’re better equipped to navigate and utilize the power of R from the get-go.</p>
+</section>
+<section id="the-three-major-r-ecosystems" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> The three major R ecosystems</h1>
+<p>There are various ecosystems within R that cater to different needs and approaches when it comes to data analysis. Among them, three stand out due to their extensive use and comprehensive capabilities - Base R, Tidyverse, and data.table. It’s worth noting that each of these ecosystems is self-sufficient, meaning you can conduct an entire analysis without needing to switch ecosystems. That being said, each ecosystem has its unique strengths and is best suited to different use cases, so it’s beneficial to be familiar with all three. We will delve into the specifics of these ecosystems in the following sections.</p>
+<p>Understanding these different R ecosystems can be likened to the experience of cooking in different types of kitchens with various sets of utensils and appliances.</p>
+<ol type="1">
+<li><p>Base R is like a traditional kitchen. It’s the fundamental cooking space that comes equipped with all the basic tools and utensils you need: pots, pans, knives, a stove, and an oven. It’s fully functional, but might lack some specialized or modern equipment. A traditional kitchen is universally understood and functional, and a well-versed chef can create a wide variety of dishes, albeit sometimes needing a bit more time and effort.</p></li>
+<li><p>The Tidyverse is akin to a modern, user-friendly kitchen with the latest appliances and gadgets. This includes things like air fryers, sous vide machines, or a multi-functioning Instant Pot. These tools can simplify the cooking process, making it more accessible to beginners, while still providing the ability to create a diverse array of dishes. However, the user must first understand the new rules and methods that these modern tools require.</p></li>
+<li><p>The data.table package is like a high-efficiency, industrial kitchen seen in professional restaurants. It’s designed for speed and handling large volumes of food preparation, equipped with powerful grills, large capacity mixers, and high-speed processors. It may seem less intuitive for a home cook or beginner, but once mastered, it allows for remarkably efficient cooking, especially when catering for large numbers.</p></li>
+</ol>
+<p>In each case, you can achieve the same end result - a prepared meal (or in the case of R, a processed dataset). However, the method you choose depends on your specific requirements, the scale of your meal/data, and your personal preference or familiarity with the tools at hand.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./dataframes2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting a Handle on Your Data: The Overview Functions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

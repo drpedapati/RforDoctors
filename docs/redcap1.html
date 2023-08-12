@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Physicians: Learning with Ease &amp; Efficiency - 7&nbsp; Summary</title>
+<title>R for Physicians: Learning with Ease &amp; Efficiency - 6&nbsp; Using REDCap Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./redcap1.html" rel="prev">
+<link href="./summary.html" rel="next">
+<link href="./rprogramming.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./redcap1.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Using REDCap Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -142,13 +176,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./redcap1.html" class="sidebar-item-text sidebar-link">
+  <a href="./redcap1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Using REDCap Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
@@ -164,14 +198,35 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-overview-of-redcap-database-software" id="toc-introduction-overview-of-redcap-database-software" class="nav-link active" data-scroll-target="#introduction-overview-of-redcap-database-software"><span class="header-section-number">6.1</span> Introduction: Overview of REDCap Database Software</a></li>
+  <li><a href="#what-we-will-learn" id="toc-what-we-will-learn" class="nav-link" data-scroll-target="#what-we-will-learn"><span class="header-section-number">6.2</span> What we will learn</a></li>
+  <li><a href="#the-basic-structure-of-redcap-data" id="toc-the-basic-structure-of-redcap-data" class="nav-link" data-scroll-target="#the-basic-structure-of-redcap-data"><span class="header-section-number">6.3</span> The basic structure of REDCap data</a></li>
+  <li><a href="#introduction-to-the-dataset" id="toc-introduction-to-the-dataset" class="nav-link" data-scroll-target="#introduction-to-the-dataset"><span class="header-section-number">6.4</span> Introduction to the Dataset</a></li>
+  <li><a href="#overview-of-the-entire-process" id="toc-overview-of-the-entire-process" class="nav-link" data-scroll-target="#overview-of-the-entire-process"><span class="header-section-number">6.5</span> Overview of the entire process</a></li>
+  <li><a href="#protecting-participant-privacy" id="toc-protecting-participant-privacy" class="nav-link" data-scroll-target="#protecting-participant-privacy"><span class="header-section-number">6.6</span> Protecting participant privacy</a></li>
+  <li><a href="#import-the-raw-redcap-data-into-r" id="toc-import-the-raw-redcap-data-into-r" class="nav-link" data-scroll-target="#import-the-raw-redcap-data-into-r"><span class="header-section-number">6.7</span> Import the RAW REDCap data into R</a>
+  <ul class="collapse">
+  <li><a href="#export-the-data-as-a-csv-or-excel-file" id="toc-export-the-data-as-a-csv-or-excel-file" class="nav-link" data-scroll-target="#export-the-data-as-a-csv-or-excel-file"><span class="header-section-number">6.7.1</span> Export the data as a CSV or Excel file</a></li>
+  <li><a href="#export-data-into-r-format" id="toc-export-data-into-r-format" class="nav-link" data-scroll-target="#export-data-into-r-format"><span class="header-section-number">6.7.2</span> Export data into R format</a></li>
+  <li><a href="#access-data-using-api-key" id="toc-access-data-using-api-key" class="nav-link" data-scroll-target="#access-data-using-api-key"><span class="header-section-number">6.7.3</span> Access data using API key</a></li>
+  </ul></li>
+  <li><a href="#importing-the-data-into-r" id="toc-importing-the-data-into-r" class="nav-link" data-scroll-target="#importing-the-data-into-r"><span class="header-section-number">6.8</span> Importing the data into R</a>
+  <ul class="collapse">
+  <li><a href="#the-source-function-activating-a-function-from-a-web-link" id="toc-the-source-function-activating-a-function-from-a-web-link" class="nav-link" data-scroll-target="#the-source-function-activating-a-function-from-a-web-link"><span class="header-section-number">6.8.1</span> The Source Function: Activating a Function from a Web Link</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Using REDCap Data</span></h1>
 </div>
 
 
@@ -187,10 +242,111 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This book is designed as a guide, a companion on your journey to mastering R, but it’s not just another instruction manual. As a fellow physician who discovered the power of R after my residency, I’ve encountered and navigated the same challenges you’re likely to face. This book synthesizes those experiences into a streamlined learning path that addresses our unique needs and use-cases in the medical field. It is a comprehensive roadmap, crafted to transform you from an R novice to a confident user, capable of leveraging this powerful tool to improve your research, data analysis, and overall work.</p>
-<p>Our goal is not to become software engineers or statisticians, but rather to harness the potential of R to make our tasks more efficient and our decisions more data-driven. To this end, this book covers the essentials of R programming, data manipulation, statistical analysis, and data visualization. Moreover, the lessons are grounded in real-world, relatable examples, including using medical datasets, making the learning experience engaging and intuitive. By the end of this book, you will have gained a robust understanding of R, its application in healthcare, and most importantly, the confidence to explore further and ask the right questions of your data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/redcap_header_image.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">REDCap header image</figcaption>
+</figure>
+</div>
+<section id="introduction-overview-of-redcap-database-software" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introduction-overview-of-redcap-database-software"><span class="header-section-number">6.1</span> Introduction: Overview of REDCap Database Software</h2>
+<p><a href="https://www.project-redcap.org/">REDCap</a> (Research Electronic Data Capture) is a secure web application designed for building and managing online databases for clinical research. REDCap provides an intuitive interface for validated data capture, audit trails for tracking data manipulation and export procedures, automated export procedures for seamless data downloads to common statistical packages, and procedures for data integration and interoperability with external sources. REDCap databases comply with 21 CFR Part 11, FISMA, HIPAA, and GDPR regulations, ensuring the highest data security standards. The software has been broadly adopted by over 950 academic institutions and clinical partners across the globe to support translational research.</p>
+<p>For physicians working in clinical research, managing and analyzing data collected in REDCap will invariably become necessary. REDCap stores longitudinal, multi-arm study data in a complex structure that can be challenging to wrangle. Accessing the data via periodic Excel exports is time-consuming and restricts the analyses that can be performed.</p>
+</section>
+<section id="what-we-will-learn" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="what-we-will-learn"><span class="header-section-number">6.2</span> What we will learn</h2>
+<p>In this chapter we will learn two key skills with working with REDCap:</p>
+<ol type="1">
+<li>How to wrangle REDCap output into analysis-ready formats</li>
+<li>How to connect directly to the REDCap database for real-time data access</li>
+</ol>
+<p>In clinical research settings, physicians often receive REDCap data as periodic export files for analysis. This exported data retains the intricate nested structure that can make wrangling in REDCap challenging. While connecting directly to the REDCap API enables real-time access, working with exported files is most common.</p>
+</section>
+<section id="the-basic-structure-of-redcap-data" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="the-basic-structure-of-redcap-data"><span class="header-section-number">6.3</span> The basic structure of REDCap data</h2>
+<p>REDCap databases are composed of multiple components:</p>
+<ul>
+<li>Metadata Dictionary - This defines the structure of the database including all fields, forms, instruments, and events. The dictionary provides details like variable names, field types, validation rules, etc.</li>
+<li>Records - These contain the actual data values entered for each participant across all forms and events. Records are identified by a unique record ID.</li>
+<li>Instruments - These are groups of related data fields focused on collecting a certain type of data, like demographics or lab results.</li>
+<li>Events - Events group related instruments that are completed at certain defined timepoints, like enrollment, follow-ups, final visit etc.</li>
+<li>Forms - Forms display instruments together for data entry in the REDCap interface. They can mix instruments from different events.</li>
+<li>Field Types - Each field has a specific type like text box, checkbox, dropdown, date, etc. Used to structure data entry.</li>
+<li>Reports and Exports - REDCap provides tools for exporting and reporting on the data in different formats like CSVs, SAS, SPSS, R, APIs etc.</li>
+</ul>
+</section>
+<section id="introduction-to-the-dataset" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="introduction-to-the-dataset"><span class="header-section-number">6.4</span> Introduction to the Dataset</h2>
+<p>We will be working with a deidentified dataset for a small open-label pilot of transcranial magnetic stimulation treatment for depression. The trial is registered at <a href="https://classic.clinicaltrials.gov/ct2/show/NCT05271357">NCT05271357</a> and ran between 11/2021 and 3/2023 to prepare for a sham-controlled randomized controlled trial (RCT).</p>
+<p>We will work through the real-world challenge of starting with raw exported data from a REDCap database to generate outputs for a short manuscript. This reflects a common workflow you may encounter when leveraging REDCap and R to efficiently analyze real clinical research data.</p>
+</section>
+<section id="overview-of-the-entire-process" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="overview-of-the-entire-process"><span class="header-section-number">6.5</span> Overview of the entire process</h2>
+<p>Let’s break up our task into universal tasks:</p>
+<ul>
+<li>Import the RAW REDCap data into R</li>
+<li>Examine the structure of the extracted data frames</li>
+<li>Use hypotheses to create data frames for analysis</li>
+<li>Conduct statistical analyses</li>
+<li>Report the results using tables and graphs</li>
+</ul>
+</section>
+<section id="protecting-participant-privacy" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="protecting-participant-privacy"><span class="header-section-number">6.6</span> Protecting participant privacy</h2>
+<p>When exporting data from REDCap, it is important to properly de-identify any protected health information (PHI). In this example, we will utilize the “Remove All Identifier Fields” option during the data export process. This ensures that any PHI variables that were pre-configured as identifiers in the REDCap data dictionary will be removed from the exported dataset. Using this export option is an easy way to protect participant privacy when working with REDCap data outside of the secure database.</p>
+</section>
+<section id="import-the-raw-redcap-data-into-r" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="import-the-raw-redcap-data-into-r"><span class="header-section-number">6.7</span> Import the RAW REDCap data into R</h2>
+<p>Export functions can be accessed for a database through <code>Applications</code> sidebar and the <code>Data Exports, Reports, and Stats</code> link.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/redcap_export.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">REDCap Export (v. 13.7.6)</figcaption>
+</figure>
+</div>
+<p>There are several ways to get data out of REDCap.</p>
+<ol type="1">
+<li>Export the data as a CSV or Excel file</li>
+<li>Export data into R format</li>
+<li>Access data using API key</li>
+</ol>
+<section id="export-the-data-as-a-csv-or-excel-file" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="export-the-data-as-a-csv-or-excel-file"><span class="header-section-number">6.7.1</span> Export the data as a CSV or Excel file</h3>
+<p>The most common is to export the data as a CSV or Excel file. This is most likely what you will receive from a research assistant or collaborator.</p>
+</section>
+<section id="export-data-into-r-format" class="level3" data-number="6.7.2">
+<h3 data-number="6.7.2" class="anchored" data-anchor-id="export-data-into-r-format"><span class="header-section-number">6.7.2</span> Export data into R format</h3>
+<p>Requesting the data in R format preserves the structure and types of data when importing into R. This is the best option if you have access to the REDCap database and want to import the data directly into R.</p>
+</section>
+<section id="access-data-using-api-key" class="level3" data-number="6.7.3">
+<h3 data-number="6.7.3" class="anchored" data-anchor-id="access-data-using-api-key"><span class="header-section-number">6.7.3</span> Access data using API key</h3>
+<p>We will learn more about this option later in the chapter to avoid unnecessary complexity. This is the best option if you want to access the data in real-time and have access to the REDCap database.</p>
+</section>
+</section>
+<section id="importing-the-data-into-r" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="importing-the-data-into-r"><span class="header-section-number">6.8</span> Importing the data into R</h2>
+<p>Using REDCap data with R is handled through a variety of user-generated packages and scripts. In my experience, no single one package will work for all situations.</p>
+<p>The currently available packages for working with REDCap assume you will be accessing the data via API request rather than a manual export. Let’s instead use a workflow to import the manual data export either in CSV or R format. Luckily, R is very adept at easily incorporating custom functions from online sources.</p>
+<section id="the-source-function-activating-a-function-from-a-web-link" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="the-source-function-activating-a-function-from-a-web-link"><span class="header-section-number">6.8.1</span> The Source Function: Activating a Function from a Web Link</h3>
+<p>One powerful feature in R is the ability to access and run code from a URL using the source() function. This allows easy use of shared code without needing to manually download scripts.</p>
+<p>For example, Frank Harrell, Jr, PhD, a professor of biostatistics at Vanderbilt University, maintains an R code repository on GitHub. Among his contributions is a custom function for importing REDCap data called importREDCap().</p>
+<p>Rather than copy-pasting this code, we can run it directly from his GitHub repository using <code>source()</code> function. However, the link passed to source() must be the raw code itself, not the formatted webpage. To get the correct URL, navigate to the code file on GitHub. Then click the “Raw” button on the upper right of the file view. This will change the URL to point to the raw code which can then be used in source().</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/redcap_harrel.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Raw Source</figcaption>
+</figure>
+</div>
+<p>For example, here is the URL for the raw importREDCap.r code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://raw.githubusercontent.com/harrelfe/rscripts/master/importREDCap.r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, to activate the function in your R session, simply pass the URL to the source() function:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Source the importREDCap function </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/harrelfe/rscripts/master/importREDCap.r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -539,13 +695,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./redcap1.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Using REDCap Data</span></span>
+      <a href="./rprogramming.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Getting started with R programming</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

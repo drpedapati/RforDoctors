@@ -149,7 +149,7 @@
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "6  Summary",
+    "title": "7  Summary",
     "section": "",
     "text": "This book is designed as a guide, a companion on your journey to mastering R, but it’s not just another instruction manual. As a fellow physician who discovered the power of R after my residency, I’ve encountered and navigated the same challenges you’re likely to face. This book synthesizes those experiences into a streamlined learning path that addresses our unique needs and use-cases in the medical field. It is a comprehensive roadmap, crafted to transform you from an R novice to a confident user, capable of leveraging this powerful tool to improve your research, data analysis, and overall work.\nOur goal is not to become software engineers or statisticians, but rather to harness the potential of R to make our tasks more efficient and our decisions more data-driven. To this end, this book covers the essentials of R programming, data manipulation, statistical analysis, and data visualization. Moreover, the lessons are grounded in real-world, relatable examples, including using medical datasets, making the learning experience engaging and intuitive. By the end of this book, you will have gained a robust understanding of R, its application in healthcare, and most importantly, the confidence to explore further and ask the right questions of your data."
   },
@@ -180,5 +180,68 @@
     "title": "5  Getting started with R programming",
     "section": "9.3 exercise lists and vectors",
     "text": "9.3 exercise lists and vectors\n\nVectors:\nImagine you’re a doctor and you have several patients. You could create a vector for each type of patient information. For example, you might have a vector of patient ages, another vector for patient names, and so on. Each vector contains only one type of information (either all numbers, all characters, etc.).\npatient_names &lt;- c(\"John Doe\", \"Jane Doe\", \"Mary Johnson\", \"James Smith\")\npatient_ages &lt;- c(25, 30, 35, 40)\nHere, patient_names is a character vector containing names of patients, and patient_ages is a numeric vector containing the ages of the patients. All the data elements in each vector are of the same type.\nLists:\nNow imagine that you want to keep all the information related to each patient together. In other words, you want a structure that contains the name, age, and perhaps even the medical history for each patient. This is where lists come in.\njohn_doe_info &lt;- list(name = \"John Doe\", age = 25, diseases = c(\"Hypertension\", \"Diabetes\"))\njane_doe_info &lt;- list(name = \"Jane Doe\", age = 30, diseases = c(\"Asthma\"))\nHere, john_doe_info and jane_doe_info are lists that contain different types of data. For each patient, we have a character string (name), a numeric value (age), and a character vector (diseases).\nPractice Exercise:\nNow that you’ve seen these examples, try creating a vector and a list for a new patient. The vector should contain the patient’s systolic blood pressure measurements from their last three visits, and the list should contain the patient’s name, age, and diseases.\n\nRemember, vectors are great for handling sequences of data of the same type, while lists allow you to group together related data of different types. Understanding when to use each one is a key part of becoming proficient in R."
+  },
+  {
+    "objectID": "redcap1.html#introduction-overview-of-redcap-database-software",
+    "href": "redcap1.html#introduction-overview-of-redcap-database-software",
+    "title": "6  Using REDCap Data",
+    "section": "6.1 Introduction: Overview of REDCap Database Software",
+    "text": "6.1 Introduction: Overview of REDCap Database Software\nREDCap (Research Electronic Data Capture) is a secure web application designed for building and managing online databases for clinical research. REDCap provides an intuitive interface for validated data capture, audit trails for tracking data manipulation and export procedures, automated export procedures for seamless data downloads to common statistical packages, and procedures for data integration and interoperability with external sources. REDCap databases comply with 21 CFR Part 11, FISMA, HIPAA, and GDPR regulations, ensuring the highest data security standards. The software has been broadly adopted by over 950 academic institutions and clinical partners across the globe to support translational research.\nFor physicians working in clinical research, managing and analyzing data collected in REDCap will invariably become necessary. REDCap stores longitudinal, multi-arm study data in a complex structure that can be challenging to wrangle. Accessing the data via periodic Excel exports is time-consuming and restricts the analyses that can be performed."
+  },
+  {
+    "objectID": "redcap1.html#what-we-will-learn",
+    "href": "redcap1.html#what-we-will-learn",
+    "title": "6  Using REDCap Data",
+    "section": "6.2 What we will learn",
+    "text": "6.2 What we will learn\nIn this chapter we will learn two key skills with working with REDCap:\n\nHow to wrangle REDCap output into analysis-ready formats\nHow to connect directly to the REDCap database for real-time data access\n\nIn clinical research settings, physicians often receive REDCap data as periodic export files for analysis. This exported data retains the intricate nested structure that can make wrangling in REDCap challenging. While connecting directly to the REDCap API enables real-time access, working with exported files is most common."
+  },
+  {
+    "objectID": "redcap1.html#introduction-to-the-datasets",
+    "href": "redcap1.html#introduction-to-the-datasets",
+    "title": "6  Using REDCap Data",
+    "section": "6.3 Introduction to the datasets",
+    "text": "6.3 Introduction to the datasets\nWe will be working with a deidentified dataset for a small open-label pilot of transcranial magnetic stimulation treatment for depression. The trial is registered at NCT05271357 and ran between 11/2021 and 3/2023 to prepare for a sham-controlled randomized controlled trial (RCT)."
+  },
+  {
+    "objectID": "redcap1.html#introduction-to-the-dataset",
+    "href": "redcap1.html#introduction-to-the-dataset",
+    "title": "6  Using REDCap Data",
+    "section": "6.4 Introduction to the Dataset",
+    "text": "6.4 Introduction to the Dataset\nWe will be working with a deidentified dataset for a small open-label pilot of transcranial magnetic stimulation treatment for depression. The trial is registered at NCT05271357 and ran between 11/2021 and 3/2023 to prepare for a sham-controlled randomized controlled trial (RCT).\nWe will work through the real-world challenge of starting with raw exported data from a REDCap database to generate outputs for a short manuscript. This reflects a common workflow you may encounter when leveraging REDCap and R to efficiently analyze real clinical research data."
+  },
+  {
+    "objectID": "redcap1.html#overview-of-the-entire-process",
+    "href": "redcap1.html#overview-of-the-entire-process",
+    "title": "6  Using REDCap Data",
+    "section": "6.5 Overview of the entire process",
+    "text": "6.5 Overview of the entire process\nLet’s break up our task into universal tasks:\n\nImport the RAW REDCap data into R\nExamine the structure of the extracted data frames\nUse hypotheses to create data frames for analysis\nConduct statistical analyses\nReport the results using tables and graphs"
+  },
+  {
+    "objectID": "redcap1.html#import-the-raw-redcap-data-into-r",
+    "href": "redcap1.html#import-the-raw-redcap-data-into-r",
+    "title": "6  Using REDCap Data",
+    "section": "6.7 Import the RAW REDCap data into R",
+    "text": "6.7 Import the RAW REDCap data into R\nExport functions can be accessed for a database through Applications sidebar and the Data Exports, Reports, and Stats link.\n\n\n\nREDCap Export (v. 13.7.6)\n\n\nThere are several ways to get data out of REDCap.\n\nExport the data as a CSV or Excel file\nExport data into R format\nAccess data using API key\n\n\n6.7.1 Export the data as a CSV or Excel file\nThe most common is to export the data as a CSV or Excel file. This is most likely what you will receive from a research assistant or collaborator.\n\n\n6.7.2 Export data into R format\nRequesting the data in R format preserves the structure and types of data when importing into R. This is the best option if you have access to the REDCap database and want to import the data directly into R.\n\n\n6.7.3 Access data using API key\nWe will learn more about this option later in the chapter to avoid unnecessary complexity. This is the best option if you want to access the data in real-time and have access to the REDCap database."
+  },
+  {
+    "objectID": "redcap1.html#the-basic-structure-of-redcap-data",
+    "href": "redcap1.html#the-basic-structure-of-redcap-data",
+    "title": "6  Using REDCap Data",
+    "section": "6.3 The basic structure of REDCap data",
+    "text": "6.3 The basic structure of REDCap data\nREDCap databases are composed of multiple components:\n\nMetadata Dictionary - This defines the structure of the database including all fields, forms, instruments, and events. The dictionary provides details like variable names, field types, validation rules, etc.\nRecords - These contain the actual data values entered for each participant across all forms and events. Records are identified by a unique record ID.\nInstruments - These are groups of related data fields focused on collecting a certain type of data, like demographics or lab results.\nEvents - Events group related instruments that are completed at certain defined timepoints, like enrollment, follow-ups, final visit etc.\nForms - Forms display instruments together for data entry in the REDCap interface. They can mix instruments from different events.\nField Types - Each field has a specific type like text box, checkbox, dropdown, date, etc. Used to structure data entry.\nReports and Exports - REDCap provides tools for exporting and reporting on the data in different formats like CSVs, SAS, SPSS, R, APIs etc."
+  },
+  {
+    "objectID": "redcap1.html#protecting-participant-privacy",
+    "href": "redcap1.html#protecting-participant-privacy",
+    "title": "6  Using REDCap Data",
+    "section": "6.6 Protecting participant privacy",
+    "text": "6.6 Protecting participant privacy\nWhen exporting data from REDCap, it is important to properly de-identify any protected health information (PHI). In this example, we will utilize the “Remove All Identifier Fields” option during the data export process. This ensures that any PHI variables that were pre-configured as identifiers in the REDCap data dictionary will be removed from the exported dataset. Using this export option is an easy way to protect participant privacy when working with REDCap data outside of the secure database."
+  },
+  {
+    "objectID": "redcap1.html#importing-the-data-into-r",
+    "href": "redcap1.html#importing-the-data-into-r",
+    "title": "6  Using REDCap Data",
+    "section": "6.8 Importing the data into R",
+    "text": "6.8 Importing the data into R\nUsing REDCap data with R is handled through a variety of user-generated packages and scripts. In my experience, no single one package will work for all situations.\nThe currently available packages for working with REDCap assume you will be accessing the data via API request rather than a manual export. Let’s instead use a workflow to import the manual data export either in CSV or R format. Luckily, R is very adept at easily incorporating custom functions from online sources.\n\n6.8.1 The Source Function: Activating a Function from a Web Link\nOne powerful feature in R is the ability to access and run code from a URL using the source() function. This allows easy use of shared code without needing to manually download scripts.\nFor example, Frank Harrell, Jr, PhD, a professor of biostatistics at Vanderbilt University, maintains an R code repository on GitHub. Among his contributions is a custom function for importing REDCap data called importREDCap().\nRather than copy-pasting this code, we can run it directly from his GitHub repository using source() function. However, the link passed to source() must be the raw code itself, not the formatted webpage. To get the correct URL, navigate to the code file on GitHub. Then click the “Raw” button on the upper right of the file view. This will change the URL to point to the raw code which can then be used in source().\n\n\n\nRaw Source\n\n\nFor example, here is the URL for the raw importREDCap.r code:\nhttps://raw.githubusercontent.com/harrelfe/rscripts/master/importREDCap.r\nThen, to activate the function in your R session, simply pass the URL to the source() function:\n# Source the importREDCap function \nsource(\"https://raw.githubusercontent.com/harrelfe/rscripts/master/importREDCap.r\")"
   }
 ]

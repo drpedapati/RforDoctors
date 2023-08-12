@@ -1,0 +1,105 @@
+# Using REDCap Data
+
+![REDCap header image](images/redcap_header_image.png)
+
+## Introduction: Overview of REDCap Database Software
+
+[REDCap](https://www.project-redcap.org/) (Research Electronic Data Capture) is a secure web application designed for building and managing online databases for clinical research. REDCap provides an intuitive interface for validated data capture, audit trails for tracking data manipulation and export procedures, automated export procedures for seamless data downloads to common statistical packages, and procedures for data integration and interoperability with external sources. REDCap databases comply with 21 CFR Part 11, FISMA, HIPAA, and GDPR regulations, ensuring the highest data security standards. The software has been broadly adopted by over 950 academic institutions and clinical partners across the globe to support translational research.
+
+For physicians working in clinical research, managing and analyzing data collected in REDCap will invariably become necessary. REDCap stores longitudinal, multi-arm study data in a complex structure that can be challenging to wrangle. Accessing the data via periodic Excel exports is time-consuming and restricts the analyses that can be performed. 
+
+## What we will learn
+
+In this chapter we will learn two key skills with working with REDCap: 
+
+1. How to wrangle REDCap output into analysis-ready formats
+2. How to connect directly to the REDCap database for real-time data access
+
+In clinical research settings, physicians often receive REDCap data as periodic export files for analysis. This exported data retains the intricate nested structure that can make wrangling in REDCap challenging. While connecting directly to the REDCap API enables real-time access, working with exported files is most common.
+
+## The basic structure of REDCap data
+
+REDCap databases are composed of multiple components:
+
+* Metadata Dictionary - This defines the structure of the database including all fields, forms, instruments, and events. The dictionary provides details like variable names, field types, validation rules, etc.
+* Records - These contain the actual data values entered for each participant across all forms and events. Records are identified by a unique record ID.
+*  Instruments - These are groups of related data fields focused on collecting a certain type of data, like demographics or lab results.
+* Events - Events group related instruments that are completed at certain defined timepoints, like enrollment, follow-ups, final visit etc.
+* Forms - Forms display instruments together for data entry in the REDCap interface. They can mix instruments from different events.
+* Field Types - Each field has a specific type like text box, checkbox, dropdown, date, etc. Used to structure data entry.
+* Reports and Exports - REDCap provides tools for exporting and reporting on the data in different formats like CSVs, SAS, SPSS, R, APIs etc.
+
+## Introduction to the Dataset
+
+We will be working with a deidentified dataset for a small open-label pilot of transcranial magnetic stimulation treatment for depression. The trial is registered at [NCT05271357](https://classic.clinicaltrials.gov/ct2/show/NCT05271357) and ran between 11/2021 and 3/2023 to prepare for a sham-controlled randomized controlled trial (RCT). 
+
+We will work through the real-world challenge of starting with raw exported data from a REDCap database to generate outputs for a short manuscript. This reflects a common workflow you may encounter when leveraging REDCap and R to efficiently analyze real clinical research data.
+
+## Overview of the entire process
+
+Let's break up our task into universal tasks:
+
+* Import the RAW REDCap data into R
+* Examine the structure of the extracted data frames
+* Use hypotheses to create data frames for analysis
+* Conduct statistical analyses
+* Report the results using tables and graphs
+
+## Protecting participant privacy
+
+When exporting data from REDCap, it is important to properly de-identify any protected health information (PHI). In this example, we will utilize the "Remove All Identifier Fields" option during the data export process. This ensures that any PHI variables that were pre-configured as identifiers in the REDCap data dictionary will be removed from the exported dataset. Using this export option is an easy way to protect participant privacy when working with REDCap data outside of the secure database.
+
+## Import the RAW REDCap data into R
+
+Export functions can be accessed for a database through `Applications` sidebar and the `Data Exports, Reports, and Stats` link.
+
+![REDCap Export (v. 13.7.6)](images/redcap_export.png)
+
+There are several ways to get data out of REDCap. 
+
+1. Export the data as a CSV or Excel file
+2. Export data into R format
+3. Access data using API key
+
+### Export the data as a CSV or Excel file
+
+The most common is to export the data as a CSV or Excel file. This is most likely what you will receive from a research assistant or collaborator. 
+
+### Export data into R format
+
+Requesting the data in R format preserves the structure and types of data when importing into R. This is the best option if you have access to the REDCap database and want to import the data directly into R.
+
+### Access data using API key
+
+We will learn more about this option later in the chapter to avoid unnecessary complexity. This is the best option if you want to access the data in real-time and have access to the REDCap database.
+
+## Importing the data into R
+
+Using REDCap data with R is handled through a variety of user-generated packages and scripts. In my experience, no single one package will work for all situations.  
+
+The currently available packages for working with REDCap assume you will be accessing the data via API request rather than a manual export. Let's instead use a workflow to import the manual data export either in CSV or R format. Luckily, R is very adept at easily incorporating custom functions from online sources.
+
+### The Source Function: Activating a Function from a Web Link
+
+One powerful feature in R is the ability to access and run code from a URL using the source() function. This allows easy use of shared code without needing to manually download scripts.
+
+For example, Frank Harrell, Jr, PhD, a professor of biostatistics at Vanderbilt University, maintains an R code repository on GitHub. Among his contributions is a custom function for importing REDCap data called importREDCap().
+
+Rather than copy-pasting this code, we can run it directly from his GitHub repository using `source()` function. However, the link passed to source() must be the raw code itself, not the formatted webpage. To get the correct URL, navigate to the code file on GitHub. Then click the "Raw" button on the upper right of the file view. This will change the URL to point to the raw code which can then be used in source().
+
+![Raw Source](images/redcap_harrel.png)
+
+For example, here is the URL for the raw importREDCap.r code:
+```html
+https://raw.githubusercontent.com/harrelfe/rscripts/master/importREDCap.r
+```
+
+Then, to activate the function in your R session, simply pass the URL to the source() function:
+
+```r
+# Source the importREDCap function 
+source("https://raw.githubusercontent.com/harrelfe/rscripts/master/importREDCap.r")
+```
+
+
+

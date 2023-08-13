@@ -204,19 +204,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction-overview-of-redcap-database-software" id="toc-introduction-overview-of-redcap-database-software" class="nav-link active" data-scroll-target="#introduction-overview-of-redcap-database-software"><span class="header-section-number">6.1</span> Introduction: Overview of REDCap Database Software</a></li>
   <li><a href="#what-we-will-learn" id="toc-what-we-will-learn" class="nav-link" data-scroll-target="#what-we-will-learn"><span class="header-section-number">6.2</span> What we will learn</a></li>
-  <li><a href="#the-basic-structure-of-redcap-data" id="toc-the-basic-structure-of-redcap-data" class="nav-link" data-scroll-target="#the-basic-structure-of-redcap-data"><span class="header-section-number">6.3</span> The basic structure of REDCap data</a></li>
+  <li><a href="#an-overview-of-key-redcap-concepts" id="toc-an-overview-of-key-redcap-concepts" class="nav-link" data-scroll-target="#an-overview-of-key-redcap-concepts"><span class="header-section-number">6.3</span> An Overview of Key REDCap Concepts</a></li>
   <li><a href="#introduction-to-the-dataset" id="toc-introduction-to-the-dataset" class="nav-link" data-scroll-target="#introduction-to-the-dataset"><span class="header-section-number">6.4</span> Introduction to the Dataset</a></li>
   <li><a href="#overview-of-the-entire-process" id="toc-overview-of-the-entire-process" class="nav-link" data-scroll-target="#overview-of-the-entire-process"><span class="header-section-number">6.5</span> Overview of the entire process</a></li>
   <li><a href="#protecting-participant-privacy" id="toc-protecting-participant-privacy" class="nav-link" data-scroll-target="#protecting-participant-privacy"><span class="header-section-number">6.6</span> Protecting participant privacy</a></li>
-  <li><a href="#import-the-raw-redcap-data-into-r" id="toc-import-the-raw-redcap-data-into-r" class="nav-link" data-scroll-target="#import-the-raw-redcap-data-into-r"><span class="header-section-number">6.7</span> Import the RAW REDCap data into R</a>
+  <li><a href="#using-data-from-redcap-in-r" id="toc-using-data-from-redcap-in-r" class="nav-link" data-scroll-target="#using-data-from-redcap-in-r"><span class="header-section-number">6.7</span> Using Data from REDCap in R</a></li>
+  <li><a href="#why-is-exported-redcap-data-so-difficult-to-work-with" id="toc-why-is-exported-redcap-data-so-difficult-to-work-with" class="nav-link" data-scroll-target="#why-is-exported-redcap-data-so-difficult-to-work-with"><span class="header-section-number">6.8</span> Why is Exported REDCap data so difficult to work with?</a></li>
+  <li><a href="#orientation-to-the-redcap-data-export" id="toc-orientation-to-the-redcap-data-export" class="nav-link" data-scroll-target="#orientation-to-the-redcap-data-export"><span class="header-section-number">6.9</span> Orientation to the REDCap Data Export</a></li>
+  <li><a href="#importing-the-data-into-r" id="toc-importing-the-data-into-r" class="nav-link" data-scroll-target="#importing-the-data-into-r"><span class="header-section-number">6.10</span> Importing the data into R</a>
   <ul class="collapse">
-  <li><a href="#export-the-data-as-a-csv-or-excel-file" id="toc-export-the-data-as-a-csv-or-excel-file" class="nav-link" data-scroll-target="#export-the-data-as-a-csv-or-excel-file"><span class="header-section-number">6.7.1</span> Export the data as a CSV or Excel file</a></li>
-  <li><a href="#export-data-into-r-format" id="toc-export-data-into-r-format" class="nav-link" data-scroll-target="#export-data-into-r-format"><span class="header-section-number">6.7.2</span> Export data into R format</a></li>
-  <li><a href="#access-data-using-api-key" id="toc-access-data-using-api-key" class="nav-link" data-scroll-target="#access-data-using-api-key"><span class="header-section-number">6.7.3</span> Access data using API key</a></li>
+  <li><a href="#the-source-function-activating-a-function-from-a-web-link" id="toc-the-source-function-activating-a-function-from-a-web-link" class="nav-link" data-scroll-target="#the-source-function-activating-a-function-from-a-web-link"><span class="header-section-number">6.10.1</span> The Source Function: Activating a Function from a Web Link</a></li>
   </ul></li>
-  <li><a href="#importing-the-data-into-r" id="toc-importing-the-data-into-r" class="nav-link" data-scroll-target="#importing-the-data-into-r"><span class="header-section-number">6.8</span> Importing the data into R</a>
+  <li><a href="#redcap-tools" id="toc-redcap-tools" class="nav-link" data-scroll-target="#redcap-tools"><span class="header-section-number">6.11</span> REDCap tools</a></li>
+  <li><a href="#stage-1-importing-the-data" id="toc-stage-1-importing-the-data" class="nav-link" data-scroll-target="#stage-1-importing-the-data"><span class="header-section-number">7</span> Stage 1: Importing the Data</a>
   <ul class="collapse">
-  <li><a href="#the-source-function-activating-a-function-from-a-web-link" id="toc-the-source-function-activating-a-function-from-a-web-link" class="nav-link" data-scroll-target="#the-source-function-activating-a-function-from-a-web-link"><span class="header-section-number">6.8.1</span> The Source Function: Activating a Function from a Web Link</a></li>
+  <li><a href="#editing-the-quarto-template" id="toc-editing-the-quarto-template" class="nav-link" data-scroll-target="#editing-the-quarto-template"><span class="header-section-number">7.1</span> Editing the Quarto Template</a>
+  <ul class="collapse">
+  <li><a href="#editing-the-yaml-header" id="toc-editing-the-yaml-header" class="nav-link" data-scroll-target="#editing-the-yaml-header"><span class="header-section-number">7.1.1</span> Editing the YAML Header</a></li>
+  <li><a href="#editing-the-markdown-body" id="toc-editing-the-markdown-body" class="nav-link" data-scroll-target="#editing-the-markdown-body"><span class="header-section-number">7.1.2</span> Editing the Markdown body</a></li>
+  <li><a href="#adding-an-outline-of-proposed-analyses" id="toc-adding-an-outline-of-proposed-analyses" class="nav-link" data-scroll-target="#adding-an-outline-of-proposed-analyses"><span class="header-section-number">7.1.3</span> Adding an outline of proposed analyses</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link" data-scroll-target="#importing-the-data"><span class="header-section-number">8</span> Importing the Data</a>
+  <ul class="collapse">
+  <li><a href="#quarto-as-a-dynamic-document" id="toc-quarto-as-a-dynamic-document" class="nav-link" data-scroll-target="#quarto-as-a-dynamic-document"><span class="header-section-number">8.1</span> Quarto as a dynamic document</a>
+  <ul class="collapse">
+  <li><a href="#quarto-modifications-to-default-settings" id="toc-quarto-modifications-to-default-settings" class="nav-link" data-scroll-target="#quarto-modifications-to-default-settings"><span class="header-section-number">8.1.1</span> Quarto: Modifications to default settings</a></li>
+  </ul></li>
+  <li><a href="#adding-an-r-code-blocks" id="toc-adding-an-r-code-blocks" class="nav-link" data-scroll-target="#adding-an-r-code-blocks"><span class="header-section-number">8.2</span> Adding an R code blocks</a></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages"><span class="header-section-number">8.3</span> Load Packages</a>
+  <ul class="collapse">
+  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse"><span class="header-section-number">8.3.1</span> Tidyverse</a></li>
+  <li><a href="#redcaprits" id="toc-redcaprits" class="nav-link" data-scroll-target="#redcaprits"><span class="header-section-number">8.3.2</span> REDCapRITS</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -255,25 +275,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="what-we-will-learn" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="what-we-will-learn"><span class="header-section-number">6.2</span> What we will learn</h2>
-<p>In this chapter we will learn two key skills with working with REDCap:</p>
-<ol type="1">
-<li>How to wrangle REDCap output into analysis-ready formats</li>
-<li>How to connect directly to the REDCap database for real-time data access</li>
-</ol>
-<p>In clinical research settings, physicians often receive REDCap data as periodic export files for analysis. This exported data retains the intricate nested structure that can make wrangling in REDCap challenging. While connecting directly to the REDCap API enables real-time access, working with exported files is most common.</p>
+<p>In this chapter we will learn how to wrangle REDCap output into analysis-ready formats. In clinical research settings, physicians often receive REDCap data as periodic export files for analysis. This exported data retains the intricate nested structure that can make wrangling in REDCap challenging.</p>
 </section>
-<section id="the-basic-structure-of-redcap-data" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="the-basic-structure-of-redcap-data"><span class="header-section-number">6.3</span> The basic structure of REDCap data</h2>
-<p>REDCap databases are composed of multiple components:</p>
-<ul>
-<li>Metadata Dictionary - This defines the structure of the database including all fields, forms, instruments, and events. The dictionary provides details like variable names, field types, validation rules, etc.</li>
-<li>Records - These contain the actual data values entered for each participant across all forms and events. Records are identified by a unique record ID.</li>
-<li>Instruments - These are groups of related data fields focused on collecting a certain type of data, like demographics or lab results.</li>
-<li>Events - Events group related instruments that are completed at certain defined timepoints, like enrollment, follow-ups, final visit etc.</li>
-<li>Forms - Forms display instruments together for data entry in the REDCap interface. They can mix instruments from different events.</li>
-<li>Field Types - Each field has a specific type like text box, checkbox, dropdown, date, etc. Used to structure data entry.</li>
-<li>Reports and Exports - REDCap provides tools for exporting and reporting on the data in different formats like CSVs, SAS, SPSS, R, APIs etc.</li>
-</ul>
+<section id="an-overview-of-key-redcap-concepts" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="an-overview-of-key-redcap-concepts"><span class="header-section-number">6.3</span> An Overview of Key REDCap Concepts</h2>
+<p>REDCap databases are composed of multiple components: * Project - A research study. * Arms - Group study events into sequences. * Metadata Dictionary - This defines the structure of the database including all fields, forms, instruments, and events. The dictionary provides details like variable names, field types, validation rules, etc. * Records - These contain the actual data values entered for each participant across all forms and events. Records are identified by a unique record ID. * Instruments - These are groups of related data fields focused on collecting a certain type of data, like demographics or lab results. * Longitudinal module - This is a project-level setting that must be enabled to allow multiple records per subject over time. It unlocks functionality needed for longitudinal projects. * Longitudinal/repeating instruments - These are individual data collection forms that can be completed multiple times. They can be used in both classic and longitudinal projects. * Events - Events group related instruments that are completed at certain defined timepoints, like enrollment, follow-ups, final visit etc. * Forms - Forms display instruments together for data entry in the REDCap interface. They can mix instruments from different events. * Field Types - Each field has a specific type like text box, checkbox, dropdown, date, etc. Used to structure data entry. * Reports and Exports - REDCap provides tools for exporting and reporting on the data in different formats like CSVs, SAS, SPSS, R, APIs etc. * REDCap Shared Library - Public repository of instruments.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Dr. Smith's Example REDCap Project">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dr.&nbsp;Smith’s Example REDCap Project
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/redcap-nutrition.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Dr.&nbsp;Smith’s Hypothetical Nutrition Study</figcaption>
+</figure>
+</div>
+<p>Let’s organize these terms into a hypothetical story to place them into context:</p>
+<p>Dr.&nbsp;Smith is leading a research study on the effects of a new diet regimen on heart health. In REDCap, this study is known as a <code>Project</code>. Given the nature of her study, she decides to break it down into multiple phases, or <code>Arms</code>, each representing a distinct sequence in her research.</p>
+<p>In the first phase, she gathers baseline health metrics. In the subsequent phases, participants undergo different diet regimens and periodic health check-ups. Each of these phases requires participants to fill out various <code>Instruments</code>, which are essentially data collection forms capturing vital information about their health, diet habits, and more.</p>
+<p>Before she starts collecting data, Dr.&nbsp;Smith defines her <code>Metadata</code>, a data dictionary that describes all the fields she’ll use in her project. This ensures consistency and clarity for data entry. She also explores the <code>REDCap Shared Library</code>, a public repository, and discovers some pre-existing <code>Instruments</code> that can be beneficial for her study.</p>
+<p>As participants enroll, each one’s data is stored as a <code>Record</code>. REDCap doesn’t have an explicit concept for a “subject”, but in practice, a <code>Record</code> essentially represents data for one subject or participant.</p>
+<p>While Dr.&nbsp;Smith’s study inherently possesses a <code>Longitudinal</code> nature (collecting data at multiple timepoints for each participant), she decides not to employ REDCap’s <code>Longitudinal Module</code>. Instead, she organizes her data using a combination of carefully crafted <code>Instruments</code> and manual record-keeping. For instance, some <code>Instruments</code>, like a daily diet log, are <code>Repeating Instruments</code> and can be filled out multiple times by the participants throughout the study. Certain collections of <code>Instruments</code> are grouped and completed together, like during a monthly health check-up. In REDCap, these are called <code>Events</code>. Since Dr.&nbsp;Smith’s study is longitudinal, it requires the use of such <code>Events</code>.</p>
+<p>Had Dr.&nbsp;Smith been running a simpler study, capturing data only once per participant, it would be termed as a <code>Classic Project</code> in REDCap.</p>
+</div>
+</div>
 </section>
 <section id="introduction-to-the-dataset" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="introduction-to-the-dataset"><span class="header-section-number">6.4</span> Introduction to the Dataset</h2>
@@ -295,40 +326,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="6.6" class="anchored" data-anchor-id="protecting-participant-privacy"><span class="header-section-number">6.6</span> Protecting participant privacy</h2>
 <p>When exporting data from REDCap, it is important to properly de-identify any protected health information (PHI). In this example, we will utilize the “Remove All Identifier Fields” option during the data export process. This ensures that any PHI variables that were pre-configured as identifiers in the REDCap data dictionary will be removed from the exported dataset. Using this export option is an easy way to protect participant privacy when working with REDCap data outside of the secure database.</p>
 </section>
-<section id="import-the-raw-redcap-data-into-r" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="import-the-raw-redcap-data-into-r"><span class="header-section-number">6.7</span> Import the RAW REDCap data into R</h2>
-<p>Export functions can be accessed for a database through <code>Applications</code> sidebar and the <code>Data Exports, Reports, and Stats</code> link.</p>
+<section id="using-data-from-redcap-in-r" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="using-data-from-redcap-in-r"><span class="header-section-number">6.7</span> Using Data from REDCap in R</h2>
+<p>Export functions can be accessed for a database through <code>Applications</code> sidebar and the <code>Data Exports, Reports, and Stats</code> link. In addition, many data functions also require the data dictionary to be exported. This can be done through the <code>Project Home and Design</code> sidebar and the <code>Dictionary</code> link.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are accessing the data directly from the REDCap database and do not see these options, it is most likely a permissions issue. For example, you will need to request the data dictionary access or API access from the database administrator.</p>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/redcap_export.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">REDCap Export (v. 13.7.6)</figcaption>
+<figcaption class="figure-caption">REDCap Export Options (v. 13.7.6)</figcaption>
 </figure>
 </div>
-<p>There are several ways to get data out of REDCap.</p>
+<p>Though R offers several data export options, they are not equally compatible with downstream workflows. For instance, exporting data as a Microsoft Excel file enables quick viewing but requires tedious manual processing to extract individual data tables. Using the API to access data directly from the REDCap database is the most efficient option but requires special access and additional programming skills.</p>
+<p>To most efficiently work with REDCap data in R using our recommend workflow, we recommend requesting the data as follows:</p>
 <ol type="1">
-<li>Export the data as a CSV or Excel file</li>
-<li>Export data into R format</li>
-<li>Access data using API key</li>
+<li>Export the data in R format (includes a R script and associated CSV file)</li>
+<li>Export the data dictionary in CSV format</li>
 </ol>
-<section id="export-the-data-as-a-csv-or-excel-file" class="level3" data-number="6.7.1">
-<h3 data-number="6.7.1" class="anchored" data-anchor-id="export-the-data-as-a-csv-or-excel-file"><span class="header-section-number">6.7.1</span> Export the data as a CSV or Excel file</h3>
-<p>The most common is to export the data as a CSV or Excel file. This is most likely what you will receive from a research assistant or collaborator.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>CSV files are a common format for storing data in a tabular format. CSV stands for comma-separated values. Each row in the file corresponds to a row in the table. Each column in the file corresponds to a column in the table. The values in each row are separated by commas. CSV files can be opened in Excel or other spreadsheet programs.</p>
+</div>
+</div>
 </section>
-<section id="export-data-into-r-format" class="level3" data-number="6.7.2">
-<h3 data-number="6.7.2" class="anchored" data-anchor-id="export-data-into-r-format"><span class="header-section-number">6.7.2</span> Export data into R format</h3>
-<p>Requesting the data in R format preserves the structure and types of data when importing into R. This is the best option if you have access to the REDCap database and want to import the data directly into R.</p>
+<section id="why-is-exported-redcap-data-so-difficult-to-work-with" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="why-is-exported-redcap-data-so-difficult-to-work-with"><span class="header-section-number">6.8</span> Why is Exported REDCap data so difficult to work with?</h2>
+<p>REDCap data can be challenging to work with for analysis due to its nested structure. Though the full study database can be downloaded as one file, this concatenates data from different instruments and timepoints into a massive single table. Visually, this table has many blank rows and columns as a result. While convenient for export, this concatenated format requires careful reorganization to parse out individual instruments and events cleanly for analysis.</p>
+<p>Though REDCap instruments, such as multiple choice fields, are well suited for user entry, the exported data requires additional processing to be analysis-ready. For example, multiple choice fields are exported as a series of 0/1 indicator variables rather than a single field. This requires condensing the variables into a consolidated variable for analysis. In addition, the labels for each option are not retained in the exported data. Instead, the column names are formatted as “questionname___1”. This makes it difficult to know what each column represents without referencing the data dictionary.</p>
+<p>REDCap’s longitudinal data collection allows multiple timepoint records per participant, enabling complex study designs. However, this results in “long” format data during export, with each response in a separate row, rather than a “wide” format with timepoints as columns. This requires reshaping the data before analysis. In addition, dates and timestamps may not appear aligned properly between records during export.</p>
+<p>Luckily, the user community in R has developed several packages to help with these challenges. We will leverage these packages to efficiently wrangle REDCap data into analysis-ready formats.</p>
 </section>
-<section id="access-data-using-api-key" class="level3" data-number="6.7.3">
-<h3 data-number="6.7.3" class="anchored" data-anchor-id="access-data-using-api-key"><span class="header-section-number">6.7.3</span> Access data using API key</h3>
-<p>We will learn more about this option later in the chapter to avoid unnecessary complexity. This is the best option if you want to access the data in real-time and have access to the REDCap database.</p>
+<section id="orientation-to-the-redcap-data-export" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="orientation-to-the-redcap-data-export"><span class="header-section-number">6.9</span> Orientation to the REDCap Data Export</h2>
+<p>Given the various designs of REDCap databases, we recommend scheduling a brief consultation with your REDCap database administrator to walk through the original database design, including what REDCap options and modules have been implemented. Though some of this information can be inferred from the exported data, having a clear undestanding of what to expect will save time and frustration.</p>
 </section>
-</section>
-<section id="importing-the-data-into-r" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="importing-the-data-into-r"><span class="header-section-number">6.8</span> Importing the data into R</h2>
+<section id="importing-the-data-into-r" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="importing-the-data-into-r"><span class="header-section-number">6.10</span> Importing the data into R</h2>
 <p>Using REDCap data with R is handled through a variety of user-generated packages and scripts. In my experience, no single one package will work for all situations.</p>
 <p>The currently available packages for working with REDCap assume you will be accessing the data via API request rather than a manual export. Let’s instead use a workflow to import the manual data export either in CSV or R format. Luckily, R is very adept at easily incorporating custom functions from online sources.</p>
-<section id="the-source-function-activating-a-function-from-a-web-link" class="level3" data-number="6.8.1">
-<h3 data-number="6.8.1" class="anchored" data-anchor-id="the-source-function-activating-a-function-from-a-web-link"><span class="header-section-number">6.8.1</span> The Source Function: Activating a Function from a Web Link</h3>
+<section id="the-source-function-activating-a-function-from-a-web-link" class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="the-source-function-activating-a-function-from-a-web-link"><span class="header-section-number">6.10.1</span> The Source Function: Activating a Function from a Web Link</h3>
 <p>One powerful feature in R is the ability to access and run code from a URL using the source() function. This allows easy use of shared code without needing to manually download scripts.</p>
 <p>For example, Frank Harrell, Jr, PhD, a professor of biostatistics at Vanderbilt University, maintains an R code repository on GitHub. Among his contributions is a custom function for importing REDCap data called importREDCap().</p>
 <p>Rather than copy-pasting this code, we can run it directly from his GitHub repository using <code>source()</code> function. However, the link passed to source() must be the raw code itself, not the formatted webpage. To get the correct URL, navigate to the code file on GitHub. Then click the “Raw” button on the upper right of the file view. This will change the URL to point to the raw code which can then be used in source().</p>
@@ -343,8 +399,241 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Then, to activate the function in your R session, simply pass the URL to the source() function:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Source the importREDCap function </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/harrelfe/rscripts/master/importREDCap.r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="redcap-tools" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="redcap-tools"><span class="header-section-number">6.11</span> REDCap tools</h2>
+<p>Searching for REDCap tools to use with R will yield a variety of options. However, to in this workflow we will use a lesser known but highly efficient package created Paul Egler (Spectrum Health Research) known as <a href="https://github.com/SpectrumHealthResearch/REDCapRITS">REDCap Repeating Instrument Table Splitter</a>, aka <code>REDCapRITS</code>.</p>
+<p>There are several highly sophisticated packages for working with REDCap data in R including <a href="https://raymondbalise.github.io/tidyREDCap/">tidyREDCap</a> and <a href="https://ouhscbbmc.github.io/REDCapR/">REDCapR</a>. These packages are primarily designed to work with the REDCap API and require special access to the database. Though we will not use these functions for our primary data wrangling, we can selectively use functions from these packages to assist in formating complex instruments.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(REDCapRITS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="stage-1-importing-the-data" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Stage 1: Importing the Data</h1>
+<p>To begin a new Quarto analysis document for this project:</p>
+<ol type="1">
+<li>In RStudio, go to File &gt; New File &gt; Quarto Document.</li>
+<li>Title the document “redcap_analysis”.</li>
+<li>Use the default options including HTML output format, Knitr engine, and Visual Markdown editor.</li>
+<li>Save the document as redcap_analysis.qmd in your project directory.</li>
+</ol>
+<p>This will generate a template Quarto file to work from. The template contains example code, text, and formatting to illustrate Quarto features.</p>
+<p>The screen shot above highlights a few key points:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/redcap-quartotemplate.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Quarto Template</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li>The <code>render</code> button generates a preview</li>
+<li>The <code>format</code> selectors has common formatting options for word processing.</li>
+<li>The toggle <code>source</code> or <code>visual</code> switches between a code view and a visual view.</li>
+<li>The main body of the Quarto document text is written in Markdown, a simple text formatting language. The text is rendered in the visual view.</li>
+</ol>
+<section id="editing-the-quarto-template" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="editing-the-quarto-template"><span class="header-section-number">7.1</span> Editing the Quarto Template</h2>
+<p>The Quarto template consists of a YAML header and a Markdown body. The YAML header contains metadata about the document, including the title, author, and output format. The Markdown body contains the text and code for the document. We will use this template to create our analysis document.</p>
+<section id="editing-the-yaml-header" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="editing-the-yaml-header"><span class="header-section-number">7.1.1</span> Editing the YAML Header</h3>
+<p>For now, we will leave the YAML header as is. In the future, we can modify the header to change aspects of the entire document, such as changing the export format to PDF or Word.</p>
+</section>
+<section id="editing-the-markdown-body" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="editing-the-markdown-body"><span class="header-section-number">7.1.2</span> Editing the Markdown body</h3>
+<p>The document outside the YAML header is written in Markdown, a simple text formatting language. When we write code, we specify “blocks” using three backticks (```) and {r} to specify the programming language.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quarto: for Scientific and Technical publishing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quarto makes it simple to integrate prose, code, and results seamlessly in a single document. By keeping everything together, Quarto streamlines the process of creating reproducible data analysis reports. Quarto itself is extensively documented and we would recommend reviewing the <a href="https://quarto.org/docs/guide/">user guide</a>.</p>
+</div>
+</div>
+</section>
+<section id="adding-an-outline-of-proposed-analyses" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="adding-an-outline-of-proposed-analyses"><span class="header-section-number">7.1.3</span> Adding an outline of proposed analyses</h3>
+<p>Before we begin writing code, let’s add an outline of the analyses we plan to perform. This will help us organize our thoughts and plan our code.</p>
+<p>In the Markdown body, add the following text:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="an">Here is an outline for the analysis document:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu"># Overview</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Analysis of a small open-label pilot of transcranial magnetic stimulation treatment for depression. The trial is registered at NCT05271357 and ran between 11/2021 and 3/2023 to prepare for a sham-controlled randomized controlled trial (RCT). </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Setup environment</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Load R packages</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Set options</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Load data</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Read in dataset </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inspect data</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Demographics table</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Make table of demographics</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Baseline characteristics table </span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Make table of baseline scores</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Treatment effects</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Statistical tests on primary outcome</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Statistical tests on secondary outcomes</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. Visualizations</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Graph changes in primary outcome</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Graph changes in secondary outcomes</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>The outline covers the key sections needed - importing data, making summary tables, analyzing treatment effects, and creating visualizations. Each section is briefly described to provide a sense of the planned content. The outline can serve as a guide for drafting the full report.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="importing-the-data" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Importing the Data</h1>
+<p>Let’s work through our main outline step-by-step and use a suboutline to further break down the steps needed to complete each section.</p>
+<p>Our suboutline is as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Setup environment</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Load R packages</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Set options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="quarto-as-a-dynamic-document" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="quarto-as-a-dynamic-document"><span class="header-section-number">8.1</span> Quarto as a dynamic document</h2>
+<p>To this point, we have been writing in Markdown which is best suited for formatted text. In many ways this is similar to how we would write a document in Microsoft Word or Google Docs.</p>
+<p>However, when we use Quarto with R code, we create a “living document” that can be executed and updated. This allows us to write code and display the results in the same document. If written correctly, the document can be re-run at any time to update the results.</p>
+<p>Quarto components at a glance: 1. YAML header: metadata about the document 2. Markdown body: formatted text 3. Code blocks: executable code 4. Output: results of executed code</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Managing Quarto Output
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In a Quarto document, the content you directly write in Markdown represents the body of the report. This includes text, images, and formatting. The output produced by executing code blocks, however, depends entirely on the code itself.</p>
+<p>As the author, you have full control over the Markdown body. But the output from chunks is determined by the underlying R code. So running chunks may generate results like tables, plots, and printed text that can disrupt your intended document layout.</p>
+<p>Fortunately, Quarto gives you many options to manage code chunk output. You can direct where results appear, prevent code from rendering entirely, save results as variables, and more. Using these options skillfully is key to creating Quarto reports with a polished, publication-quality look. The code results enrich the document without disrupting flow.</p>
+<p>Here is a Markdown table summarizing options for managing code chunk output in Quarto:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>echo = FALSE</code></td>
+<td>Prevents code from rendering</td>
+</tr>
+<tr class="even">
+<td><code>include = FALSE</code></td>
+<td>Prevents output from rendering</td>
+</tr>
+<tr class="odd">
+<td><code>message = FALSE</code></td>
+<td>Suppresses printed messages</td>
+</tr>
+<tr class="even">
+<td><code>warning = FALSE</code></td>
+<td>Suppresses warnings</td>
+</tr>
+<tr class="odd">
+<td><code>fig.show = "hide"</code></td>
+<td>Hides plots</td>
+</tr>
+<tr class="even">
+<td><code>results = "hide"</code></td>
+<td>Shows code but not text output</td>
+</tr>
+<tr class="odd">
+<td><code>store_result= "data"</code></td>
+<td>Saves output as object</td>
+</tr>
+<tr class="even">
+<td><code>insert</code></td>
+<td>Inserts output into Markdown</td>
+</tr>
+<tr class="odd">
+<td>R Markdown blocks</td>
+<td>For custom output formatting</td>
+</tr>
+<tr class="even">
+<td><code>output-location</code></td>
+<td>Directs output location</td>
+</tr>
+<tr class="odd">
+<td>Quarto hooks</td>
+<td>Modify output with R code</td>
+</tr>
+</tbody>
+</table>
+<p>This covers some common options for controlling if and how chunk output is rendered in the final document. Using these gives you fine-grained control over output.</p>
+</div>
+</div>
+<section id="quarto-modifications-to-default-settings" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="quarto-modifications-to-default-settings"><span class="header-section-number">8.1.1</span> Quarto: Modifications to default settings</h3>
+<p>By default, a Quarto document will display executed code within the document. To simplify this tutorial, we will modify the default setting to display executed code into the console window. This will allow us to clearly separate the code and the output.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/redcap-output.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Quarto default output</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="adding-an-r-code-blocks" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="adding-an-r-code-blocks"><span class="header-section-number">8.2</span> Adding an R code blocks</h2>
+<p>Quarto neatly separates code from the formatted Markdown text by using <code>code blocks</code>. Code blocks are sections of code that are executed and the results are displayed in the document.</p>
+<p>To add a code block, we use three backticks (```) and {r} to specify the programming language. For example, to add a code block for R, we would write:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 1. Setup environment</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. load general data science packages</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install REDCapRITS to easily wrangle REDCap data</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/SpectrumHealthResearch/REDCapRITS</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(devtools)) <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"SpectrumHealthResearch/REDCapRITS/R"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># load REDCapRITS library</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(REDCapRITS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s walk through this code:</p>
+<p>Here is one way to explain that code snippet in a standardized format:</p>
+</section>
+<section id="load-packages" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="load-packages"><span class="header-section-number">8.3</span> Load Packages</h2>
+<p>This code chunk loads the required R packages for the analysis. The <code>output: false</code> option prevents the code itself from rendering in the final document.</p>
+<section id="tidyverse" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="tidyverse"><span class="header-section-number">8.3.1</span> Tidyverse</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The tidyverse package contains core tidy data manipulation packages like dplyr, tidyr, readr, and ggplot2.</p>
+</section>
+<section id="redcaprits" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="redcaprits"><span class="header-section-number">8.3.2</span> REDCapRITS</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(devtools)) <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"SpectrumHealthResearch/REDCapRITS/R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>REDCapRITS provides functions to easily wrangle and analyze data exported from REDCap. If it is not already installed, this code will install it from GitHub using devtools.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(REDCapRITS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Load the REDCapRITS package.</p>
 
 
+</section>
 </section>
 </section>
 

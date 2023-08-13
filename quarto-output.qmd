@@ -1,0 +1,92 @@
+# Managing Quarto output
+
+In a Quarto document, the content you directly write in Markdown represents the body of the report. This includes text, images, and formatting. The output produced by executing code blocks, however, depends entirely on the code itself.
+
+As the author, you have full control over the Markdown body. But the output from chunks is determined by the underlying R code. So running chunks may generate results like tables, plots, and printed text that can disrupt your intended document layout.
+
+Fortunately, Quarto gives you many options to manage code chunk output. You can direct where results appear, prevent code from rendering entirely, save results as variables, and more. Using these options skillfully is key to creating Quarto reports with a polished, publication-quality look. The code results enrich the document without disrupting flow.
+
+## Quick review of Quarto Output Tags
+
+Here are summarizing options for managing code chunk output in Quarto and also explained in more detail on the [Quarto website](https://quarto.org/docs/computations/execution-options.html).
+
+Here is the updated table with the official Quarto options for managing output:
+
+| Option | Description |
+|--------|-------------|
+| `eval` | Evaluate the code chunk (if false, just echos the code into the output) |
+| `echo` | Include the source code in output |
+| `output` | Include the results of executing the code in the output (true, false, or asis to indicate that the output is raw markdown and should not have any of Quarto’s standard enclosing markdown) |
+| `warning` | Include warnings in the output |
+| `error` | Include errors in the output (note that this implies that errors executing code will not halt processing of the document) |
+| `include` | Catch all for preventing any output (code or results) from being included (e.g. include: false suppresses all output from the code block) |
+
+## Example of managing code chunk output in Quarto
+In this tutorial, we will demonstrate how to manage output in Quarto using various options. This tutorial is designed to be included in a Quarto book, showing both the code and the output.
+
+1. `eval: false` - Evaluate the code chunk without displaying the code
+
+```{r}
+#| echo: fenced
+#| eval: false
+x <- 1 + 1
+x
+```
+
+2. `echo: false` - Show only the result, not the code
+```{r}
+#| echo: fenced
+y <- 2 + 2
+y
+```
+```{r}
+#| echo: false
+y <- 2 + 2
+y
+```
+
+3. `output: false` - Display the code, but not its output
+
+```{r}
+#| echo: fenced
+#| output: false
+z <- 3 + 3
+z
+```
+
+4. `warning: false` - Avoid displaying warning messages
+
+```{r}
+#| echo: fenced
+#| warning: false
+sqrt(-1)
+```
+
+5. `error: true` - Continue processing the document even if there's an error
+```{r}
+#| echo: fenced
+#| error: true
+sum("A", 1)
+```
+
+```{r}
+#| error: true
+sum("A", 1)
+```
+
+6. `include: false` - Keep the code and output hidden
+
+```{r}
+#| include: false
+w <- 4 + 4
+w
+```
+
+7. `echo: "fenced"` - Show fenced code delimiter in output
+
+```{r}
+#| echo: "fenced"
+v <- 5 + 5
+v
+```
+
